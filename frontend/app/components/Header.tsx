@@ -1,12 +1,14 @@
 'use client'
 
 import { Container } from '../wrappers/Container'
+import { BackgroundGrid } from './BackgroundGrid'
 
 export function Header() {
   return (
     <header className="border-foreground/10 w-full border-b">
-      <Container>
-        <div className="flex flex-col px-6 py-28 text-center">
+      <Container className="relative overflow-hidden">
+        <BackgroundGrid />
+        <div className="flex flex-col px-6 py-18 text-center">
           <h1 className="font-serif">
             Master the <span className="text-green-500 italic opacity-90">Basics</span> <br />
             Architect the <span className="text-yellow-400 italic opacity-90">Frontend</span> <br />
