@@ -1,6 +1,6 @@
 'use client'
 
-import { FiSun, FiMoon, FiMonitor, FiChevronDown } from 'react-icons/fi'
+import { FiSun, FiMoon, FiMonitor } from 'react-icons/fi'
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
@@ -21,15 +21,8 @@ export default function ThemeSwitch() {
 
   return (
     <div className="relative inline-block text-left">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-background flex items-center gap-2 rounded-lg border px-3 py-2 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
-      >
-        {resolvedTheme === 'dark' ? (
-          <FiMoon className="text-blue-400" />
-        ) : (
-          <FiSun className="text-yellow-500" />
-        )}
+      <button onClick={() => setIsOpen(!isOpen)} className="flex items-center text-2xl">
+        {resolvedTheme === 'dark' ? <FiMoon /> : <FiSun />}
       </button>
 
       {isOpen && (
