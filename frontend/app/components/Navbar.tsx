@@ -3,11 +3,12 @@
 import Link from 'next/link'
 import { FiSearch } from 'react-icons/fi'
 import ThemeSwitch from './ThemeSwitch'
+import { Container } from '../wrappers/Container'
 
 export function Navbar() {
   return (
     <nav className="border-foreground/10 bg-background sticky top-0 z-50 w-full border-b">
-      <div className="border-foreground/10 mx-auto max-w-360 border-x">
+      <Container>
         <div className="flex h-16 lg:grid lg:grid-cols-3">
           <div className="border-foreground/10 flex flex-1 items-center justify-center border-r px-6 lg:px-10">
             <Link href="/" className="font-serif text-[clamp(1.1rem,2.3vw,1.8rem)] font-bold">
@@ -15,8 +16,8 @@ export function Navbar() {
             </Link>
           </div>
 
-          <div className="border-foreground/10 flex border-r">
-            <div className="flex items-center px-5">
+          <div className="border-foreground/10 flex lg:border-r">
+            <div className="border-foreground/10 flex items-center border-r px-5">
               <ThemeSwitch />
             </div>
             <div className="flex flex-1 items-center justify-between px-6">
@@ -49,7 +50,7 @@ export function Navbar() {
             About
           </Link>
         </div>
-      </div>
+      </Container>
     </nav>
   )
 }
