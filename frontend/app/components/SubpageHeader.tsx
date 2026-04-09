@@ -3,7 +3,7 @@
 import { Container } from '../wrappers/Container'
 import { BackgroundGrid } from './BackgroundGrid'
 
-export function Header() {
+export function SubpageHeader() {
   return (
     <header className="border-foreground/10 w-full border-b">
       <Container className="relative overflow-hidden">
