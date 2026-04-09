@@ -27,27 +27,27 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center justify-around px-8 lg:flex">
-            <Link href="/components" className="font-sans uppercase">
-              Components
+            <Link href="/qa" className="font-sans uppercase">
+              QA
             </Link>
-            <Link href="/systems" className="font-sans uppercase">
-              Systems
+            <Link href="/frontend" className="font-sans uppercase">
+              FRONTEND
             </Link>
-            <Link href="/about" className="font-sans uppercase">
-              About
+            <Link href="/3d" className="font-sans uppercase">
+              3D
             </Link>
           </div>
         </div>
 
         <div className="border-foreground/10 flex h-12 items-center justify-around border-t px-6 lg:hidden">
-          <Link href="/components" className="font-sans uppercase">
-            Components
+          <Link href="/qa" className="font-sans uppercase">
+            QA
           </Link>
-          <Link href="/systems" className="font-sans uppercase">
-            Systems
+          <Link href="/frontend" className="font-sans uppercase">
+            FRONTEND
           </Link>
-          <Link href="/about" className="font-sans uppercase">
-            About
+          <Link href="/3d" className="font-sans uppercase">
+            3D
           </Link>
         </div>
       </Container>
