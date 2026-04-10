@@ -3,6 +3,7 @@ import { Young_Serif, Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import { Navbar } from './components/Navbar'
+import { Footer } from './components/Footer'
 
 const serif = Young_Serif({
   weight: '400',
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
