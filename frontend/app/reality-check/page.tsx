@@ -36,7 +36,7 @@ export default function RealityCheckPage() {
               </h3>
               <p className="text-justify font-sans text-sm leading-relaxed opacity-90">
                 W startupach "QA" to stan umysłu całego zespołu. Jako programista często jesteś
-                testerem, a jako tester – architektem procesów. Realia to szybkie wdrożenia, brak
+                testerem, a jako tester - architektem procesów. Realia to szybkie wdrożenia, brak
                 sztywnych procedur i ogromna sprawczość. To idealne miejsce na start, jeśli chcesz
                 błyskawicznie zobaczyć wpływ swojej pracy na żywy organizm produktu.
               </p>
