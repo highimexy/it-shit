@@ -1,4 +1,4 @@
-import { SectionDivider } from '../components/SectionDIvider'
+import { SectionDivider } from '../components/SectionDivider'
 import { SubpageHeader } from '../components/SubpageHeader'
 
 export default function FrontendPage() {
