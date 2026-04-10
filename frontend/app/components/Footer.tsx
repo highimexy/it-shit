@@ -8,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="border-foreground/10 w-full border-t">
-      <Container className="py-24">
+      <Container className="pt-24">
         <div className="flex flex-col gap-12 px-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex-1">
             <Link
@@ -32,19 +32,19 @@ export function Footer() {
             <div className="flex flex-wrap gap-x-6 gap-y-2 lg:justify-end">
               <Link
                 href="/about"
-                className="border-foreground/20 hover:border-foreground border-b font-sans text-[10px] font-bold tracking-[0.2em] uppercase transition-colors"
+                className="border-foreground/20 hover:border-foreground border-b font-sans font-bold tracking-[0.2em] uppercase transition-colors"
               >
                 About
               </Link>
               <Link
                 href="/contribute"
-                className="border-foreground/20 hover:border-foreground border-b font-sans text-[10px] font-bold tracking-[0.2em] uppercase transition-colors"
+                className="border-foreground/20 hover:border-foreground border-b font-sans font-bold tracking-[0.2em] uppercase transition-colors"
               >
                 Contribute
               </Link>
               <Link
                 href="/changelog"
-                className="border-foreground/20 hover:border-foreground border-b font-sans text-[10px] font-bold tracking-[0.2em] uppercase transition-colors"
+                className="border-foreground/20 hover:border-foreground border-b font-sans font-bold tracking-[0.2em] uppercase transition-colors"
               >
                 Changelog
               </Link>
@@ -52,11 +52,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-foreground/10 mt-20 flex flex-col items-center justify-between border-t px-6 pt-8 opacity-30 md:flex-row">
-          <p className="font-sans text-[9px] tracking-[0.3em] uppercase">
+        <div className="border-foreground/10 mt-20 flex flex-col items-center justify-between border-t px-6 pt-8 pb-8 opacity-30 md:flex-row">
+          <p className="font-sans tracking-[0.3em] uppercase">
             © {currentYear} The Frontend Journal
           </p>
-          <span className="mt-4 font-sans text-[9px] tracking-[0.3em] uppercase italic md:mt-0">
+          <span className="mt-4 font-sans tracking-[0.3em] uppercase italic md:mt-0">
             Made in Poland
           </span>
         </div>
