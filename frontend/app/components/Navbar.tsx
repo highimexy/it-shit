@@ -26,7 +26,7 @@ export function Navbar() {
             </div>
           </div>
 
-          <div className="hidden items-center justify-around px-8 lg:flex">
+          <div className="hidden items-center justify-around px-4 lg:flex">
             <Link href="/qa" className="font-sans uppercase">
               QA
             </Link>
@@ -35,6 +35,9 @@ export function Navbar() {
             </Link>
             <Link href="/3d" className="font-sans uppercase">
               3D
+            </Link>
+            <Link href="/reality-check" className="font-sans uppercase">
+              Reality Check
             </Link>
           </div>
         </div>
@@ -48,6 +51,9 @@ export function Navbar() {
           </Link>
           <Link href="/3d" className="font-sans uppercase">
             3D
+          </Link>
+          <Link href="/reality-check" className="font-sans uppercase">
+            Reality
           </Link>
         </div>
       </Container>
