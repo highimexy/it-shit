@@ -1,3 +1,4 @@
+import { SectionDivider } from '../components/SectionDIvider'
 import { SubpageHeader } from '../components/SubpageHeader'
 
 export default function ThreePage() {
@@ -8,6 +9,7 @@ export default function ThreePage() {
         subtitle="Pushing the boundaries of the browser. Shaders, raycasting, and immersive 3D environments."
         accentColor="text-red-500"
       />
+      <SectionDivider />
     </main>
   )
 }
