@@ -9,7 +9,7 @@ export function Footer() {
   return (
     <footer className="border-foreground/10 w-full border-t">
       <Container className="pt-24">
-        <div className="flex flex-col gap-12 px-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-12 px-6 lg:flex-row lg:justify-between">
           <div className="flex-1">
             <Link
               href="/"
@@ -20,7 +20,7 @@ export function Footer() {
           </div>
 
           <div className="max-w-xs space-y-6 lg:mb-4 lg:text-right">
-            <p className="font-sans text-[10px] leading-relaxed tracking-widest uppercase opacity-50">
+            <p className="font-sans leading-relaxed tracking-widest uppercase opacity-50">
               A project by{' '}
               <span className="text-foreground font-bold opacity-100">Wiktor EXY. Kowalczyk</span>.
               Built with <span className="italic">Next.js</span> and{' '}
@@ -29,7 +29,7 @@ export function Footer() {
               <span className="italic">Geist Mono</span>.
             </p>
 
-            <div className="flex flex-wrap gap-x-6 gap-y-2 lg:justify-end">
+            <div className="flex gap-x-6 gap-y-2 lg:justify-end">
               <Link
                 href="/about"
                 className="border-foreground/20 hover:border-foreground border-b font-sans font-bold tracking-[0.2em] uppercase transition-colors"
