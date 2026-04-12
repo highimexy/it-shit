@@ -16,24 +16,25 @@ export function HomeHeader() {
             Face the <span className="text-purple-500 italic opacity-90">Reality</span>
           </h1>
 
-          <div className="mx-auto mt-12 max-w-2xl">
-            <p className="px-4 font-sans text-[11px] leading-relaxed tracking-[0.4em] uppercase opacity-70">
-              Simplifying the path from <span className="font-bold">QA Fundamentals</span> through
-              <span className="font-bold"> Modern Web Development</span> to advanced
-              <span className="font-bold"> Three.js Experiences</span> — seasoned with a
-              <span className="font-bold"> pinch of harsh reality</span>.
+          <div className="mx-auto mt-12 max-w-3xl">
+            <p className="text-fluid-small px-4 font-sans leading-relaxed tracking-[0.3em] uppercase opacity-70">
+              Let’s be real:{' '}
+              <span className="text-foreground font-bold">
+                AI is already writing the code you’re trying to learn.
+              </span>{' '}
+              While you’re dreaming of a six-figure salary, the market is preparing you for{' '}
+              <span className="text-foreground font-bold">minimum wage entry roles</span>. We skip
+              the fluff. From the drudgery of{' '}
+              <span className="text-foreground font-bold">QA Fundamentals</span> to the math-heavy
+              hell of <span className="text-foreground font-bold">Three.js</span>, this is a
+              survival guide for the <span className="italic">Post-Junior era</span>.
+              <span className="text-foreground mt-4 block font-bold">
+                Build what machines cannot imagine, or get replaced by a prompt.
+              </span>
             </p>
-
-            <div className="mt-8 flex items-center justify-center gap-6 opacity-20">
-              <span className="font-sans uppercase">Logic</span>
-              <div className="bg-foreground h-px w-8" />
-              <span className="font-sans uppercase">Structure</span>
-              <div className="bg-foreground h-px w-8" />
-              <span className="font-sans uppercase">Dimension</span>
-            </div>
           </div>
 
-          <p className="mt-12 font-serif text-lg italic opacity-40">A log for the curious.</p>
+          <p className="mt-12 font-serif text-lg italic">A log for the curious.</p>
         </div>
       </Container>
     </header>
