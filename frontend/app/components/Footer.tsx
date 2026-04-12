@@ -29,7 +29,7 @@ export function Footer() {
               <span className="italic">Geist Mono</span>.
             </p>
 
-            <div className="flex gap-x-6 gap-y-2 lg:justify-end">
+            <div className="flex flex-col gap-4 lg:flex-row lg:justify-end lg:gap-x-6">
               <Link
                 href="/about"
                 className="border-foreground/20 hover:border-foreground border-b font-sans font-bold tracking-[0.2em] uppercase transition-colors"
