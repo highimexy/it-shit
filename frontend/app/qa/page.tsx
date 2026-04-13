@@ -245,7 +245,10 @@ export default function QaPage() {
       {/* FINAL ROADMAP LINK */}
       <section className="text-center">
         <Container>
-          <div className="flex flex-col items-center px-6 py-24">
+          <div className="relative flex flex-col items-center px-6 py-24">
+            <div className="pointer-events-none absolute top-10 right-10 hidden font-serif text-[clamp(4rem,15vw,12rem)] leading-none tracking-tighter uppercase opacity-[0.03] select-none lg:block">
+              Shoot
+            </div>
             <span className="text-fluid-small font-sans tracking-[0.4em] uppercase opacity-40">
               Next Level
             </span>
