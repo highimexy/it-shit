@@ -1,5 +1,6 @@
 'use client'
 
+import { BackgroundGrid } from '../components/BackgroundGrid'
 import { SectionDivider } from '../components/SectionDivider'
 import { SubpageHeader } from '../components/SubpageHeader'
 import { Container } from '../wrappers/Container'
@@ -240,6 +241,123 @@ export default function RealityCheckPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <SectionDivider />
+
+      {/* THE ACADEMY / ROADMAP */}
+      <section className="relative overflow-hidden bg-purple-500/2">
+        {/* IMPLEMENTACJA GRIDA W TLE - FIOLETOWY AKCENT (MARKET SPACE) */}
+        <BackgroundGrid color="rgb(168 85 247 / 0.1)" />
+
+        <Container>
+          <div className="relative z-10 px-6 py-24">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-xl text-left">
+                <span className="text-fluid-small font-sans font-bold tracking-[0.4em] text-purple-500 uppercase">
+                  The Academy
+                </span>
+                <h2 className="text-fluid-h2 mt-4 font-serif leading-none tracking-tighter uppercase">
+                  Market <br />
+                  <span className="text-fluid-h1 text-purple-500 italic opacity-30">Survival</span>
+                </h2>
+                <p className="text-fluid-p mt-8 font-sans leading-relaxed italic opacity-60">
+                  Technical skills get you the interview; market intelligence gets you the job. Step
+                  into the lab to decode the hidden rules of the IT ecosystem.
+                </p>
+              </div>
+              <div className="hidden border-l border-purple-500/20 pl-6 text-left lg:block">
+                <span className="block font-mono text-[10px] uppercase opacity-40">
+                  Protocol v4.1
+                </span>
+                <span className="mt-1 block font-mono text-[10px] font-bold text-purple-500 uppercase">
+                  3 Layers Decoded
+                </span>
+              </div>
+            </div>
+
+            {/* ROADMAP STEPS GRID */}
+            <div className="bg-foreground/10 border-foreground/10 mt-20 grid gap-px border text-left">
+              {/* STEP 01 - CORPORATE LEXICON */}
+              <Link
+                href="/reality-check/lexicon"
+                className="group bg-background relative p-10 transition-colors hover:bg-purple-500/3"
+              >
+                <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                  <div className="flex items-center gap-8">
+                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-purple-500 group-hover:opacity-100">
+                      01
+                    </span>
+                    <div>
+                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                        Corporate Lexicon
+                      </h3>
+                      <p className="mt-2 text-sm opacity-50">
+                        Decoding OKRs, KPIs, and Stakeholder expectations. Speak the language of
+                        business.
+                      </p>
+                    </div>
+                  </div>
+                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-purple-500">
+                    Start Training →
+                  </span>
+                </div>
+              </Link>
+
+              {/* STEP 02 - NEGOTIATION DRILLS */}
+              <Link
+                href="/reality-check/negotiation"
+                className="group bg-background relative p-10 transition-colors hover:bg-purple-500/3"
+              >
+                <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                  <div className="flex items-center gap-8">
+                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-purple-500 group-hover:opacity-100">
+                      02
+                    </span>
+                    <div>
+                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                        The "ASAP" Drills
+                      </h3>
+                      <p className="mt-2 text-sm opacity-50">
+                        Negotiating timelines and boundaries. How to say "no" while sounding like a
+                        "yes".
+                      </p>
+                    </div>
+                  </div>
+                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-purple-500">
+                    Enter Drills →
+                  </span>
+                </div>
+              </Link>
+
+              {/* STEP 03 - THE AI FILTER */}
+              <Link
+                href="/reality-check/ai-filter"
+                className="group bg-background relative p-10 transition-colors hover:bg-purple-500/3"
+              >
+                <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                  <div className="flex items-center gap-8">
+                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-purple-500 group-hover:opacity-100">
+                      03
+                    </span>
+                    <div>
+                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                        The AI Shield
+                      </h3>
+                      <p className="mt-2 text-sm opacity-50">
+                        Optimizing your presence for ATS and AI filters. Making it through the
+                        machine gatekeepers.
+                      </p>
+                    </div>
+                  </div>
+                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-purple-500">
+                    Start Audit →
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
         </Container>
