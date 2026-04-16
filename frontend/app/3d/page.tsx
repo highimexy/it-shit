@@ -1,5 +1,6 @@
 'use client'
 
+import { BackgroundGrid } from '../components/BackgroundGrid'
 import { SectionDivider } from '../components/SectionDivider'
 import { SubpageHeader } from '../components/SubpageHeader'
 import { Container } from '../wrappers/Container'
@@ -246,6 +247,122 @@ export default function ThreePage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <SectionDivider />
+
+      {/* THE ACADEMY / ROADMAP */}
+      <section className="relative overflow-hidden bg-red-500/3">
+        {/* IMPLEMENTACJA GRIDA W TLE - CZERWONY AKCENT (3D SPACE) */}
+        <BackgroundGrid color="rgb(239 68 68 / 0.1)" />
+
+        <Container>
+          <div className="relative z-10 px-6 py-24">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-xl text-left">
+                <span className="text-fluid-small font-sans font-bold tracking-[0.4em] text-red-500 uppercase">
+                  The Academy
+                </span>
+                <h2 className="text-fluid-h2 mt-4 font-serif leading-none tracking-tighter uppercase">
+                  3D <br />
+                  <span className="text-fluid-h1 text-red-500 italic opacity-30">Laboratory</span>
+                </h2>
+                <p className="text-fluid-p mt-8 font-sans leading-relaxed italic opacity-60">
+                  Geometry is the language of reality. Step into the laboratory to master the
+                  vectors, matrices, and shaders that build immersive worlds.
+                </p>
+              </div>
+              <div className="hidden border-l border-red-500/20 pl-6 text-left lg:block">
+                <span className="block font-mono text-[10px] uppercase opacity-40">
+                  Engine v2.4
+                </span>
+                <span className="mt-1 block font-mono text-[10px] font-bold text-red-500 uppercase">
+                  3 Dimensions Available
+                </span>
+              </div>
+            </div>
+
+            {/* ROADMAP STEPS GRID */}
+            <div className="bg-foreground/10 border-foreground/10 mt-20 grid gap-px border text-left">
+              {/* STEP 01 - THE GEOMETRY LEXICON */}
+              <Link
+                href="/3d/dictionary"
+                className="group bg-background relative p-10 transition-colors hover:bg-red-500/3"
+              >
+                <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                  <div className="flex items-center gap-8">
+                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100">
+                      01
+                    </span>
+                    <div>
+                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                        Geometry Lexicon
+                      </h3>
+                      <p className="mt-2 text-sm opacity-50">
+                        Understanding Normals, UVs, and Matrices. The vocabulary of the 3rd
+                        dimension.
+                      </p>
+                    </div>
+                  </div>
+                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-red-500">
+                    Start Training →
+                  </span>
+                </div>
+              </Link>
+
+              {/* STEP 02 - SHADER DRILLS */}
+              <Link
+                href="/3d/shader-drills"
+                className="group bg-background relative p-10 transition-colors hover:bg-red-500/3"
+              >
+                <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                  <div className="flex items-center gap-8">
+                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100">
+                      02
+                    </span>
+                    <div>
+                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                        Shader Pipeline
+                      </h3>
+                      <p className="mt-2 text-sm opacity-50">
+                        Vertex and Fragment logic drills. Writing your first GLSL noise patterns.
+                      </p>
+                    </div>
+                  </div>
+                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-red-500">
+                    Enter Pipeline →
+                  </span>
+                </div>
+              </Link>
+
+              {/* STEP 03 - IMMERSIVE SYSTEMS */}
+              <Link
+                href="/3d/architecture"
+                className="group bg-background relative p-10 transition-colors hover:bg-red-500/3"
+              >
+                <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
+                  <div className="flex items-center gap-8">
+                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100">
+                      03
+                    </span>
+                    <div>
+                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                        Scene Architecture
+                      </h3>
+                      <p className="mt-2 text-sm opacity-50">
+                        Managing lights, shadows, and R3F lifecycle for production-ready
+                        experiences.
+                      </p>
+                    </div>
+                  </div>
+                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-red-500">
+                    Start Building →
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
         </Container>

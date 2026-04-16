@@ -278,7 +278,7 @@ export default function FrontendPage() {
                   Syllabus v1.2
                 </span>
                 <span className="mt-1 block font-mono text-[10px] font-bold text-yellow-500 uppercase">
-                  4 Modules Available
+                  3 Modules Available
                 </span>
               </div>
             </div>

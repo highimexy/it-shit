@@ -245,7 +245,7 @@ export default function QaPage() {
 
       {/* THE ACADEMY / ROADMAP */}
       <section className="relative overflow-hidden bg-green-500/2">
-        <BackgroundGrid color="bg-green-500/10" />
+        <BackgroundGrid color="rgb(34 197 94 / 0.05)" />
 
         <Container>
           <div className="relative z-10 px-6 py-24">
