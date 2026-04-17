@@ -5,6 +5,7 @@ import { SectionDivider } from '../components/SectionDivider'
 import { SubpageHeader } from '../components/SubpageHeader'
 import { Container } from '../wrappers/Container'
 import Link from 'next/link'
+import { FiArrowRight } from 'react-icons/fi'
 
 export default function QaPage() {
   const accentColor = 'text-green-500'
@@ -279,7 +280,7 @@ export default function QaPage() {
               {/* STEP 01 - THE LEXICON */}
               <Link
                 href="/qa/dictionary"
-                className="group bg-background relative p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(34,197,94,0.2)]"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(34,197,94,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
                   <div className="flex items-start gap-4 md:gap-8">
@@ -296,8 +297,8 @@ export default function QaPage() {
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 w-fit self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Start Training →
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Start Training <FiArrowRight />
                   </span>
                 </div>
               </Link>
@@ -305,7 +306,7 @@ export default function QaPage() {
               {/* STEP 02 - EVIDENCE ROOM */}
               <Link
                 href="/qa/evidence-room"
-                className="group bg-background relative p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(34,197,94,0.2)]"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(34,197,94,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
                   <div className="flex items-start gap-4 md:gap-8">
@@ -321,8 +322,8 @@ export default function QaPage() {
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 w-fit self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Start Training →
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Start Training <FiArrowRight />
                   </span>
                 </div>
               </Link>
@@ -330,7 +331,7 @@ export default function QaPage() {
               {/* STEP 03 - BUG REPORTING */}
               <Link
                 href="/qa/bug-report"
-                className="group bg-background relative p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(34,197,94,0.2)]"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(34,197,94,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(34,197,94,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
                   <div className="flex items-start gap-4 md:gap-8">
@@ -346,8 +347,8 @@ export default function QaPage() {
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 w-fit self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Draft Ticket →
+                  <span className="border-foreground/10 align-center flex items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Draft Ticket <FiArrowRight />
                   </span>
                 </div>
               </Link>
