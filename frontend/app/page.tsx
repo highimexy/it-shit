@@ -1,5 +1,6 @@
 'use client'
 
+import { FiArrowRight } from 'react-icons/fi'
 import { HomeHeader } from './components/HomeHeader'
 import { SectionDivider } from './components/SectionDivider'
 import { Container } from './wrappers/Container'
@@ -39,9 +40,10 @@ export default function Home() {
                 </p>
                 <Link
                   href="/qa"
-                  className="text-fluid-small mt-8 inline-block border-b border-green-500 pb-1 font-bold tracking-widest uppercase transition-opacity hover:opacity-60"
+                  className="group text-fluid-small mt-8 inline-flex items-center gap-3 border-b border-green-500 pb-1 font-bold tracking-widest uppercase transition-all"
                 >
-                  Explore QA Roadmap →
+                  <span>Explore QA Roadmap</span>
+                  <FiArrowRight className="text-lg transition-transform duration-300 group-hover:translate-x-1.5" />
                 </Link>
               </div>
             </div>
@@ -73,9 +75,10 @@ export default function Home() {
                 </p>
                 <Link
                   href="/frontend"
-                  className="text-fluid-small mt-8 inline-block border-b border-yellow-500 pb-1 font-bold tracking-widest uppercase transition-opacity hover:opacity-60"
+                  className="group text-fluid-small mt-8 inline-flex items-center gap-3 border-b border-yellow-500 pb-1 font-bold tracking-widest uppercase transition-all"
                 >
-                  Explore Frontend Path →
+                  <span>Explore Frontend Path</span>
+                  <FiArrowRight className="text-lg transition-transform duration-300 group-hover:translate-x-1.5" />
                 </Link>
               </div>
             </div>
@@ -106,9 +109,10 @@ export default function Home() {
                 </p>
                 <Link
                   href="/3d"
-                  className="text-fluid-small mt-8 inline-block border-b border-red-500 pb-1 font-bold tracking-widest uppercase transition-opacity hover:opacity-60"
+                  className="group text-fluid-small mt-8 inline-flex items-center gap-3 border-b border-red-500 pb-1 font-bold tracking-[0.2em] uppercase transition-all"
                 >
-                  Explore 3D Dimension →
+                  <span>Explore 3D Dimension</span>
+                  <FiArrowRight className="text-lg transition-transform duration-300 group-hover:translate-x-1.5" />
                 </Link>
               </div>
             </div>
