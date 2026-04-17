@@ -298,7 +298,7 @@ export default function QaPage() {
                     </div>
                   </div>
                   <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Start Training <FiArrowRight />
+                    Start Training <FiArrowRight className="text-sm" />
                   </span>
                 </div>
               </Link>
@@ -323,7 +323,7 @@ export default function QaPage() {
                     </div>
                   </div>
                   <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Start Training <FiArrowRight />
+                    Start Training <FiArrowRight className="text-sm" />
                   </span>
                 </div>
               </Link>
@@ -348,7 +348,7 @@ export default function QaPage() {
                     </div>
                   </div>
                   <span className="border-foreground/10 align-center flex items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-green-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Draft Ticket <FiArrowRight />
+                    Draft Ticket <FiArrowRight className="text-sm" />
                   </span>
                 </div>
               </Link>
