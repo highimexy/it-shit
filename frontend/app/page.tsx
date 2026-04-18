@@ -5,6 +5,7 @@ import { HomeHeader } from './components/HomeHeader'
 import { SectionDivider } from './components/SectionDivider'
 import { Container } from './wrappers/Container'
 import Link from 'next/link'
+import { SupportersTicker } from './components/SupportersTicker'
 
 export default function Home() {
   return (
@@ -12,7 +13,8 @@ export default function Home() {
       <main className="flex-1">
         <HomeHeader />
         <SectionDivider />
-
+        <SupportersTicker />
+        <SectionDivider />
         {/* 01. QA SECTION */}
         <section className="border-foreground/10 w-full overflow-hidden border-b">
           <Container className="py-16 md:py-24">

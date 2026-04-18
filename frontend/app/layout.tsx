@@ -28,10 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
-      <body className="flex min-h-full flex-col">
+      <body className="bg-background flex min-h-screen flex-col" suppressHydrationWarning>
         <Providers>
           <Navbar />
-          <main className="bg-background relative z-10 flex-1">{children}</main>
+          <main className="bg-background isolation-isolate relative z-10">{children}</main>
           <Footer />
         </Providers>
       </body>
