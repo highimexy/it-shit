@@ -247,9 +247,7 @@ export default function QaPage() {
       {/* THE ACADEMY / ROADMAP */}
       <section className="relative overflow-hidden bg-green-500/2">
         <BackgroundGrid color="rgb(34 197 94 / 0.1)" />
-
         <Container className="relative z-10">
-          {/* Ekstremalnie mały padding boczny na mobile (px-3) */}
           <div className="px-3 py-24 md:px-6">
             <div className="flex flex-col gap-8 text-left lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-xl">

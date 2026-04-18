@@ -1,5 +1,6 @@
 'use client'
 
+import { FiArrowRight } from 'react-icons/fi'
 import { BackgroundGrid } from '../components/BackgroundGrid'
 import { SectionDivider } from '../components/SectionDivider'
 import { SubpageHeader } from '../components/SubpageHeader'
@@ -252,13 +253,11 @@ export default function FrontendPage() {
 
       {/* THE ACADEMY / ROADMAP */}
       <section className="relative overflow-hidden bg-yellow-500/2">
-        {/* IMPLEMENTACJA GRIDA W TLE - ŻÓŁTY AKCENT */}
         <BackgroundGrid color="rgb(234 179 8 / 0.1)" />
-
-        <Container>
-          <div className="relative z-10 px-6 py-24">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-xl text-left">
+        <Container className="relative z-10">
+          <div className="px-3 py-24 md:px-6">
+            <div className="flex flex-col gap-8 text-left lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-xl">
                 <span className="text-fluid-small font-sans font-bold tracking-[0.4em] text-yellow-500 uppercase">
                   The Academy
                 </span>
@@ -284,28 +283,29 @@ export default function FrontendPage() {
             </div>
 
             {/* ROADMAP STEPS GRID */}
-            <div className="bg-foreground/10 border-foreground/10 mt-20 grid gap-px border text-left">
+            <div className="bg-foreground/10 border-foreground/10 mt-16 grid gap-px border text-left md:mt-20">
               {/* STEP 01 - THE LEXICON */}
               <Link
                 href="/frontend/dictionary"
-                className="group bg-background relative p-10 transition-colors hover:bg-yellow-500/3"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(234,179,8,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(234,179,8,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-                  <div className="flex items-center gap-8">
-                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-yellow-500 group-hover:opacity-100">
+                  <div className="flex items-start gap-4 md:gap-8">
+                    <span className="shrink-0 font-serif text-xl opacity-10 transition-all group-hover:text-yellow-500 group-hover:opacity-100 md:text-4xl">
                       01
                     </span>
-                    <div>
-                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                    <div className="flex flex-col gap-1">
+                      <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-yellow-500 md:text-base">
                         Component Lexicon
                       </h3>
-                      <p className="mt-2 text-sm opacity-50">
+                      <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
                         From Props and State to Higher-Order Components. The vocabulary of React.
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-yellow-500">
-                    Start Training →
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-yellow-500 group-hover:bg-yellow-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Start Training{' '}
+                    <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
@@ -313,24 +313,25 @@ export default function FrontendPage() {
               {/* STEP 02 - STATE DRILLS */}
               <Link
                 href="/frontend/state-drills"
-                className="group bg-background relative p-10 transition-colors hover:bg-yellow-500/3"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(234,179,8,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(234,179,8,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-                  <div className="flex items-center gap-8">
-                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-yellow-500 group-hover:opacity-100">
+                  <div className="flex items-start gap-4 md:gap-8">
+                    <span className="shrink-0 font-serif text-xl opacity-10 transition-all group-hover:text-yellow-500 group-hover:opacity-100 md:text-4xl">
                       02
                     </span>
-                    <div>
-                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                    <div className="flex flex-col gap-1">
+                      <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-yellow-500 md:text-base">
                         Execution Room
                       </h3>
-                      <p className="mt-2 text-sm opacity-50">
+                      <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
                         Real-time state management puzzles. Logic drills that go beyond Todo apps.
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-yellow-500">
-                    Enter Room →
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-yellow-500 group-hover:bg-yellow-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Enter Room{' '}
+                    <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
@@ -338,24 +339,25 @@ export default function FrontendPage() {
               {/* STEP 03 - PERFORMANCE LAB */}
               <Link
                 href="/frontend/performance"
-                className="group bg-background relative p-10 transition-colors hover:bg-yellow-500/3"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(234,179,8,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(234,179,8,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-                  <div className="flex items-center gap-8">
-                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-yellow-500 group-hover:opacity-100">
+                  <div className="flex items-start gap-4 md:gap-8">
+                    <span className="shrink-0 font-serif text-xl opacity-10 transition-all group-hover:text-yellow-500 group-hover:opacity-100 md:text-4xl">
                       03
                     </span>
-                    <div>
-                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                    <div className="flex flex-col gap-1">
+                      <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-yellow-500 md:text-base">
                         Performance Lab
                       </h3>
-                      <p className="mt-2 text-sm opacity-50">
+                      <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
                         Analyzing render cycles and Lighthouse scores. Make it fast or make it over.
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-yellow-500">
-                    Analyze →
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-yellow-500 group-hover:bg-yellow-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Analyze
+                    <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>

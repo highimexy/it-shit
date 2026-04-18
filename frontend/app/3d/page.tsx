@@ -1,5 +1,6 @@
 'use client'
 
+import { FiArrowRight } from 'react-icons/fi'
 import { BackgroundGrid } from '../components/BackgroundGrid'
 import { SectionDivider } from '../components/SectionDivider'
 import { SubpageHeader } from '../components/SubpageHeader'
@@ -254,15 +255,13 @@ export default function ThreePage() {
 
       <SectionDivider />
 
-      {/* THE ACADEMY / ROADMAP */}
-      <section className="relative overflow-hidden bg-red-500/3">
-        {/* IMPLEMENTACJA GRIDA W TLE - CZERWONY AKCENT (3D SPACE) */}
+      {/* THE ACADEMY / ROADMAP - 3D LABORATORY */}
+      <section className="relative overflow-hidden bg-red-500/2">
         <BackgroundGrid color="rgb(239 68 68 / 0.1)" />
-
-        <Container>
-          <div className="relative z-10 px-6 py-24">
+        <Container className="relative z-10">
+          <div className="px-3 py-24 text-left md:px-6">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-xl text-left">
+              <div className="max-w-xl">
                 <span className="text-fluid-small font-sans font-bold tracking-[0.4em] text-red-500 uppercase">
                   The Academy
                 </span>
@@ -275,7 +274,7 @@ export default function ThreePage() {
                   vectors, matrices, and shaders that build immersive worlds.
                 </p>
               </div>
-              <div className="hidden border-l border-red-500/20 pl-6 text-left lg:block">
+              <div className="hidden border-l border-red-500/20 pl-6 lg:block">
                 <span className="block font-mono text-[10px] uppercase opacity-40">
                   Engine v2.4
                 </span>
@@ -285,30 +284,30 @@ export default function ThreePage() {
               </div>
             </div>
 
-            {/* ROADMAP STEPS GRID */}
-            <div className="bg-foreground/10 border-foreground/10 mt-20 grid gap-px border text-left">
+            {/* ROADMAP STEPS GRID - DIAGONAL LIFT & MOBILE FIX */}
+            <div className="bg-foreground/10 border-foreground/10 mt-16 grid gap-px border md:mt-20">
               {/* STEP 01 - THE GEOMETRY LEXICON */}
               <Link
                 href="/3d/dictionary"
-                className="group bg-background relative p-10 transition-colors hover:bg-red-500/3"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-                  <div className="flex items-center gap-8">
-                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100">
+                  <div className="flex items-start gap-4 md:items-center md:gap-8">
+                    <span className="shrink-0 font-serif text-xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100 md:text-4xl">
                       01
                     </span>
-                    <div>
-                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                    <div className="flex flex-col gap-1">
+                      <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-red-500 md:text-base">
                         Geometry Lexicon
                       </h3>
-                      <p className="mt-2 text-sm opacity-50">
-                        Understanding Normals, UVs, and Matrices. The vocabulary of the 3rd
-                        dimension.
+                      <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
+                        Normals, UVs, and Matrices. The vocabulary of the 3rd dimension.
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-red-500">
-                    Start Training →
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-red-500 group-hover:bg-red-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Start Training{' '}
+                    <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
@@ -316,24 +315,25 @@ export default function ThreePage() {
               {/* STEP 02 - SHADER DRILLS */}
               <Link
                 href="/3d/shader-drills"
-                className="group bg-background relative p-10 transition-colors hover:bg-red-500/3"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-                  <div className="flex items-center gap-8">
-                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100">
+                  <div className="flex items-start gap-4 md:items-center md:gap-8">
+                    <span className="shrink-0 font-serif text-xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100 md:text-4xl">
                       02
                     </span>
-                    <div>
-                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                    <div className="flex flex-col gap-1">
+                      <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-red-500 md:text-base">
                         Shader Pipeline
                       </h3>
-                      <p className="mt-2 text-sm opacity-50">
-                        Vertex and Fragment logic drills. Writing your first GLSL noise patterns.
+                      <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
+                        Vertex and Fragment logic drills. Writing GLSL noise patterns.
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-red-500">
-                    Enter Pipeline →
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-red-500 group-hover:bg-red-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Enter Pipeline{' '}
+                    <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
@@ -341,25 +341,25 @@ export default function ThreePage() {
               {/* STEP 03 - IMMERSIVE SYSTEMS */}
               <Link
                 href="/3d/architecture"
-                className="group bg-background relative p-10 transition-colors hover:bg-red-500/3"
+                className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
               >
                 <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
-                  <div className="flex items-center gap-8">
-                    <span className="font-serif text-4xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100">
+                  <div className="flex items-start gap-4 md:items-center md:gap-8">
+                    <span className="shrink-0 font-serif text-xl opacity-10 transition-all group-hover:text-red-500 group-hover:opacity-100 md:text-4xl">
                       03
                     </span>
-                    <div>
-                      <h3 className="font-sans font-bold tracking-widest text-white uppercase">
+                    <div className="flex flex-col gap-1">
+                      <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-red-500 md:text-base">
                         Scene Architecture
                       </h3>
-                      <p className="mt-2 text-sm opacity-50">
-                        Managing lights, shadows, and R3F lifecycle for production-ready
-                        experiences.
+                      <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
+                        Managing lights and R3F lifecycle for immersive experiences.
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 border px-4 py-2 text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:border-red-500">
-                    Start Building →
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-red-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    Start Building
+                    <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
