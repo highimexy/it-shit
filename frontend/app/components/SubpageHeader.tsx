@@ -15,7 +15,7 @@ export function SubpageHeader({ title, subtitle, accentColor }: SubpageHeaderPro
       <Container className="relative overflow-hidden">
         <BackgroundGrid />
         <div className="relative z-10 flex flex-col px-6 py-20 text-center">
-          <h1 className="font-serif text-[clamp(2rem,6vw,4.5rem)] leading-none tracking-tighter uppercase">
+          <h1 className="text-fluid-h2 font-serif leading-none tracking-tighter uppercase">
             Exploring <br />
             <span className={`${accentColor} italic opacity-90`}>{title}</span>
           </h1>

@@ -1,11 +1,11 @@
 'use client'
 
 import { FiArrowRight } from 'react-icons/fi'
-import { HomeHeader } from './components/HomeHeader'
-import { SectionDivider } from './components/SectionDivider'
-import { Container } from './wrappers/Container'
+import { HomeHeader } from '../components/HomeHeader'
+import { SectionDivider } from '../components/SectionDivider'
+import { Container } from '../wrappers/Container'
 import Link from 'next/link'
-import { SupportersTicker } from './components/SupportersTicker'
+import { SupportersTicker } from '../components/SupportersTicker'
 
 export default function Home() {
   return (
@@ -18,9 +18,7 @@ export default function Home() {
         {/* 01. QA SECTION */}
         <section className="border-foreground/10 w-full overflow-hidden border-b">
           <Container className="py-16 md:py-24">
-            {/* Flex container zamiast Grid */}
             <div className="flex flex-col gap-12 px-6 lg:flex-row lg:items-start lg:justify-between">
-              {/* DIV 1: Nagłówek - zajmuje tyle miejsca, ile potrzebuje */}
               <div className="min-w-fit flex-1">
                 <span className="text-fluid-small font-sans font-bold tracking-[0.3em] text-green-500 uppercase">
                   01. Quality Assurance
@@ -30,7 +28,6 @@ export default function Home() {
                 </h2>
               </div>
 
-              {/* DIV 2: Treść - stała szerokość na desktopie, płynna na mobile */}
               <div className="w-full lg:max-w-md xl:max-w-lg">
                 <p className="text-fluid-h3 font-serif leading-snug italic opacity-80">
                   "It's not about finding bugs. It's about being the only person in the room brave
