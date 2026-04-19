@@ -3,7 +3,7 @@
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 
-import { LuSparkle } from 'react-icons/lu'
+import { LuSparkles } from 'react-icons/lu'
 
 const supporters = [
   'Pecet3',
@@ -70,7 +70,7 @@ export function SupportersTicker() {
             <span className="font-serif text-xl tracking-tighter uppercase italic opacity-70">
               {name}
             </span>
-            <LuSparkle className="text-yellow-500/80" />
+            <LuSparkles className="text-yellow-500/80" />
           </div>
         ))}
       </div>
