@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { FiSearch } from 'react-icons/fi'
 import ThemeSwitch from './ThemeSwitch'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import { Container } from '../wrappers/Container'
 
 export function Navbar() {
@@ -10,6 +11,7 @@ export function Navbar() {
     <nav className="border-foreground/10 bg-background sticky top-0 z-50 w-full border-b">
       <Container>
         <div className="flex h-16 lg:grid lg:grid-cols-3">
+          {/* 1. LOGO */}
           <div className="border-foreground/10 flex flex-1 items-center justify-center border-r px-6 lg:px-10">
             <Link
               href="/"
@@ -19,16 +21,26 @@ export function Navbar() {
             </Link>
           </div>
 
+          {/* 2. NARZĘDZIA (Theme, Język, Szukajka) */}
           <div className="border-foreground/10 flex lg:border-r">
-            <div className="border-foreground/10 flex items-center border-r px-5">
+            {/* Przełącznik Motywu */}
+            <div className="border-foreground/10 flex items-center border-r px-3 lg:px-5">
               <ThemeSwitch />
             </div>
-            <div className="flex flex-1 items-center justify-between px-6">
+
+            {/* Języków w swojej własnej komórce */}
+            <div className="border-foreground/10 flex items-center border-r px-3 lg:px-5">
+              <LanguageSwitcher />
+            </div>
+
+            {/* Wyszukiwarka */}
+            <div className="flex flex-1 items-center justify-between px-4 lg:px-6">
               <span className="hidden font-sans uppercase lg:block">Search</span>
               <FiSearch className="text-xl" />
             </div>
           </div>
 
+          {/* 3. LINKI (Desktop) */}
           <div className="hidden items-center justify-around px-4 lg:flex">
             <Link href="/qa" className="font-sans uppercase">
               QA
@@ -45,6 +57,7 @@ export function Navbar() {
           </div>
         </div>
 
+        {/* LINKI (Mobile - Pasek dolny) */}
         <div className="border-foreground/10 flex h-12 items-center justify-around border-t px-6 lg:hidden">
           <Link href="/qa" className="font-sans uppercase">
             QA
