@@ -1,0 +1,10 @@
+{
+  "Hero": {
+    "title": "The Frontend Journal",
+    "subtitle": "Twoje źródło inspiracji UI"
+  },
+  "Footer": {
+    "madeIn": "Stworzono w Polsce",
+    "projectBy": "Projekt autorski"
+  }
+}

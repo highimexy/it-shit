@@ -1,0 +1,10 @@
+{
+  "Hero": {
+    "title": "The Frontend Journal",
+    "subtitle": "Your source of UI inspiration"
+  },
+  "Footer": {
+    "madeIn": "Made in Poland",
+    "projectBy": "A project by"
+  }
+}
