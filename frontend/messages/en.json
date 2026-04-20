@@ -166,5 +166,104 @@
       "title": "Ready to <green>Automate</green>?",
       "btn": "Transition to Frontend"
     }
+  },
+  "Frontend": {
+    "header": {
+      "title": "Modern Frontend",
+      "subtitle": "Architecting scalable, accessible, and performant user interfaces with React and Tailwind CSS."
+    },
+    "mindset": {
+      "label": "01 / The Browser",
+      "title1": "The Browser",
+      "title2": "Sapper",
+      "tagline": "Frontend is not just about making things look pretty; it's about handling chaos across a thousand different viewports.",
+      "quote": "\"Your code is an educated guess about how a browser in another part of the world will interpret a set of instructions.\"",
+      "safari": {
+        "title": "The Safari Tax",
+        "desc": "Debugging the specific CSS quirks of the modern Internet Explorer. Everything works until you open it on an iPhone."
+      },
+      "state": {
+        "title": "State of Mind",
+        "desc": "Managing how data flows through a complex interface. When one button click triggers five different UI updates, you need a solid architectural plan."
+      }
+    },
+    "anatomy": {
+      "label": "02 / Component",
+      "title1": "Component",
+      "title2": "Logic",
+      "tagline": "Breaking the UI into reusable, atomic pieces that manage their own behavior.",
+      "item1": {
+        "title": "JSX & The DOM",
+        "desc": "Writing HTML-like structures inside JavaScript. It's about bridging the gap between content and logic, creating a dynamic tree of elements that react to user input."
+      },
+      "item2": {
+        "title": "Props & Hooks",
+        "desc": "The nervous system of React. Passing data down and hooking into the component lifecycle to fetch data, manage effects, or store local state."
+      },
+      "item3": {
+        "title": "Responsive Grid & Flex",
+        "desc": "Using Tailwind's utility-first approach to build fluid layouts. Implementing complex designs that remain balanced from 320px to 4K monitors."
+      }
+    },
+    "pipeline": {
+      "label": "03 / Dev",
+      "title1": "Dev",
+      "title2": "Pipeline",
+      "tagline": "The stack that powers the modern developer's workflow.",
+      "table": {
+        "head1": "Category",
+        "head2": "Core Tool",
+        "head3": "Responsibility",
+        "cat1": "Framework",
+        "row1": "Handling routing, SSR, and server actions.",
+        "cat2": "Styling",
+        "row2": "Atomic styling without leaving the HTML.",
+        "cat3": "Version Control",
+        "row3": "Branching, PRs, and deployment pipelines."
+      }
+    },
+    "bridge": {
+      "label": "04 / The Bridge",
+      "title1": "The",
+      "title2": "Bridge",
+      "tagline": "Frontend is the intersection of design, backend, and the end-user.",
+      "api": {
+        "title": "API Integration",
+        "desc": "Consuming JSON from the backend and transforming it into a human-readable interface. Handling loading states and errors gracefully is a core skill."
+      },
+      "a11y": {
+        "title": "Accessibility (a11y)",
+        "desc": "Building for everyone. Using semantic HTML and ARIA labels to ensure that the web is usable for people with disabilities or screen readers."
+      }
+    },
+    "academy": {
+      "label": "The Academy",
+      "title1": "Frontend",
+      "title2": "Laboratory",
+      "tagline": "Syntax is easy; architecture is hard. Step into the lab to master the art of building interfaces that don't crumble under pressure.",
+      "curriculum": "Syllabus v1.2",
+      "modules": "3 Modules Available",
+      "step1": {
+        "title": "Component Lexicon",
+        "desc": "From Props and State to Higher-Order Components. The vocabulary of React.",
+        "btn": "Start Training"
+      },
+      "step2": {
+        "title": "Execution Room",
+        "desc": "Real-time state management puzzles. Logic drills that go beyond Todo apps.",
+        "btn": "Enter Room"
+      },
+      "step3": {
+        "title": "Performance Lab",
+        "desc": "Analyzing render cycles and Lighthouse scores. Make it fast or make it over.",
+        "btn": "Analyze"
+      }
+    },
+    "footer": {
+      "watermark": "For",
+      "label": "Ready for more?",
+      "title": "Enter the <red>3rd Dimension</red>",
+      "btn": "Explore 3D Dimension"
+    }
   }
 }

@@ -166,5 +166,104 @@
       "title": "Gotowy na <green>Automatyzację</green>?",
       "btn": "Przejdź do Frontendu"
     }
+  },
+  "Frontend": {
+    "header": {
+      "title": "Nowoczesny Frontend",
+      "subtitle": "Projektowanie skalowalnych, dostępnych i wydajnych interfejsów za pomocą React i Tailwind CSS."
+    },
+    "mindset": {
+      "label": "01 / Przeglądarka",
+      "title1": "Przeglądarkowy",
+      "title2": "Saper",
+      "tagline": "Frontend to nie tylko ładne obrazki; to okiełznanie chaosu na tysiącach różnych ekranów.",
+      "quote": "\"Twój kod to jedynie wyedukowane zgadywanie, jak przeglądarka na drugim końcu świata zinterpretuje zestaw instrukcji.\"",
+      "safari": {
+        "title": "Podatek od Safari",
+        "desc": "Debugowanie specyficznych kaprysów CSS nowoczesnego Internet Explorera. Wszystko działa, dopóki nie otworzysz tego na iPhonie."
+      },
+      "state": {
+        "title": "Stan Umysłu",
+        "desc": "Zarządzanie przepływem danych przez skomplikowany interfejs. Kiedy jedno kliknięcie wyzwala pięć różnych aktualizacji UI, potrzebujesz solidnej architektury."
+      }
+    },
+    "anatomy": {
+      "label": "02 / Komponent",
+      "title1": "Logika",
+      "title2": "Komponentu",
+      "tagline": "Rozbijanie UI na reużywalne, atomowe fragmenty, które same zarządzają swoim zachowaniem.",
+      "item1": {
+        "title": "JSX i DOM",
+        "desc": "Pisanie struktur przypominających HTML wewnątrz JavaScriptu. Chodzi o zasypanie przepaści między treścią a logiką, tworząc dynamiczne drzewo reagujące na użytkownika."
+      },
+      "item2": {
+        "title": "Propsy i Hooki",
+        "desc": "Układ nerwowy Reacta. Przekazywanie danych w dół i podpinanie się pod cykl życia, aby pobierać dane, zarządzać efektami i lokalnym stanem."
+      },
+      "item3": {
+        "title": "Responsywny Grid i Flex",
+        "desc": "Podejście utility-first Tailwinda do budowy płynnych układów. Wdrażanie designów, które zachowują balans od 320px po monitory 4K."
+      }
+    },
+    "pipeline": {
+      "label": "03 / Dev",
+      "title1": "Twój",
+      "title2": "Pipeline",
+      "tagline": "Stack technologiczny napędzający workflow nowoczesnego programisty.",
+      "table": {
+        "head1": "Kategoria",
+        "head2": "Narzędzie Core",
+        "head3": "Odpowiedzialność",
+        "cat1": "Framework",
+        "row1": "Obsługa routingu, SSR i akcji serwerowych.",
+        "cat2": "Stylowanie",
+        "row2": "Atomowe stylowanie bez opuszczania pliku HTML.",
+        "cat3": "Kontrola Wersji",
+        "row3": "Branchowanie, PR-y i pipeline'y wdrożeniowe."
+      }
+    },
+    "bridge": {
+      "label": "04 / Pomost",
+      "title1": "Budując",
+      "title2": "Pomost",
+      "tagline": "Frontend to punkt przecięcia między designem, backendem i użytkownikiem końcowym.",
+      "api": {
+        "title": "Integracja API",
+        "desc": "Konsumpcja JSON-a z backendu i transformacja w czytelny interfejs. Elegancka obsługa stanów ładowania i błędów to kluczowa umiejętność."
+      },
+      "a11y": {
+        "title": "Dostępność (a11y)",
+        "desc": "Budowanie dla wszystkich. Używanie semantycznego HTML i etykiet ARIA, aby upewnić się, że aplikacja jest użyteczna dla czytników ekranu."
+      }
+    },
+    "academy": {
+      "label": "Akademia",
+      "title1": "Laboratorium",
+      "title2": "Frontendu",
+      "tagline": "Składnia jest prosta; architektura jest trudna. Wejdź do laboratorium, by opanować sztukę budowania interfejsów odpornych na presję.",
+      "curriculum": "Program v1.2",
+      "modules": "Dostępne 3 moduły",
+      "step1": {
+        "title": "Leksykon Komponentów",
+        "desc": "Od Propsów i Stanu po Higher-Order Components. Poznaj słownik Reacta.",
+        "btn": "Rozpocznij trening"
+      },
+      "step2": {
+        "title": "Pokój Operacyjny",
+        "desc": "Zagadki z zarządzania stanem w czasie rzeczywistym. Trening logiki wykraczający poza zwykłe aplikacje Todo.",
+        "btn": "Wejdź do pokoju"
+      },
+      "step3": {
+        "title": "Laboratorium Wydajności",
+        "desc": "Analiza cykli renderowania i wyników Lighthouse. Zrób to szybko, albo zrób to od nowa.",
+        "btn": "Analizuj"
+      }
+    },
+    "footer": {
+      "watermark": "Dla",
+      "label": "Gotowy na więcej?",
+      "title": "Wejdź w <red>Trzeci Wymiar</red>",
+      "btn": "Eksploruj Wymiar 3D"
+    }
   }
 }
