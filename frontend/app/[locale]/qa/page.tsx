@@ -46,7 +46,9 @@ export default function QaPage() {
                 </p>
                 <div className="grid gap-8 sm:grid-cols-2">
                   <div className="border-foreground/10 border-t pt-6">
-                    <h4 className="mb-3 font-sans text-[11px] font-bold tracking-widest uppercase">
+                    <h4
+                      className={`mb-3 font-sans text-[11px] font-bold tracking-widest uppercase ${accentColor}`}
+                    >
                       {t('mindset.edgeCases.title')}
                     </h4>
                     <p className="text-sm leading-relaxed opacity-60">
@@ -54,7 +56,9 @@ export default function QaPage() {
                     </p>
                   </div>
                   <div className="border-foreground/10 border-t pt-6">
-                    <h4 className="mb-3 font-sans text-[11px] font-bold tracking-widest uppercase">
+                    <h4
+                      className={`mb-3 font-sans text-[11px] font-bold tracking-widest uppercase ${accentColor}`}
+                    >
                       {t('mindset.criticalThinking.title')}
                     </h4>
                     <p className="text-sm leading-relaxed opacity-60">
@@ -168,17 +172,23 @@ export default function QaPage() {
                   <tbody className="opacity-80">
                     <tr className="border-foreground/10 hover:bg-foreground/2 border-b">
                       <td className="py-6">{t('toolkit.table.doc')}</td>
-                      <td className="py-6 font-bold italic">Figma</td>
+                      <td className="py-6 font-bold italic underline decoration-green-500/30">
+                        Figma
+                      </td>
                       <td className="py-6">{t('toolkit.table.row1')}</td>
                     </tr>
                     <tr className="border-foreground/10 hover:bg-foreground/2 border-b">
                       <td className="py-6">{t('toolkit.table.track')}</td>
-                      <td className="py-6 font-bold italic">Jira</td>
+                      <td className="py-6 font-bold italic underline decoration-green-500/30">
+                        Jira
+                      </td>
                       <td className="py-6">{t('toolkit.table.row2')}</td>
                     </tr>
                     <tr className="border-foreground/10 hover:bg-foreground/2 border-b">
                       <td className="py-6">{t('toolkit.table.debug')}</td>
-                      <td className="py-6 font-bold italic">DevTools</td>
+                      <td className="py-6 font-bold italic underline decoration-green-500/30">
+                        DevTools
+                      </td>
                       <td className="py-6">{t('toolkit.table.row3')}</td>
                     </tr>
                   </tbody>
@@ -211,8 +221,8 @@ export default function QaPage() {
             </div>
             <div className="w-full flex-1 lg:max-w-2xl xl:max-w-3xl">
               <div className="flex flex-col gap-12">
-                <div className="border-l-2 border-green-500/20 pl-8">
-                  <h4 className="font-sans font-bold tracking-widest text-green-500 uppercase">
+                <div className="border-l-2 border-green-500/20 pl-8 opacity-60">
+                  <h4 className="font-sans font-bold tracking-widest uppercase">
                     {t('human.designers.title')}
                   </h4>
                   <p className="mt-4 text-sm leading-relaxed opacity-60">

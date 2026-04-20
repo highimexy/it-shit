@@ -220,7 +220,7 @@ export default function FrontendPage() {
             <div className="w-full flex-1 lg:max-w-2xl xl:max-w-3xl">
               <div className="flex flex-col gap-12 text-justify lg:text-left">
                 <div className="border-l-2 border-yellow-500/20 pl-8">
-                  <h4 className={`font-sans font-bold tracking-widest uppercase ${accentColor}`}>
+                  <h4 className="font-sans font-bold tracking-widest uppercase opacity-60">
                     {t('bridge.api.title')}
                   </h4>
                   <p className="mt-4 text-sm leading-relaxed opacity-60">{t('bridge.api.desc')}</p>
@@ -366,7 +366,7 @@ export default function FrontendPage() {
             </span>
             <h2 className="mt-6 font-serif tracking-tighter uppercase">
               {t.rich('footer.title', {
-                red: (chunks) => <span className="text-red-500 italic">{chunks}</span>,
+                yellow: (chunks) => <span className="text-yellow-500 italic">{chunks}</span>,
               })}
             </h2>
             <Link

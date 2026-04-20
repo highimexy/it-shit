@@ -372,7 +372,7 @@ export default function ThreePage() {
             </span>
             <h2 className="mt-6 font-serif tracking-tighter uppercase">
               {t.rich('footer.title', {
-                purple: (chunks) => <span className="text-purple-500 italic">{chunks}</span>,
+                red: (chunks) => <span className="text-red-500 italic">{chunks}</span>,
               })}
             </h2>
             <Link
