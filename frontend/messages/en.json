@@ -265,5 +265,104 @@
       "title": "Enter the <red>3rd Dimension</red>",
       "btn": "Explore 3D Dimension"
     }
+  },
+  "Three": {
+    "header": {
+      "title": "Three.js & WebGL",
+      "subtitle": "Pushing the boundaries of the browser. Shaders, raycasting, and immersive 3D environments."
+    },
+    "math": {
+      "label": "01 / Vector",
+      "title1": "Vector",
+      "title2": "Madness",
+      "tagline": "High school geometry is no longer a memory—it is the law. In 3D, if you can't calculate it, it doesn't exist.",
+      "quote": "\"Matrices and quaternions are the invisible scaffolding of your world. One wrong digit and your reality collapses.\"",
+      "linear": {
+        "title": "Linear Algebra",
+        "desc": "Mastering Dot products, Cross products, and Matrix transformations. Everything from camera movement to light reflection depends on these calculations."
+      },
+      "coords": {
+        "title": "Coordinate Systems",
+        "desc": "Navigating the difference between Local, World, and Screen space. Mapping a 2D mouse click to a 3D object is the first \"magic\" trick you'll master."
+      }
+    },
+    "pipeline": {
+      "label": "02 / The",
+      "title1": "The",
+      "title2": "Pipeline",
+      "tagline": "Moving from the CPU to the GPU. Learning to talk directly to the graphics card.",
+      "vertex": {
+        "title": "Vertex Shaders",
+        "desc": "Manipulating the position of every single point in your geometry. This is how we create procedural waves, wind blowing through grass, or morphing shapes."
+      },
+      "fragment": {
+        "title": "Fragment Shaders",
+        "desc": "Calculating the color of every pixel on the screen. From photorealistic lighting to glitch effects and generative noise patterns. This is pure GLSL math."
+      },
+      "raycasting": {
+        "title": "Raycasting",
+        "desc": "Firing invisible lasers from the camera to detect intersections. Essential for hovering over objects, clicking buttons in 3D, and simple physics."
+      }
+    },
+    "stack": {
+      "label": "03 / The",
+      "title1": "The",
+      "title2": "Stack",
+      "tagline": "The industry-standard ecosystem for building web-based immersion.",
+      "table": {
+        "head1": "Category",
+        "head2": "Tool",
+        "head3": "Technical Role",
+        "cat1": "Engine",
+        "row1": "The abstraction layer for WebGL. Scenes, Lights, Meshes.",
+        "cat2": "React Wrapper",
+        "row2": "Declarative 3D within the React ecosystem.",
+        "cat3": "Modeling",
+        "row3": "Exporting GLTF/GLB assets and baking textures."
+      }
+    },
+    "optimization": {
+      "label": "04 / Optimization",
+      "title1": "Optimization",
+      "title2": "Wall",
+      "tagline": "The GPU is powerful, but it has limits. 60 FPS is not a suggestion—it's a requirement.",
+      "drawCalls": {
+        "title": "Draw Calls",
+        "desc": "Every object is a request to the GPU. Learning to batch geometries and instantiate meshes to keep the frame rate stable on mobile devices."
+      },
+      "baking": {
+        "title": "Texture Baking",
+        "desc": "Fake it 'til you make it. Calculating lights in Blender and \"painting\" them onto textures to avoid expensive real-time shadow calculations in the browser."
+      }
+    },
+    "academy": {
+      "label": "The Academy",
+      "title1": "3D",
+      "title2": "Laboratory",
+      "tagline": "Geometry is the language of reality. Step into the laboratory to master the vectors, matrices, and shaders that build immersive worlds.",
+      "curriculum": "Engine v2.4",
+      "modules": "3 Dimensions Available",
+      "step1": {
+        "title": "Geometry Lexicon",
+        "desc": "Normals, UVs, and Matrices. The vocabulary of the 3rd dimension.",
+        "btn": "Start Training"
+      },
+      "step2": {
+        "title": "Shader Pipeline",
+        "desc": "Vertex and Fragment logic drills. Writing GLSL noise patterns.",
+        "btn": "Enter Pipeline"
+      },
+      "step3": {
+        "title": "Scene Architecture",
+        "desc": "Managing lights and R3F lifecycle for immersive experiences.",
+        "btn": "Start Building"
+      }
+    },
+    "footer": {
+      "watermark": "The",
+      "label": "Final Chapter",
+      "title": "Facing the <purple>Harsh Truth</purple>",
+      "btn": "Read the full manifesto"
+    }
   }
 }

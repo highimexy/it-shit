@@ -6,15 +6,17 @@ import { SectionDivider } from '../../components/SectionDivider'
 import { SubpageHeader } from '../../components/SubpageHeader'
 import { Container } from '../../wrappers/Container'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 export default function ThreePage() {
+  const t = useTranslations('Three')
   const accentColor = 'text-red-500'
 
   return (
     <main className="min-h-screen">
       <SubpageHeader
-        title="Three.js & WebGL"
-        subtitle="Pushing the boundaries of the browser. Shaders, raycasting, and immersive 3D environments."
+        title={t('header.title')}
+        subtitle={t('header.subtitle')}
         accentColor="text-red-500"
       />
       <SectionDivider />
@@ -27,45 +29,37 @@ export default function ThreePage() {
               <span
                 className={`text-fluid-small font-sans font-bold tracking-[0.4em] uppercase ${accentColor}`}
               >
-                01 / Vector
+                {t('math.label')}
               </span>
               <h2 className="mt-4 font-serif leading-[0.85] tracking-tighter wrap-break-word uppercase">
-                Vector <br />
-                <span className={`italic opacity-30 ${accentColor}`}>Madness</span>
+                {t('math.title1')} <br />
+                <span className={`italic opacity-30 ${accentColor}`}>{t('math.title2')}</span>
               </h2>
               <p className="text-fluid-p mt-8 font-sans leading-relaxed italic opacity-60">
-                High school geometry is no longer a memory—it is the law. In 3D, if you can't
-                calculate it, it doesn't exist.
+                {t('math.tagline')}
               </p>
             </div>
             <div className="w-full flex-1 lg:max-w-2xl xl:max-w-3xl">
               <div className="space-y-8">
                 <p className="text-fluid-h3 font-serif leading-snug italic opacity-80">
-                  "Matrices and quaternions are the invisible scaffolding of your world. One wrong
-                  digit and your reality collapses."
+                  {t('math.quote')}
                 </p>
                 <div className="grid gap-8 sm:grid-cols-2">
                   <div className="border-foreground/10 border-t pt-6">
                     <h4
                       className={`mb-3 font-sans text-[11px] font-bold tracking-widest uppercase ${accentColor}`}
                     >
-                      Linear Algebra
+                      {t('math.linear.title')}
                     </h4>
-                    <p className="text-sm leading-relaxed opacity-60">
-                      Mastering Dot products, Cross products, and Matrix transformations. Everything
-                      from camera movement to light reflection depends on these calculations.
-                    </p>
+                    <p className="text-sm leading-relaxed opacity-60">{t('math.linear.desc')}</p>
                   </div>
                   <div className="border-foreground/10 border-t pt-6">
                     <h4
                       className={`mb-3 font-sans text-[11px] font-bold tracking-widest uppercase ${accentColor}`}
                     >
-                      Coordinate Systems
+                      {t('math.coords.title')}
                     </h4>
-                    <p className="text-sm leading-relaxed opacity-60">
-                      Navigating the difference between Local, World, and Screen space. Mapping a 2D
-                      mouse click to a 3D object is the first "magic" trick you'll master.
-                    </p>
+                    <p className="text-sm leading-relaxed opacity-60">{t('math.coords.desc')}</p>
                   </div>
                 </div>
               </div>
@@ -84,14 +78,14 @@ export default function ThreePage() {
               <span
                 className={`text-fluid-small font-sans font-bold tracking-[0.4em] uppercase ${accentColor}`}
               >
-                02 / The
+                {t('pipeline.label')}
               </span>
               <h2 className="mt-4 font-serif leading-[0.85] tracking-tighter wrap-break-word uppercase">
-                The <br />
-                <span className={`italic opacity-30 ${accentColor}`}>Pipeline</span>
+                {t('pipeline.title1')} <br />
+                <span className={`italic opacity-30 ${accentColor}`}>{t('pipeline.title2')}</span>
               </h2>
               <p className="text-fluid-p mt-8 font-sans leading-relaxed italic opacity-60">
-                Moving from the CPU to the GPU. Learning to talk directly to the graphics card.
+                {t('pipeline.tagline')}
               </p>
             </div>
             <div className="w-full flex-1 lg:max-w-2xl xl:max-w-3xl">
@@ -102,12 +96,11 @@ export default function ThreePage() {
                       01
                     </span>
                     <h4 className="font-sans font-bold tracking-widest uppercase">
-                      Vertex Shaders
+                      {t('pipeline.vertex.title')}
                     </h4>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed opacity-60">
-                    Manipulating the position of every single point in your geometry. This is how we
-                    create procedural waves, wind blowing through grass, or morphing shapes.
+                    {t('pipeline.vertex.desc')}
                   </p>
                 </article>
 
@@ -117,12 +110,11 @@ export default function ThreePage() {
                       02
                     </span>
                     <h4 className="font-sans font-bold tracking-widest uppercase">
-                      Fragment Shaders
+                      {t('pipeline.fragment.title')}
                     </h4>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed opacity-60">
-                    Calculating the color of every pixel on the screen. From photorealistic lighting
-                    to glitch effects and generative noise patterns. This is pure GLSL math.
+                    {t('pipeline.fragment.desc')}
                   </p>
                 </article>
 
@@ -131,11 +123,12 @@ export default function ThreePage() {
                     <span className="font-serif text-2xl opacity-20 transition-opacity group-hover:opacity-100">
                       03
                     </span>
-                    <h4 className="font-sans font-bold tracking-widest uppercase">Raycasting</h4>
+                    <h4 className="font-sans font-bold tracking-widest uppercase">
+                      {t('pipeline.raycasting.title')}
+                    </h4>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed opacity-60">
-                    Firing invisible lasers from the camera to detect intersections. Essential for
-                    hovering over objects, clicking buttons in 3D, and simple physics.
+                    {t('pipeline.raycasting.desc')}
                   </p>
                 </article>
               </div>
@@ -154,14 +147,14 @@ export default function ThreePage() {
               <span
                 className={`text-fluid-small font-sans font-bold tracking-[0.4em] uppercase ${accentColor}`}
               >
-                03 / The
+                {t('stack.label')}
               </span>
               <h2 className="mt-4 font-serif leading-[0.85] tracking-tighter wrap-break-word uppercase">
-                The <br />
-                <span className={`italic opacity-30 ${accentColor}`}>Stack</span>
+                {t('stack.title1')} <br />
+                <span className={`italic opacity-30 ${accentColor}`}>{t('stack.title2')}</span>
               </h2>
               <p className="text-fluid-p mt-8 font-sans leading-relaxed italic opacity-60">
-                The industry-standard ecosystem for building web-based immersion.
+                {t('stack.tagline')}
               </p>
             </div>
             <div className="w-full flex-1 lg:max-w-2xl xl:max-w-3xl">
@@ -169,34 +162,32 @@ export default function ThreePage() {
                 <table className="w-full text-left font-sans text-[11px] tracking-widest uppercase">
                   <thead>
                     <tr className="border-foreground/20 border-b text-[10px] opacity-40">
-                      <th className="pb-4 font-bold">Category</th>
-                      <th className="pb-4 font-bold">Tool</th>
-                      <th className="pb-4 font-bold">Technical Role</th>
+                      <th className="pb-4 font-bold">{t('stack.table.head1')}</th>
+                      <th className="pb-4 font-bold">{t('stack.table.head2')}</th>
+                      <th className="pb-4 font-bold">{t('stack.table.head3')}</th>
                     </tr>
                   </thead>
                   <tbody className="opacity-80">
                     <tr className="border-foreground/10 hover:bg-foreground/2 border-b">
-                      <td className="py-6">Engine</td>
+                      <td className="py-6">{t('stack.table.cat1')}</td>
                       <td className="py-6 font-bold italic underline decoration-red-500/30">
                         Three.js
                       </td>
-                      <td className="py-6">
-                        The abstraction layer for WebGL. Scenes, Lights, Meshes.
-                      </td>
+                      <td className="py-6">{t('stack.table.row1')}</td>
                     </tr>
                     <tr className="border-foreground/10 hover:bg-foreground/2 border-b">
-                      <td className="py-6">React Wrapper</td>
+                      <td className="py-6">{t('stack.table.cat2')}</td>
                       <td className="py-6 font-bold italic underline decoration-red-500/30">
                         R3F (Drei)
                       </td>
-                      <td className="py-6">Declarative 3D within the React ecosystem.</td>
+                      <td className="py-6">{t('stack.table.row2')}</td>
                     </tr>
                     <tr className="border-foreground/10 hover:bg-foreground/2 border-b">
-                      <td className="py-6">Modeling</td>
+                      <td className="py-6">{t('stack.table.cat3')}</td>
                       <td className="py-6 font-bold italic underline decoration-red-500/30">
                         Blender
                       </td>
-                      <td className="py-6">Exporting GLTF/GLB assets and baking textures.</td>
+                      <td className="py-6">{t('stack.table.row3')}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -216,35 +207,34 @@ export default function ThreePage() {
               <span
                 className={`text-fluid-small font-sans font-bold tracking-[0.4em] uppercase ${accentColor}`}
               >
-                04 / Optimization
+                {t('optimization.label')}
               </span>
               <h2 className="mt-4 font-serif leading-[0.85] tracking-tighter wrap-break-word uppercase">
-                Optimization <br />
-                <span className={`italic opacity-30 ${accentColor}`}>Wall</span>
+                {t('optimization.title1')} <br />
+                <span className={`italic opacity-30 ${accentColor}`}>
+                  {t('optimization.title2')}
+                </span>
               </h2>
               <p className="text-fluid-p mt-8 font-sans leading-relaxed italic opacity-60">
-                The GPU is powerful, but it has limits. 60 FPS is not a suggestion—it's a
-                requirement.
+                {t('optimization.tagline')}
               </p>
             </div>
             <div className="w-full flex-1 lg:max-w-2xl xl:max-w-3xl">
               <div className="flex flex-col gap-12">
                 <div className="border-l-2 border-red-500/20 pl-8">
                   <h4 className={`font-sans font-bold tracking-widest uppercase ${accentColor}`}>
-                    Draw Calls
+                    {t('optimization.drawCalls.title')}
                   </h4>
                   <p className="mt-4 text-sm leading-relaxed opacity-60">
-                    Every object is a request to the GPU. Learning to batch geometries and
-                    instantiate meshes to keep the frame rate stable on mobile devices.
+                    {t('optimization.drawCalls.desc')}
                   </p>
                 </div>
                 <div className="border-l-2 border-red-500/20 pl-8 text-justify opacity-60 lg:text-left">
                   <h4 className="font-sans font-bold tracking-widest text-white uppercase">
-                    Texture Baking
+                    {t('optimization.baking.title')}
                   </h4>
                   <p className="mt-4 text-sm leading-relaxed opacity-60">
-                    Fake it 'til you make it. Calculating lights in Blender and "painting" them onto
-                    textures to avoid expensive real-time shadow calculations in the browser.
+                    {t('optimization.baking.desc')}
                   </p>
                 </div>
               </div>
@@ -263,30 +253,30 @@ export default function ThreePage() {
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-xl">
                 <span className="text-fluid-small font-sans font-bold tracking-[0.4em] text-red-500 uppercase">
-                  The Academy
+                  {t('academy.label')}
                 </span>
                 <h2 className="text-fluid-h2 mt-4 font-serif leading-none tracking-tighter uppercase">
-                  3D <br />
-                  <span className="text-fluid-h1 text-red-500 italic opacity-30">Laboratory</span>
+                  {t('academy.title1')} <br />
+                  <span className="text-fluid-h1 text-red-500 italic opacity-30">
+                    {t('academy.title2')}
+                  </span>
                 </h2>
                 <p className="text-fluid-p mt-8 font-sans leading-relaxed italic opacity-60">
-                  Geometry is the language of reality. Step into the laboratory to master the
-                  vectors, matrices, and shaders that build immersive worlds.
+                  {t('academy.tagline')}
                 </p>
               </div>
               <div className="hidden border-l border-red-500/20 pl-6 lg:block">
                 <span className="block font-mono text-[10px] uppercase opacity-40">
-                  Engine v2.4
+                  {t('academy.curriculum')}
                 </span>
                 <span className="mt-1 block font-mono text-[10px] font-bold text-red-500 uppercase">
-                  3 Dimensions Available
+                  {t('academy.modules')}
                 </span>
               </div>
             </div>
 
-            {/* ROADMAP STEPS GRID - DIAGONAL LIFT & MOBILE FIX */}
             <div className="bg-foreground/10 border-foreground/10 mt-16 grid gap-px border md:mt-20">
-              {/* STEP 01 - THE GEOMETRY LEXICON */}
+              {/* STEP 01 */}
               <Link
                 href="/3d/dictionary"
                 className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
@@ -298,21 +288,21 @@ export default function ThreePage() {
                     </span>
                     <div className="flex flex-col gap-1">
                       <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-red-500 md:text-base">
-                        Geometry Lexicon
+                        {t('academy.step1.title')}
                       </h3>
                       <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
-                        Normals, UVs, and Matrices. The vocabulary of the 3rd dimension.
+                        {t('academy.step1.desc')}
                       </p>
                     </div>
                   </div>
                   <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-red-500 group-hover:bg-red-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Start Training{' '}
+                    {t('academy.step1.btn')}{' '}
                     <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
 
-              {/* STEP 02 - SHADER DRILLS */}
+              {/* STEP 02 */}
               <Link
                 href="/3d/shader-drills"
                 className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
@@ -324,21 +314,21 @@ export default function ThreePage() {
                     </span>
                     <div className="flex flex-col gap-1">
                       <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-red-500 md:text-base">
-                        Shader Pipeline
+                        {t('academy.step2.title')}
                       </h3>
                       <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
-                        Vertex and Fragment logic drills. Writing GLSL noise patterns.
+                        {t('academy.step2.desc')}
                       </p>
                     </div>
                   </div>
                   <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-red-500 group-hover:bg-red-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Enter Pipeline{' '}
+                    {t('academy.step2.btn')}{' '}
                     <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
               </Link>
 
-              {/* STEP 03 - IMMERSIVE SYSTEMS */}
+              {/* STEP 03 */}
               <Link
                 href="/3d/architecture"
                 className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
@@ -350,15 +340,15 @@ export default function ThreePage() {
                     </span>
                     <div className="flex flex-col gap-1">
                       <h3 className="font-sans text-[13px] leading-tight font-bold tracking-widest text-white uppercase transition-colors group-hover:text-red-500 md:text-base">
-                        Scene Architecture
+                        {t('academy.step3.title')}
                       </h3>
                       <p className="max-w-60 text-[11px] leading-relaxed italic opacity-50 md:max-w-sm md:text-sm">
-                        Managing lights and R3F lifecycle for immersive experiences.
+                        {t('academy.step3.desc')}
                       </p>
                     </div>
                   </div>
-                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-green-500 group-hover:bg-red-500 group-hover:text-black md:self-auto md:text-[10px]">
-                    Start Building
+                  <span className="border-foreground/10 flex w-fit items-center gap-2 self-start border px-3 py-2 text-[8px] font-bold tracking-[0.2em] whitespace-nowrap uppercase transition-all group-hover:border-red-500 group-hover:bg-red-500 group-hover:text-black md:self-auto md:text-[10px]">
+                    {t('academy.step3.btn')}{' '}
                     <FiArrowRight className="text-sm transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
@@ -375,19 +365,21 @@ export default function ThreePage() {
         <Container>
           <div className="relative flex flex-col items-center px-6 py-24">
             <div className="pointer-events-none absolute top-10 right-10 hidden font-serif text-[clamp(4rem,15vw,12rem)] leading-none tracking-tighter uppercase opacity-[0.03] select-none lg:block">
-              The
+              {t('footer.watermark')}
             </div>
             <span className="text-fluid-small font-sans tracking-[0.4em] uppercase opacity-40">
-              Final Chapter
+              {t('footer.label')}
             </span>
             <h2 className="mt-6 font-serif tracking-tighter uppercase">
-              Facing the <span className="text-purple-500 italic">Harsh Truth</span>
+              {t.rich('footer.title', {
+                purple: (chunks) => <span className="text-purple-500 italic">{chunks}</span>,
+              })}
             </h2>
             <Link
               href="/reality-check"
               className="text-fluid-small mt-12 border border-red-500/30 px-10 py-5 font-sans tracking-[0.3em] uppercase transition-all duration-500 hover:bg-red-500 hover:text-white"
             >
-              Read the full manifesto
+              {t('footer.btn')}
             </Link>
           </div>
         </Container>

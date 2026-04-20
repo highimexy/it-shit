@@ -265,5 +265,104 @@
       "title": "Wejdź w <red>Trzeci Wymiar</red>",
       "btn": "Eksploruj Wymiar 3D"
     }
+  },
+  "Three": {
+    "header": {
+      "title": "Three.js & WebGL",
+      "subtitle": "Przesuwanie granic przeglądarki. Shadery, raycasting i immersyjne środowiska 3D."
+    },
+    "math": {
+      "label": "01 / Wektory",
+      "title1": "Wektorowe",
+      "title2": "Szaleństwo",
+      "tagline": "Geometria ze szkoły średniej to już nie wspomnienie — to prawo. W 3D, jeśli nie potrafisz czegoś obliczyć, to nie istnieje.",
+      "quote": "\"Macierze i kwaterniony to niewidzialne rusztowanie twojego świata. Jedna zła cyfra i twoja rzeczywistość się zapada.\"",
+      "linear": {
+        "title": "Algebra Liniowa",
+        "desc": "Opanowanie iloczynu skalarnego, wektorowego i transformacji macierzowych. Od ruchu kamery po odbicia światła — wszystko zależy od tych obliczeń."
+      },
+      "coords": {
+        "title": "Układy Współrzędnych",
+        "desc": "Nawigacja między przestrzenią lokalną, globalną (World) a ekranem. Mapowanie kliknięcia myszką 2D na obiekt 3D to twoja pierwsza \"magiczna\" sztuczka."
+      }
+    },
+    "pipeline": {
+      "label": "02 / System",
+      "title1": "Twój",
+      "title2": "Pipeline",
+      "tagline": "Przejście z CPU na GPU. Nauka bezpośredniej rozmowy z kartą graficzną.",
+      "vertex": {
+        "title": "Vertex Shaders",
+        "desc": "Manipulacja pozycją każdego pojedynczego punktu twojej geometrii. Tak tworzymy proceduralne fale, wiatr w trawie czy morfujące kształty."
+      },
+      "fragment": {
+        "title": "Fragment Shaders",
+        "desc": "Obliczanie koloru każdego piksela na ekranie. Od fotorealistycznego oświetlenia po efekty glitch i generatywny szum. To czysta matematyka GLSL."
+      },
+      "raycasting": {
+        "title": "Raycasting",
+        "desc": "Strzelanie niewidzialnymi laserami z kamery w celu wykrycia kolizji. Niezbędne do hoverów, klikania przycisków w 3D i prostej fizyki."
+      }
+    },
+    "stack": {
+      "label": "03 / System",
+      "title1": "Twój",
+      "title2": "Stack",
+      "tagline": "Standardowy w branży ekosystem do budowania webowej immersji.",
+      "table": {
+        "head1": "Kategoria",
+        "head2": "Narzędzie",
+        "head3": "Rola Techniczna",
+        "cat1": "Silnik",
+        "row1": "Warstwa abstrakcji dla WebGL. Sceny, Światła, Meshe.",
+        "cat2": "React Wrapper",
+        "row2": "Deklaratywne 3D w ekosystemie Reacta.",
+        "cat3": "Modelowanie",
+        "row3": "Eksportowanie zasobów GLTF/GLB i wypalanie tekstur (baking)."
+      }
+    },
+    "optimization": {
+      "label": "04 / Optymalizacja",
+      "title1": "Ściana",
+      "title2": "Optymalizacji",
+      "tagline": "GPU jest potężne, ale ma swoje granice. 60 FPS to nie sugestia — to wymóg.",
+      "drawCalls": {
+        "title": "Draw Calls",
+        "desc": "Każdy obiekt to zapytanie do GPU. Nauka batchowania geometrii i instancjonowania meshy, aby utrzymać stabilny klatkaż na telefonach."
+      },
+      "baking": {
+        "title": "Wypalanie Tekstur",
+        "desc": "Fake it 'til you make it. Obliczanie świateł w Blenderze i \"malowanie\" ich na teksturach, aby uniknąć kosztownych cieni w czasie rzeczywistym."
+      }
+    },
+    "academy": {
+      "label": "Akademia",
+      "title1": "Laboratorium",
+      "title2": "3D",
+      "tagline": "Geometria to język rzeczywistości. Wejdź do laboratorium, by opanować wektory, macierze i shadery budujące immersyjne światy.",
+      "curriculum": "Silnik v2.4",
+      "modules": "Dostępne 3 Wymiary",
+      "step1": {
+        "title": "Leksykon Geometrii",
+        "desc": "Wektory normalne, UV i Macierze. Słownictwo trzeciego wymiaru.",
+        "btn": "Rozpocznij trening"
+      },
+      "step2": {
+        "title": "Pipeline Shaderów",
+        "desc": "Trening logiki Vertex i Fragment. Pisanie szumu w GLSL.",
+        "btn": "Wejdź do Pipeline'u"
+      },
+      "step3": {
+        "title": "Architektura Sceny",
+        "desc": "Zarządzanie światłami i cyklem życia R3F w immersyjnych doświadczeniach.",
+        "btn": "Zacznij Budować"
+      }
+    },
+    "footer": {
+      "watermark": "Rozdział",
+      "label": "Ostatni Rozdział",
+      "title": "Zderzenie z <purple>Faktami</purple>",
+      "btn": "Przeczytaj pełny manifest"
+    }
   }
 }
