@@ -16,16 +16,14 @@ export function LanguageSwitcher() {
   }
 
   return (
-    <div className="text-foreground/60 flex items-center gap-2 font-sans font-bold tracking-[0.2em] transition-opacity hover:opacity-100">
-      <span className="opacity-50">[</span>
-      <Link href={getLocalizedHref('en')} className="hover:text-foreground transition-colors">
+    <div className="text-foreground flex items-center gap-2 font-sans tracking-[0.2em]">
+      <Link href={getLocalizedHref('en')} className="transition-opacity hover:opacity-70">
         EN
       </Link>
-      <span className="opacity-30">/</span>
-      <Link href={getLocalizedHref('pl')} className="hover:text-foreground transition-colors">
+      <span>/</span>
+      <Link href={getLocalizedHref('pl')} className="transition-opacity hover:opacity-70">
         PL
       </Link>
-      <span className="opacity-50">]</span>
     </div>
   )
 }
