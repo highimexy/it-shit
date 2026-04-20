@@ -63,5 +63,9 @@
       "realityQuote": "\"Będziesz debugować kod napisany 5 lat temu i tłumaczyć, dlaczego estymata była błędna.\"",
       "link": "Przeczytaj pełny manifest"
     }
+  },
+  "SubpageHeader": {
+    "exploring": "Eksploracja",
+    "sectionGuide": "Przewodnik po sekcji"
   }
 }

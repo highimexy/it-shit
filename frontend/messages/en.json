@@ -63,5 +63,9 @@
       "realityQuote": "\"You will debug code written 5 years ago and explain why the estimate was wrong.\"",
       "link": "Read the full manifesto"
     }
+  },
+  "SubpageHeader": {
+    "exploring": "Exploring",
+    "sectionGuide": "Section Guide"
   }
 }

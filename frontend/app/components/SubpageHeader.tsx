@@ -2,6 +2,7 @@
 
 import { Container } from '../wrappers/Container'
 import { BackgroundGrid } from './BackgroundGrid'
+import { useTranslations } from 'next-intl'
 
 interface SubpageHeaderProps {
   title: string
@@ -10,13 +11,15 @@ interface SubpageHeaderProps {
 }
 
 export function SubpageHeader({ title, subtitle, accentColor }: SubpageHeaderProps) {
+  const t = useTranslations('SubpageHeader')
+
   return (
     <header className="border-foreground/10 w-full border-b">
       <Container className="relative overflow-hidden">
         <BackgroundGrid />
         <div className="relative z-10 flex flex-col px-6 py-20 text-center">
           <h1 className="text-fluid-h2 font-serif leading-none tracking-tighter uppercase">
-            Exploring <br />
+            {t('exploring')} <br />
             <span className={`${accentColor} italic opacity-90`}>{title}</span>
           </h1>
 
@@ -29,7 +32,7 @@ export function SubpageHeader({ title, subtitle, accentColor }: SubpageHeaderPro
           <div className="mt-8 flex items-center justify-center gap-4 opacity-20">
             <div className="bg-foreground h-px w-12" />
             <span className="font-sans text-[9px] tracking-widest uppercase italic">
-              Section Guide
+              {t('sectionGuide')}
             </span>
             <div className="bg-foreground h-px w-12" />
           </div>
