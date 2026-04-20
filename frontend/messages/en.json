@@ -26,5 +26,42 @@
     "btnHome": "Back to safe grounds",
     "btnTruth": "Face the truth",
     "endOfLine": "End of Line"
+  },
+  "Home": {
+    "qa": {
+      "label": "01. Quality Assurance",
+      "title1": "The Skeptic's",
+      "title2": "Burden",
+      "quote": "\"It's not about finding bugs. It's about being the only person in the room brave enough to ruin everyone's mood.\"",
+      "description": "The reality of QA is 80% detective work on a bug that no one else can reproduce, and 20% fighting for quality.",
+      "link": "Explore QA Roadmap"
+    },
+    "frontend": {
+      "label": "02. Frontend Development",
+      "title1": "Pixel",
+      "title2": "Perfectionist",
+      "quote": "\"You are a sapper in the minefield of browsers. A single margin in Safari can blow up your entire Grid.\"",
+      "description": "Frontend is an eternal struggle between the designer's vision, API limitations, and the reality of cross-browser compatibility.",
+      "link": "Explore Frontend Path"
+    },
+    "threeD": {
+      "label": "03. 3D & WebGL",
+      "title1": "Mathematical",
+      "title2": "Madness",
+      "quote": "\"In 3D, debugging is pure geometry. If you mess up a vector, your object simply ceases to exist in our reality.\"",
+      "description": "Matrices, quaternions, and shaders are the only things standing between a blank screen and a photorealistic world.",
+      "link": "Explore 3D Dimension"
+    },
+    "reality": {
+      "watermark": "Market",
+      "label": "Final Chapter: Reality Check",
+      "titleLine1": "The <light>Truth</light>",
+      "titleLine2": "Behind the <purple>Hype</purple>",
+      "dreamLabel": "The Dream",
+      "dreamQuote": "\"You will build innovative products and change the world in a modern office.\"",
+      "realityLabel": "The Reality",
+      "realityQuote": "\"You will debug code written 5 years ago and explain why the estimate was wrong.\"",
+      "link": "Read the full manifesto"
+    }
   }
 }
