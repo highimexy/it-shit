@@ -3,8 +3,10 @@
 import { Container } from '../wrappers/Container'
 import Link from 'next/link'
 import { FiCoffee } from 'react-icons/fi'
+import { useTranslations } from 'next-intl'
 
 export function Footer() {
+  const t = useTranslations('Footer')
   const currentYear = new Date().getFullYear()
 
   return (
@@ -22,11 +24,14 @@ export function Footer() {
 
           <div className="space-y-8 lg:mb-4 lg:max-w-xs lg:text-right">
             <p className="font-sans text-[10px] leading-relaxed tracking-widest uppercase opacity-50 md:text-xs md:tracking-widest">
-              A project by{' '}
-              <span className="text-foreground font-bold opacity-100">Wiktor EXY. Kowalczyk</span>.
-              Built with{' '}
-              <span className="text-foreground font-bold italic opacity-100">Next.js</span> and{' '}
-              <span className="text-foreground font-bold italic opacity-100">GSAP</span>.
+              {t.rich('description', {
+                bold: (chunks) => (
+                  <span className="text-foreground font-bold opacity-100">{chunks}</span>
+                ),
+                italic: (chunks) => (
+                  <span className="text-foreground font-bold italic opacity-100">{chunks}</span>
+                ),
+              })}
             </p>
 
             <div className="flex flex-col items-start gap-5 lg:flex-row lg:justify-end lg:gap-x-8">
@@ -34,7 +39,7 @@ export function Footer() {
                 href="/about"
                 className="border-foreground/20 hover:border-foreground w-fit border-b font-sans text-[11px] font-bold tracking-[0.15em] whitespace-nowrap uppercase transition-colors md:tracking-[0.2em]"
               >
-                About
+                {t('about')}
               </Link>
 
               <a
@@ -43,14 +48,14 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex w-fit items-center gap-2 border-b border-yellow-500/40 font-sans text-[11px] font-bold tracking-[0.15em] whitespace-nowrap text-yellow-500 uppercase transition-colors hover:border-yellow-500 md:tracking-[0.2em]"
               >
-                Buy me a coffee <FiCoffee className="shrink-0 text-sm" />
+                {t('coffee')} <FiCoffee className="shrink-0 text-sm" />
               </a>
 
               <Link
                 href="/changelog"
                 className="border-foreground/20 hover:border-foreground w-fit border-b font-sans text-[11px] font-bold tracking-[0.15em] whitespace-nowrap uppercase transition-colors md:tracking-[0.2em]"
               >
-                Changelog
+                {t('changelog')}
               </Link>
             </div>
           </div>
@@ -61,7 +66,7 @@ export function Footer() {
             © {currentYear} The Frontend Journal
           </p>
           <span className="mt-4 font-sans text-[10px] tracking-[0.3em] uppercase italic md:mt-0 md:text-xs">
-            Made in Poland
+            {t('madeIn')}
           </span>
         </div>
       </Container>

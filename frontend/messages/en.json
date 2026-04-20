@@ -9,5 +9,12 @@
   },
   "SupportersTicker": {
     "label": "Supporter"
+  },
+  "Footer": {
+    "description": "A project by <bold>Wiktor EXY. Kowalczyk</bold>. Built with <italic>Next.js</italic> and <italic>GSAP</italic>.",
+    "about": "About",
+    "coffee": "Buy me a coffee",
+    "changelog": "Changelog",
+    "madeIn": "Made in Poland"
   }
 }
