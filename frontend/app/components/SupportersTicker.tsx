@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
-
+import { useTranslations } from 'next-intl'
 import { LuSparkles } from 'react-icons/lu'
 
 const supporters = [
@@ -21,6 +21,7 @@ const supporters = [
 const infiniteSupporters = [...supporters, ...supporters, ...supporters]
 
 export function SupportersTicker() {
+  const t = useTranslations('SupportersTicker')
   const tickerRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const tweenRef = useRef<gsap.core.Tween | null>(null)
@@ -65,7 +66,7 @@ export function SupportersTicker() {
         {infiniteSupporters.map((name, idx) => (
           <div key={idx} className="flex shrink-0 items-center gap-6 px-10">
             <span className="font-sans text-[9px] font-bold tracking-[0.4em] uppercase opacity-20">
-              Supporter /
+              {t('label')} /
             </span>
             <span className="font-serif text-xl tracking-tighter uppercase italic opacity-70">
               {name}
