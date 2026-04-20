@@ -70,7 +70,7 @@
   },
   "QA": {
     "header": {
-      "title": "Fundamenty QA",
+      "title": "Fundamentów QA",
       "subtitle": "Opanuj sztukę niszczenia rzeczy, aby stały się niezniszczalne. Logika, przypadki brzegowe i mentalność jakości."
     },
     "mindset": {
@@ -169,12 +169,12 @@
   },
   "Frontend": {
     "header": {
-      "title": "Nowoczesny Frontend",
+      "title": "Nowoczesnego Frontendu",
       "subtitle": "Projektowanie skalowalnych, dostępnych i wydajnych interfejsów za pomocą React i Tailwind CSS."
     },
     "mindset": {
       "label": "01 / Przeglądarka",
-      "title1": "Przeglądarkowy",
+      "title1": "Webowy",
       "title2": "Saper",
       "tagline": "Frontend to nie tylko ładne obrazki; to okiełznanie chaosu na tysiącach różnych ekranów.",
       "quote": "\"Twój kod to jedynie wyedukowane zgadywanie, jak przeglądarka na drugim końcu świata zinterpretuje zestaw instrukcji.\"",
@@ -190,7 +190,7 @@
     "anatomy": {
       "label": "02 / Komponent",
       "title1": "Logika",
-      "title2": "Komponentu",
+      "title2": "UI",
       "tagline": "Rozbijanie UI na reużywalne, atomowe fragmenty, które same zarządzają swoim zachowaniem.",
       "item1": {
         "title": "JSX i DOM",
@@ -273,8 +273,8 @@
     },
     "math": {
       "label": "01 / Wektory",
-      "title1": "Wektorowe",
-      "title2": "Szaleństwo",
+      "title1": "Czysta",
+      "title2": "Matma",
       "tagline": "Geometria ze szkoły średniej to już nie wspomnienie — to prawo. W 3D, jeśli nie potrafisz czegoś obliczyć, to nie istnieje.",
       "quote": "\"Macierze i kwaterniony to niewidzialne rusztowanie twojego świata. Jedna zła cyfra i twoja rzeczywistość się zapada.\"",
       "linear": {
@@ -323,8 +323,8 @@
     },
     "optimization": {
       "label": "04 / Optymalizacja",
-      "title1": "Ściana",
-      "title2": "Optymalizacji",
+      "title1": "Limit",
+      "title2": "Mocy",
       "tagline": "GPU jest potężne, ale ma swoje granice. 60 FPS to nie sugestia — to wymóg.",
       "drawCalls": {
         "title": "Draw Calls",
@@ -367,7 +367,7 @@
   },
   "Reality": {
     "header": {
-      "title": "Zderzenie z Realiami",
+      "title": "Realiów Rynku",
       "subtitle": "Nieprzefiltrowana prawda o IT. Dekodowanie codziennej harówki w startupach i gier w korporacjach."
     },
     "hype": {
