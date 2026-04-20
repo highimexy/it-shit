@@ -3,6 +3,7 @@
 import { Container } from '../wrappers/Container'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import { FiArrowRight } from 'react-icons/fi'
 
 export default function NotFound() {
   const t = useTranslations('NotFound')
@@ -37,9 +38,9 @@ export default function NotFound() {
             </Link>
             <Link
               href="/reality-check"
-              className="border-foreground/20 text-fluid-small hover:border-foreground border px-10 py-5 font-sans font-bold tracking-[0.3em] uppercase transition-all duration-500"
+              className="border-foreground/20 text-fluid-small hover:border-foreground flex items-center gap-2 border px-10 py-5 font-sans font-bold tracking-[0.3em] uppercase transition-all duration-500"
             >
-              {t('btnTruth')}
+              {t('btnTruth')} <FiArrowRight className="text-lg" />
             </Link>
           </div>
 
