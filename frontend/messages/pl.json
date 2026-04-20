@@ -1,10 +1,10 @@
 {
-  "Hero": {
-    "title": "The Frontend Journal",
-    "subtitle": "Twoje źródło inspiracji UI"
-  },
-  "Footer": {
-    "madeIn": "Stworzono w Polsce",
-    "projectBy": "Projekt autorski"
+  "HomeHeader": {
+    "title1": "Opanuj <green>Podstawy</green>",
+    "title2": "Zakoduj <yellow>Frontend</yellow>",
+    "title3": "Wyrenderuj <red>Przyszłość</red>",
+    "title4": "Poznaj <purple>Realia</purple>",
+    "description": "Bądźmy szczerzy: <bold>AI już pisze kod, którego próbujesz się nauczyć.</bold> Podczas gdy Ty marzysz o sześciocyfrowej pensji, rynek szykuje Cię na <bold>stanowiska wejściowe za minimalną krajową</bold>. Pomijamy lanie wody. Od żmudnych <bold>Podstaw QA</bold> po matematyczne piekło <bold>Three.js</bold>, to jest przewodnik przetrwania dla <italic>ery Post-Juniora</italic>.<block>Buduj to, czego maszyny nie potrafią sobie wyobrazić, albo daj się zastąpić promptem.</block>",
+    "footer": "Dziennik dla ciekawskich."
   }
 }
