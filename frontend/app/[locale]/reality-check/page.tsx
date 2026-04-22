@@ -59,9 +59,7 @@ export default function RealityCheckPage() {
                     >
                       {t('hype.reality.title')}
                     </h4>
-                    <p className="text-sm leading-relaxed font-bold opacity-60">
-                      {t('hype.reality.desc')}
-                    </p>
+                    <p className="text-sm leading-relaxed opacity-60">{t('hype.reality.desc')}</p>
                   </div>
                 </div>
               </div>
