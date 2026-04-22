@@ -17,12 +17,12 @@ export default function ChangelogPage() {
       <SectionDivider />
 
       <section className="border-foreground/10 border-b">
-        <Container className="py-20 lg:py-32">
+        <Container className="py-10 lg:py-16">
           <div className="flex flex-col items-start lg:flex-row">
             {/* STICKY SIDEBAR */}
             <aside className="border-foreground/10 bg-foreground/2 border-l0 sticky top-14 hidden w-64 shrink-0 flex-col border border-l-0 lg:flex lg:border-r-0">
               <div className="border-foreground/10 bg-foreground/5 border-b px-6 py-5">
-                <span className="font-mono text-[10px] font-bold tracking-widest uppercase opacity-50">
+                <span className="font-sans text-[11px] font-bold tracking-widest uppercase opacity-50">
                   Indeks Wersji
                 </span>
               </div>
@@ -32,16 +32,16 @@ export default function ChangelogPage() {
                   <a
                     key={`nav-${v}`}
                     href={`#${v}`}
-                    className={`group hover:bg-background relative flex items-center justify-between border border-transparent px-6 py-4 opacity-60 transition-all duration-300 ease-out hover:z-20 hover:translate-x-1 hover:-translate-y-1 hover:rounded-md hover:border-zinc-500/30 hover:opacity-100 hover:shadow-[0_10px_20px_-10px_rgba(161,161,170,0.15)] ${
+                    className={`group hover:bg-background relative flex items-center justify-between border border-transparent px-6 py-5 opacity-60 transition-all duration-300 ease-out hover:z-20 hover:translate-x-1 hover:-translate-y-1 hover:rounded-md hover:border-zinc-500/30 hover:opacity-100 hover:shadow-[0_10px_20px_-10px_rgba(161,161,170,0.15)] ${
                       index !== versions.length - 1
                         ? 'border-b-foreground/10 hover:border-b-zinc-500/30'
                         : ''
                     }`}
                   >
-                    <span className="text-foreground font-mono text-xs font-bold transition-colors group-hover:text-zinc-400">
+                    <span className="text-foreground font-serif text-sm font-bold transition-colors group-hover:text-zinc-400">
                       {t(`${v}.version`)}
                     </span>
-                    <span className="font-mono text-[9px] opacity-40 transition-opacity group-hover:opacity-60">
+                    <span className="font-sans text-[10px] uppercase opacity-40 transition-opacity group-hover:opacity-60">
                       {t(`${v}.date`)}
                     </span>
                   </a>
@@ -55,20 +55,22 @@ export default function ChangelogPage() {
                 <div
                   key={v}
                   id={v}
-                  className="bg-background group relative scroll-mt-32 border border-transparent p-6 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:border-zinc-500/30 hover:shadow-[0_10px_30px_-10px_rgba(161,161,170,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(161,161,170,0.2)]"
+                  className="bg-background group relative scroll-mt-32 border border-transparent p-4 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:border-zinc-500/30 hover:shadow-[0_10px_30px_-10px_rgba(161,161,170,0.15)] md:p-6 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(161,161,170,0.2)] lg:p-8"
                 >
-                  <div className="flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between">
-                    <div className="flex items-center gap-4">
-                      <span className="font-mono text-sm font-bold text-zinc-500 transition-colors group-hover:text-zinc-300">
+                  <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
+                    <div className="flex items-center gap-5">
+                      <span className="font-serif text-xl font-bold text-zinc-500 transition-colors group-hover:text-zinc-300">
                         {t(`${v}.version`)}
                       </span>
-                      <span className="bg-foreground/5 px-2 py-1 font-mono text-[10px] tracking-widest uppercase opacity-40">
+                      <span className="bg-foreground/5 px-3 py-1 font-sans text-[10px] font-bold tracking-widest uppercase opacity-50">
                         {t(`${v}.tag`)}
                       </span>
                     </div>
-                    <span className="font-mono text-[10px] opacity-30">{t(`${v}.date`)}</span>
+                    <span className="font-sans text-[11px] uppercase opacity-40">
+                      {t(`${v}.date`)}
+                    </span>
                   </div>
-                  <p className="mt-6 max-w-2xl font-sans text-sm leading-relaxed opacity-60">
+                  <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed opacity-60">
                     {t(`${v}.desc`)}
                   </p>
                 </div>
