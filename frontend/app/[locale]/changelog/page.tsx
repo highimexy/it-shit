@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl'
 export default function ChangelogPage() {
   const t = useTranslations('Changelog')
 
-  // Klucze wersji z Twojego pliku messages/pl.json i en.json
+  // Version keys matching messages JSON files
   const versions = ['v120', 'v110', 'v100']
 
   return (
@@ -20,23 +20,22 @@ export default function ChangelogPage() {
         <Container className="py-20 lg:py-32">
           <div className="flex flex-col items-start lg:flex-row">
             {/* STICKY SIDEBAR */}
-            {/* Zmiana: lg:border-r-0 - lewa kolumna oddaje odpowiedzialność za prawą krawędź */}
             <aside className="border-foreground/10 bg-foreground/2 border-l0 sticky top-14 hidden w-64 shrink-0 flex-col border border-l-0 lg:flex lg:border-r-0">
-              {/* Nagłówek panelu */}
               <div className="border-foreground/10 bg-foreground/5 border-b px-6 py-5">
                 <span className="font-mono text-[10px] font-bold tracking-widest uppercase opacity-50">
                   Indeks Wersji
                 </span>
               </div>
 
-              {/* Lista wersji */}
               <nav className="flex flex-col">
                 {versions.map((v, index) => (
                   <a
                     key={`nav-${v}`}
                     href={`#${v}`}
-                    className={`group hover:bg-foreground/5 flex items-center justify-between px-6 py-4 opacity-60 transition-all hover:opacity-100 ${
-                      index !== versions.length - 1 ? 'border-foreground/10 border-b' : ''
+                    className={`group hover:bg-background relative flex items-center justify-between border border-transparent px-6 py-4 opacity-60 transition-all duration-300 ease-out hover:z-20 hover:translate-x-1 hover:-translate-y-1 hover:rounded-md hover:border-zinc-500/30 hover:opacity-100 hover:shadow-[0_10px_20px_-10px_rgba(161,161,170,0.15)] ${
+                      index !== versions.length - 1
+                        ? 'border-b-foreground/10 hover:border-b-zinc-500/30'
+                        : ''
                     }`}
                   >
                     <span className="text-foreground font-mono text-xs font-bold transition-colors group-hover:text-zinc-400">
@@ -51,17 +50,16 @@ export default function ChangelogPage() {
             </aside>
 
             {/* MAIN CONTENT */}
-            {/* Zmiana: usunięto lg:border-l-0 - teraz prawa kolumna zarządza łączącym obramowaniem */}
             <div className="bg-foreground/10 border-foreground/10 flex w-full flex-1 flex-col gap-px border lg:border-r-0">
               {versions.map((v) => (
                 <div
                   key={v}
                   id={v}
-                  className="bg-background group scroll-mt-32 p-6 transition-colors hover:bg-zinc-900/10 md:p-10"
+                  className="bg-background group relative scroll-mt-32 border border-transparent p-6 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:border-zinc-500/30 hover:shadow-[0_10px_30px_-10px_rgba(161,161,170,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(161,161,170,0.2)]"
                 >
                   <div className="flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between">
                     <div className="flex items-center gap-4">
-                      <span className="font-mono text-sm font-bold text-zinc-500">
+                      <span className="font-mono text-sm font-bold text-zinc-500 transition-colors group-hover:text-zinc-300">
                         {t(`${v}.version`)}
                       </span>
                       <span className="bg-foreground/5 px-2 py-1 font-mono text-[10px] tracking-widest uppercase opacity-40">
