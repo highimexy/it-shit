@@ -467,5 +467,40 @@
       "btn1": "Return to Entry",
       "btn2": "Back to the Grind"
     }
+  },
+  "About": {
+    "header": {
+      "title": "About Project"
+    },
+    "manifesto": {
+      "title": "Why does this journal exist?",
+      "p1": "The IT market is no longer a playground. The era where centering a div was enough to earn six figures is gone. Today, <bold>AI writes code better than the average junior</bold>, and companies are looking for engineers, not just coders.",
+      "p2": "The Frontend Journal is not another course. It's a record of experiences, a brutal analysis of reality, and a guide to technologies that actually matter: from QA logic, through React architecture, to the mathematical hell of 3D shaders.",
+      "quote": "\"Build what machines cannot imagine, or be replaced by a prompt.\""
+    }
+  },
+  "Changelog": {
+    "header": {
+      "title": "System Logs",
+      "subtitle": "Evolution history of the Journal structure."
+    },
+    "v120": {
+      "version": "v1.2.0",
+      "date": "2026-04-22",
+      "tag": "[FEAT]",
+      "desc": "Ecosystem expansion: Integrated specialized sectors for Frontend, 3D (WebGL), and Reality Check. Refined header system, implemented sticky navigation, and optimized i18n for complex UI structures."
+    },
+    "v110": {
+      "version": "v1.1.0",
+      "date": "2026-04-22",
+      "tag": "[I18N]",
+      "desc": "Full implementation of the multi-language system (Next-intl). Architecture ready for content scaling."
+    },
+    "v100": {
+      "version": "v1.0.0",
+      "date": "2026-04-15",
+      "tag": "[INIT]",
+      "desc": "System core initialization. Deployment of design system, GSAP animations, and main layout."
+    }
   }
 }
