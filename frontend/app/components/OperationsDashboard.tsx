@@ -4,7 +4,7 @@ import { Container } from '../wrappers/Container'
 import { FiTerminal } from 'react-icons/fi'
 import { useState, useEffect } from 'react'
 
-// Definiujemy interfejs (musi w 100% zgadzać się ze strukturą z Golanga)
+// --- INTERFEJSY ---
 interface Tweet {
   id: string
   author: string
@@ -13,47 +13,33 @@ interface Tweet {
   text: string
 }
 
-// 4 sekcje rynkowe
-const markets = [
-  {
-    category: 'CRYPTO',
-    items: [
-      { sym: 'BTC', price: '68,230', chg: '+2.4%', up: true },
-      { sym: 'ETH', price: '3,450', chg: '+1.1%', up: true },
-    ],
-  },
-  {
-    category: 'US.STK',
-    items: [
-      { sym: 'NVDA', price: '875.28', chg: '+3.2%', up: true },
-      { sym: 'AAPL', price: '168.22', chg: '-0.5%', up: false },
-    ],
-  },
-  {
-    category: 'GLB.IDX',
-    items: [
-      { sym: 'NIKKEI', price: '39,836', chg: '+0.8%', up: true },
-      { sym: 'DAX', price: '18,261', chg: '-0.1%', up: false },
-    ],
-  },
-  {
-    category: 'PL.STK',
-    items: [
-      { sym: 'WIG20', price: '2,450', chg: '+1.5%', up: true },
-      { sym: 'CDR', price: '112.40', chg: '-1.2%', up: false },
-    ],
-  },
-]
+interface Asset {
+  sym: string
+  price: string
+  chg: string
+  up: boolean
+}
+
+interface MarketRow {
+  category: string
+  items: Asset[]
+}
 
 export function OperationsDashboard() {
+  // Stan Telefonu (Twitter)
   const [tweets, setTweets] = useState<Tweet[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  // Pobieranie danych z naszego backendu w Go
+  // Stan Terminala (Rynki via WebSocket)
+  const [markets, setMarkets] = useState<MarketRow[]>([])
+  const [wsStatus, setWsStatus] = useState<'CONNECTING' | 'CONNECTED' | 'DISCONNECTED'>(
+    'CONNECTING'
+  )
+
+  // --- LOGIKA TWITTERA (REST API) ---
   useEffect(() => {
     const fetchTweets = async () => {
       try {
-        // Uderzamy pod adres odpalonego lokalnie serwera Go
         const res = await fetch('http://localhost:8080/api/v1/tweets')
         if (!res.ok) throw new Error('Błąd połączenia z serwerem')
 
@@ -61,16 +47,37 @@ export function OperationsDashboard() {
         setTweets(data)
       } catch (error) {
         console.error('[API Error]:', error)
-        // W razie awarii backendu, możemy wrzucić tu pustą tablicę lub mocki,
-        // żeby frontend się nie wysypał. Na razie zostawiamy po prostu błąd w konsoli.
       } finally {
         setIsLoading(false)
       }
     }
 
-    // Dodajmy minimalne sztuczne opóźnienie (700ms),
-    // żebyś na ułamek sekundy widział ekran ładowania - czysty inżynieryjny vibe.
     setTimeout(() => fetchTweets(), 700)
+  }, [])
+
+  // --- LOGIKA GIEŁDY (WebSockets) ---
+  useEffect(() => {
+    // Nawiązujemy stałe połączenie z backendem w Golangu
+    const ws = new WebSocket('ws://localhost:8080/ws/market')
+
+    ws.onopen = () => {
+      setWsStatus('CONNECTED')
+    }
+
+    ws.onmessage = (event) => {
+      // Za każdym razem gdy Go wyśle paczkę, odświeżamy stan
+      const data = JSON.parse(event.data)
+      setMarkets(data)
+    }
+
+    ws.onclose = () => {
+      setWsStatus('DISCONNECTED')
+    }
+
+    // Ubijamy połączenie, gdy użytkownik wyjdzie z tej strony
+    return () => {
+      ws.close()
+    }
   }, [])
 
   return (
@@ -145,7 +152,7 @@ export function OperationsDashboard() {
             </div>
           </div>
 
-          {/* PRAWA STRONA - TERMINAL FINANSOWY (Na razie statyczny) */}
+          {/* PRAWA STRONA - TERMINAL FINANSOWY (Live WS) */}
           <div className="flex w-full max-w-md shrink-0 flex-col lg:max-w-lg">
             <div className="border-foreground/20 bg-background flex flex-col overflow-hidden rounded-xl border shadow-2xl backdrop-blur-md">
               <div className="border-foreground/10 bg-foreground/5 flex h-10 items-center gap-2 border-b px-4">
@@ -155,12 +162,22 @@ export function OperationsDashboard() {
                 <span className="text-foreground ml-4 flex items-center gap-2 font-mono text-[10px] opacity-50">
                   <FiTerminal /> market_board.sh
                 </span>
+
+                {/* Wskaźnik statusu WebSocketa z prawej strony */}
+                <div className="ml-auto flex items-center gap-2">
+                  <div
+                    className={`h-2 w-2 rounded-full ${wsStatus === 'CONNECTED' ? 'animate-pulse bg-green-500' : 'bg-red-500'}`}
+                  />
+                  <span className="text-foreground font-mono text-[8px] opacity-40">
+                    {wsStatus}
+                  </span>
+                </div>
               </div>
 
               <div className="flex flex-col p-6 font-mono text-sm leading-relaxed">
                 <div className="mb-6 flex flex-col gap-1 text-xs opacity-60">
-                  <span>[!] Initializing global market data... OK.</span>
-                  <span>[!] Fetching {markets.length} data streams... OK.</span>
+                  <span>[!] Initializing secure WebSocket stream... OK.</span>
+                  <span>[!] Fetching {markets.length || 4} data streams... OK.</span>
                   <span className="border-foreground/10 text-foreground mt-2 border-b pb-2 font-bold tracking-widest uppercase">
                     Terminal Active
                   </span>
@@ -181,8 +198,9 @@ export function OperationsDashboard() {
                             <span className="text-foreground font-bold opacity-80">{item.sym}</span>
                             <div className="flex gap-3 text-right">
                               <span className="text-foreground opacity-60">{item.price}</span>
+                              {/* Dodany animate-pulse, żeby widać było aktualizacje wypychane przez serwer */}
                               <span
-                                className={`w-12 text-right ${item.up ? 'text-green-500' : 'text-red-500'}`}
+                                className={`w-12 animate-pulse text-right ${item.up ? 'text-green-500' : 'text-red-500'}`}
                               >
                                 {item.chg}
                               </span>
@@ -192,6 +210,11 @@ export function OperationsDashboard() {
                       </div>
                     </div>
                   ))}
+
+                  {/* Pusty stan, dopóki dane nie przyjdą */}
+                  {markets.length === 0 && wsStatus === 'CONNECTING' && (
+                    <div className="text-xs opacity-40">Awaiting market data payload...</div>
+                  )}
                 </div>
 
                 <div className="mt-8 flex items-center gap-2 text-xs opacity-50">
