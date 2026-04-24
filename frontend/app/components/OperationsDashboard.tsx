@@ -4,7 +4,6 @@ import { Container } from '../wrappers/Container'
 import { FiTerminal } from 'react-icons/fi'
 import { useState, useEffect } from 'react'
 
-// --- INTERFEJSY ---
 interface Tweet {
   id: string
   author: string
@@ -26,22 +25,21 @@ interface MarketRow {
 }
 
 export function OperationsDashboard() {
-  // Stan Telefonu (Twitter)
+  // --- STATE ---
   const [tweets, setTweets] = useState<Tweet[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  // Stan Terminala (Rynki via WebSocket)
   const [markets, setMarkets] = useState<MarketRow[]>([])
   const [wsStatus, setWsStatus] = useState<'CONNECTING' | 'CONNECTED' | 'DISCONNECTED'>(
     'CONNECTING'
   )
 
-  // --- LOGIKA TWITTERA (REST API) ---
+  // --- TWITTER LOGIC (REST API) ---
   useEffect(() => {
     const fetchTweets = async () => {
       try {
         const res = await fetch('http://localhost:8080/api/v1/tweets')
-        if (!res.ok) throw new Error('Błąd połączenia z serwerem')
+        if (!res.ok) throw new Error('Server connection error')
 
         const data = await res.json()
         setTweets(data)
@@ -52,12 +50,12 @@ export function OperationsDashboard() {
       }
     }
 
+    // Artificial delay for UI effect
     setTimeout(() => fetchTweets(), 700)
   }, [])
 
-  // --- LOGIKA GIEŁDY (WebSockets) ---
+  // --- MARKET LOGIC (WebSockets) ---
   useEffect(() => {
-    // Nawiązujemy stałe połączenie z backendem w Golangu
     const ws = new WebSocket('ws://localhost:8080/ws/market')
 
     ws.onopen = () => {
@@ -65,7 +63,6 @@ export function OperationsDashboard() {
     }
 
     ws.onmessage = (event) => {
-      // Za każdym razem gdy Go wyśle paczkę, odświeżamy stan
       const data = JSON.parse(event.data)
       setMarkets(data)
     }
@@ -74,38 +71,37 @@ export function OperationsDashboard() {
       setWsStatus('DISCONNECTED')
     }
 
-    // Ubijamy połączenie, gdy użytkownik wyjdzie z tej strony
+    // Cleanup on unmount
     return () => {
       ws.close()
     }
   }, [])
 
   return (
-    <section className="border-foreground/10 bg-foreground/[0.01] relative overflow-hidden border-b">
+    <section className="border-foreground/10 relative overflow-hidden border-b">
       <Container className="relative z-10 py-20 lg:py-32">
         <div className="flex flex-col items-center justify-center gap-16 lg:flex-row lg:gap-24">
-          {/* LEWA STRONA - NOTHING PHONE */}
-          <div className="border-foreground/20 bg-foreground/5 relative flex h-[600px] w-[280px] shrink-0 flex-col rounded-[3rem] border p-3 shadow-2xl backdrop-blur-md">
+          {/* LEFT PANEL - PHONE */}
+          <div className="border-foreground/20 bg-foreground/5 relative flex h-150 w-70 shrink-0 flex-col rounded-[3rem] border p-3 shadow-2xl backdrop-blur-md">
             {/* Notch */}
             <div className="border-background/20 bg-foreground absolute top-5 left-1/2 z-20 h-5 w-16 -translate-x-1/2 rounded-full border" />
 
-            {/* Glyphy z tyłu */}
+            {/* Back Glyphs */}
             <div className="bg-foreground/20 absolute top-24 -left-1 h-12 w-1 rounded-l-md blur-[1px]" />
             <div className="bg-foreground/20 absolute top-32 -right-1 h-20 w-1 rounded-r-md blur-[1px]" />
 
-            {/* Ekran */}
+            {/* Screen */}
             <div className="border-foreground/10 bg-background relative flex flex-1 flex-col overflow-hidden rounded-[2.5rem] border shadow-inner">
-              {/* Header Feed */}
+              {/* Feed Header */}
               <div className="border-foreground/10 bg-foreground/5 border-b p-4 pt-10 text-center">
                 <span className="text-foreground font-mono text-[9px] font-bold tracking-widest uppercase opacity-50">
                   AI Pulse // Live Feed
                 </span>
               </div>
 
-              {/* Obszar roboczy Feed-u */}
+              {/* Feed Content */}
               <div className="hide-scrollbar flex flex-1 flex-col gap-4 overflow-y-auto p-4">
                 {isLoading ? (
-                  // EKRAN ŁADOWANIA
                   <div className="flex h-full w-full flex-col items-center justify-center text-center opacity-40">
                     <span className="border-foreground h-4 w-4 animate-spin rounded-full border-2 border-t-transparent"></span>
                     <span className="mt-4 animate-pulse font-mono text-[10px] tracking-widest uppercase">
@@ -113,11 +109,10 @@ export function OperationsDashboard() {
                     </span>
                   </div>
                 ) : tweets.length > 0 ? (
-                  // TWEETY (Dane z Go)
                   tweets.map((tweet) => (
                     <div
                       key={tweet.id}
-                      className="border-foreground/10 bg-foreground/[0.02] flex flex-col gap-2 rounded-2xl border p-4 font-sans text-sm"
+                      className="border-foreground/10 bg-foreground/2 flex flex-col gap-2 rounded-2xl border p-4 font-sans text-sm"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -141,7 +136,6 @@ export function OperationsDashboard() {
                     </div>
                   ))
                 ) : (
-                  // EKRAN BŁĘDU / PUSTY STAN
                   <div className="flex h-full w-full items-center justify-center text-center opacity-30">
                     <span className="font-mono text-[10px] tracking-widest text-red-500 uppercase">
                       [ Connection Failed ]
@@ -152,7 +146,7 @@ export function OperationsDashboard() {
             </div>
           </div>
 
-          {/* PRAWA STRONA - TERMINAL FINANSOWY (Live WS) */}
+          {/* RIGHT PANEL - FINANCIAL TERMINAL */}
           <div className="flex w-full max-w-md shrink-0 flex-col lg:max-w-lg">
             <div className="border-foreground/20 bg-background flex flex-col overflow-hidden rounded-xl border shadow-2xl backdrop-blur-md">
               <div className="border-foreground/10 bg-foreground/5 flex h-10 items-center gap-2 border-b px-4">
@@ -163,7 +157,7 @@ export function OperationsDashboard() {
                   <FiTerminal /> market_board.sh
                 </span>
 
-                {/* Wskaźnik statusu WebSocketa z prawej strony */}
+                {/* WS Status Indicator */}
                 <div className="ml-auto flex items-center gap-2">
                   <div
                     className={`h-2 w-2 rounded-full ${wsStatus === 'CONNECTED' ? 'animate-pulse bg-green-500' : 'bg-red-500'}`}
@@ -198,7 +192,6 @@ export function OperationsDashboard() {
                             <span className="text-foreground font-bold opacity-80">{item.sym}</span>
                             <div className="flex gap-3 text-right">
                               <span className="text-foreground opacity-60">{item.price}</span>
-                              {/* Dodany animate-pulse, żeby widać było aktualizacje wypychane przez serwer */}
                               <span
                                 className={`w-12 animate-pulse text-right ${item.up ? 'text-green-500' : 'text-red-500'}`}
                               >
@@ -211,7 +204,7 @@ export function OperationsDashboard() {
                     </div>
                   ))}
 
-                  {/* Pusty stan, dopóki dane nie przyjdą */}
+                  {/* Awaiting Payload State */}
                   {markets.length === 0 && wsStatus === 'CONNECTING' && (
                     <div className="text-xs opacity-40">Awaiting market data payload...</div>
                   )}
