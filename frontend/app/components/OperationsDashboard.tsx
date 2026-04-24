@@ -62,12 +62,11 @@ const markets = [
 
 export function OperationsDashboard() {
   return (
-    <section className="border-foreground/10 bg-foreground/[0.01] relative overflow-hidden border-b">
+    <section className="border-foreground/10 relative overflow-hidden border-b">
       <Container className="relative z-10 py-20 lg:py-32">
-        {/* Usunęliśmy twardego grida na rzecz flexa z centrowaniem */}
         <div className="flex flex-col items-center justify-center gap-16 lg:flex-row lg:gap-24">
           {/* LEWA STRONA - NOTHING PHONE */}
-          <div className="border-foreground/20 bg-foreground/5 relative flex h-[600px] w-[280px] shrink-0 flex-col rounded-[3rem] border p-3 shadow-2xl backdrop-blur-md">
+          <div className="border-foreground/20 bg-foreground/5 relative flex h-150 w-70 shrink-0 flex-col rounded-[3rem] border p-3 shadow-2xl backdrop-blur-md">
             {/* Notch */}
             <div className="border-background/20 bg-foreground absolute top-5 left-1/2 z-20 h-5 w-16 -translate-x-1/2 rounded-full border" />
 
@@ -89,7 +88,7 @@ export function OperationsDashboard() {
                 {tweets.map((tweet) => (
                   <div
                     key={tweet.id}
-                    className="border-foreground/10 bg-foreground/[0.02] flex flex-col gap-2 rounded-2xl border p-4 font-sans text-sm"
+                    className="border-foreground/10 flex flex-col gap-2 rounded-2xl border p-4 font-sans text-sm"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
