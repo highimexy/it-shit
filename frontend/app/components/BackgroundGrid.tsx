@@ -7,7 +7,6 @@ interface BackgroundGridProps {
 export function BackgroundGrid({ color = 'rgba(161, 161, 170, 0.25)' }: BackgroundGridProps) {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 h-full w-full overflow-hidden">
-      {/* Oddychająca siatka */}
       <div
         className="absolute inset-0 h-full w-full"
         style={{
@@ -23,7 +22,6 @@ export function BackgroundGrid({ color = 'rgba(161, 161, 170, 0.25)' }: Backgrou
         }}
       />
 
-      {/* KLUCZE ANIMACJI */}
       <style>{`
         @keyframes grid-breathe {
           0%, 100% { 

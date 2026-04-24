@@ -385,8 +385,6 @@ export default function ThreePage() {
             </div>
           </Container>
         </section>
-
-        {/* Zamknięcie strony linią bez marginesu, żeby idealnie siadło na stopce */}
         <SectionDivider />
       </main>
     </div>
