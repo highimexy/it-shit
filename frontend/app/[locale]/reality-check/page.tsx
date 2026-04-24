@@ -345,7 +345,7 @@ export default function RealityCheckPage() {
       <SectionDivider />
 
       {/* FINAL CALL TO ACTION */}
-      <section className="text-center">
+      <section className="border-foreground/10 border-b text-center">
         <Container>
           <div className="relative flex flex-col items-center px-6 py-24">
             <div className="pointer-events-none absolute top-10 right-10 hidden font-serif text-[clamp(4rem,15vw,12rem)] leading-none tracking-tighter uppercase opacity-[0.03] select-none lg:block">
@@ -382,6 +382,8 @@ export default function RealityCheckPage() {
           </div>
         </Container>
       </section>
+
+      <SectionDivider />
     </main>
   )
 }

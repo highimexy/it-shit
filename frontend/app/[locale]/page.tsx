@@ -7,6 +7,7 @@ import { Container } from '../wrappers/Container'
 import Link from 'next/link'
 import { SupportersTicker } from '../components/SupportersTicker'
 import { useTranslations } from 'next-intl'
+import { OperationsDashboard } from '../components/OperationsDashboard'
 
 export default function Home() {
   const t = useTranslations('Home')
@@ -18,7 +19,8 @@ export default function Home() {
         <SectionDivider />
         <SupportersTicker />
         <SectionDivider />
-
+        <OperationsDashboard />
+        <SectionDivider />
         {/* 01. QA SECTION */}
         <section className="border-foreground/10 w-full overflow-hidden border-b">
           <Container className="py-16 md:py-24">
@@ -173,6 +175,7 @@ export default function Home() {
             </div>
           </Container>
         </section>
+        <SectionDivider />
       </main>
     </div>
   )
