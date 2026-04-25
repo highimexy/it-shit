@@ -26,7 +26,6 @@ interface MarketRow {
 }
 
 export function OperationsDashboard() {
-  // --- STATE ---
   const [tweets, setTweets] = useState<Tweet[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -35,11 +34,10 @@ export function OperationsDashboard() {
     'CONNECTING'
   )
 
-  // --- TWITTER LOGIC (REST API) ---
   useEffect(() => {
     const fetchTweets = async () => {
       try {
-        const res = await fetch('http://localhost:8080/api/v1/tweets')
+        const res = await fetch(`http://localhost:8080/api/v1/tweets?t=${Date.now()}`)
         if (!res.ok) throw new Error('Server connection error')
 
         const data = await res.json()
@@ -51,11 +49,13 @@ export function OperationsDashboard() {
       }
     }
 
-    // Artificial delay for UI effect
     setTimeout(() => fetchTweets(), 700)
+
+    // Polling co 10 sekund dla rotacji tweetów
+    const intervalId = setInterval(fetchTweets, 10000)
+    return () => clearInterval(intervalId)
   }, [])
 
-  // --- MARKET LOGIC (WebSockets) ---
   useEffect(() => {
     const ws = new WebSocket('ws://localhost:8080/ws/market')
 
@@ -72,7 +72,6 @@ export function OperationsDashboard() {
       setWsStatus('DISCONNECTED')
     }
 
-    // Cleanup on unmount
     return () => {
       ws.close()
     }
@@ -82,15 +81,12 @@ export function OperationsDashboard() {
     <section className="border-foreground/10 relative overflow-hidden border-b">
       <Container className="relative z-10 py-20 lg:py-32">
         {/* SIDE WATERMARKS */}
-
-        {/* LEFT WRAPPER */}
         <div className="pointer-events-none absolute top-1/2 left-1 -z-10 hidden -translate-y-1/2 select-none lg:block">
           <div className="origin-center -rotate-90 pb-80 font-serif text-[clamp(4rem,18vw,11rem)] leading-none tracking-tighter uppercase opacity-[0.02]">
             Twitts
           </div>
         </div>
 
-        {/* RIGHT WRAPPER */}
         <div className="pointer-events-none absolute top-1/2 right-0 -z-10 hidden -translate-y-1/2 select-none lg:block">
           <div className="origin-center rotate-90 pb-80 font-serif text-[clamp(4rem,18vw,12rem)] leading-none tracking-tighter uppercase opacity-[0.02]">
             Stocks
@@ -100,23 +96,17 @@ export function OperationsDashboard() {
         <div className="flex flex-col items-center justify-center gap-16 lg:flex-row lg:gap-24">
           {/* LEFT PANEL - PHONE */}
           <div className="border-foreground/20 bg-foreground/5 relative flex h-150 w-70 shrink-0 flex-col rounded-[3rem] border p-3 shadow-2xl backdrop-blur-md">
-            {/* Notch */}
             <div className="border-background/20 bg-foreground absolute top-5 left-1/2 z-20 h-5 w-16 -translate-x-1/2 rounded-full border" />
-
-            {/* Back Glyphs */}
             <div className="bg-foreground/20 absolute top-24 -left-1 h-12 w-1 rounded-l-md blur-[1px]" />
             <div className="bg-foreground/20 absolute top-32 -right-1 h-20 w-1 rounded-r-md blur-[1px]" />
 
-            {/* Screen */}
             <div className="border-foreground/10 bg-background relative flex flex-1 flex-col overflow-hidden rounded-[2.5rem] border shadow-inner">
-              {/* Feed Header */}
               <div className="border-foreground/10 bg-foreground/5 border-b p-4 pt-10 text-center">
                 <span className="text-foreground font-mono text-[9px] font-bold tracking-widest uppercase opacity-50">
                   AI Pulse // Live Feed
                 </span>
               </div>
 
-              {/* Feed Content */}
               <div className="hide-scrollbar flex flex-1 flex-col gap-4 overflow-y-auto p-4">
                 {isLoading ? (
                   <div className="flex h-full w-full flex-col items-center justify-center text-center opacity-40">
@@ -176,49 +166,51 @@ export function OperationsDashboard() {
                   <div className="h-3 w-3 rounded-full border border-red-500/30 bg-red-500/80" />
                   <div className="h-3 w-3 rounded-full border border-yellow-500/30 bg-yellow-500/80" />
                   <div className="h-3 w-3 rounded-full border border-green-500/30 bg-green-500/80" />
-                  <div className="text-foreground ml-2 flex items-center gap-2 font-mono text-[10px] leading-none opacity-50">
+                  <div className="text-foreground ml-2 flex translate-y-0.5 items-center gap-2 font-mono text-[10px] leading-none opacity-50">
                     <FiTerminal className="text-xs" />
-                    <span className="pt-1">market_board.zsh</span>
+                    <span>market_board.zsh</span>
                   </div>
                 </div>
 
-                {/* WS Status Indicator */}
                 <div className="flex items-center gap-2">
                   <div
                     className={`h-2 w-2 rounded-full ${wsStatus === 'CONNECTED' ? 'animate-pulse bg-green-500' : 'bg-red-500'}`}
                   />
-                  <span className="text-foreground translate-y-px font-mono text-[10px] opacity-50">
+                  <span className="text-foreground translate-y-px font-mono text-[8px] opacity-40">
                     {wsStatus}
                   </span>
                 </div>
               </div>
 
               <div className="flex flex-col p-6 font-mono text-sm leading-relaxed">
-                <div className="mb-6 flex flex-col gap-1 text-xs opacity-60">
+                <div className="mb-12 flex flex-col gap-1 text-xs opacity-60">
                   <span>[!] Initializing secure WebSocket stream... OK.</span>
-                  <span>[!] Fetching {markets.length || 4} data streams... OK.</span>
+                  <span>[!] Fetching {markets.length || 2} data streams... OK.</span>
                   <span className="border-foreground/10 text-foreground mt-2 border-b pb-2 font-bold tracking-widest uppercase">
                     Terminal Active
                   </span>
                 </div>
 
-                <div className="flex flex-col gap-6">
+                <div className="align-center flex flex-col gap-6">
                   {markets.map((row) => (
                     <div
                       key={row.category}
-                      className="border-foreground/10 hover:border-foreground/30 flex flex-col gap-2 border-l-2 pl-4 transition-colors sm:flex-row sm:items-baseline sm:justify-between"
+                      className="border-foreground/10 hover:border-foreground/30 flex flex-col gap-3 border-l-2 pl-4 transition-colors"
                     >
-                      <span className="text-foreground w-20 text-[10px] font-bold tracking-widest uppercase opacity-40">
+                      <span className="text-foreground w-full text-[10px] font-bold tracking-widest uppercase opacity-40">
                         [{row.category}]
                       </span>
-                      <div className="flex flex-1 flex-col gap-2 sm:flex-row sm:gap-6">
+
+                      <div className="grid w-full grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
                         {row.items.map((item) => (
-                          <div key={item.sym} className="flex flex-1 justify-between gap-4 text-xs">
+                          <div key={item.sym} className="flex justify-between gap-4 text-xs">
                             <span className="text-foreground font-bold opacity-80">{item.sym}</span>
-                            <div className="flex gap-3 text-right">
-                              <span className="text-foreground opacity-60">{item.price}</span>
+                            <div className="flex gap-2 text-right">
+                              <span className="text-foreground w-16 text-right opacity-60">
+                                {item.price}
+                              </span>
                               <span
-                                className={`w-12 animate-pulse text-right ${item.up ? 'text-green-500' : 'text-red-500'}`}
+                                className={`w-14 animate-pulse text-right ${item.up ? 'text-green-500' : 'text-red-500'}`}
                               >
                                 {item.chg}
                               </span>
@@ -229,13 +221,12 @@ export function OperationsDashboard() {
                     </div>
                   ))}
 
-                  {/* Awaiting Payload State */}
                   {markets.length === 0 && wsStatus === 'CONNECTING' && (
                     <div className="text-xs opacity-40">Awaiting market data payload...</div>
                   )}
                 </div>
 
-                <div className="mt-8 flex items-center gap-2 text-xs opacity-50">
+                <div className="mt-12 flex items-center gap-2 text-xs opacity-50">
                   <span>guest@tfj:~$</span>
                   <span className="bg-foreground h-4 w-2 animate-pulse"></span>
                 </div>

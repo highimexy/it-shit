@@ -44,6 +44,6 @@ func StartWorker(c *Cache) {
 		log.Println("[TWITTER] Feed successfully rotated.")
 		
 		// Wait before the next rotation cycle
-		time.Sleep(10 * time.Second)
+		time.Sleep(5 * time.Minute)
 	}
 }
