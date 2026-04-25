@@ -5,18 +5,18 @@ import (
 	"net/http"
 )
 
-// NewHandler tworzy endpoint, wstrzykując do niego zależność w postaci Cache
+// NewHandler injects the cache dependency into the HTTP handler
 func NewHandler(c *Cache) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		
-		// CORS (do lokalnego testowania z Next.js)
+		// CORS & Headers
 		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Content-Type", "application/json")
+		w.Header().Set("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
 
-		// Pobieramy dane przez bezpieczną metodę Get()
+		// Fetch from memory
 		tweets := c.Get()
 
-		// Wysyłamy JSON do klienta
+		// Encode to JSON and send
 		if err := json.NewEncoder(w).Encode(tweets); err != nil {
 			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 		}

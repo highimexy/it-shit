@@ -1,27 +1,49 @@
 package twitter
 
 import (
+	"encoding/json"
 	"log"
+	"math/rand"
+	"os"
 	"time"
 )
 
-// StartWorker uruchamia nieskończoną pętlę pobierającą dane
+// StartWorker runs a background job to rotate curated tweets
 func StartWorker(c *Cache) {
-	log.Println("[TWITTER WORKER] Inicjalizacja...")
+	log.Println("[TWITTER] Initializing curation worker...")
+
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	for {
-		// Mockowane dane - w przyszłości tu będzie zapytanie HTTP
-		mockData := []Tweet{
-			{ID: "1", Author: "@sama", Name: "Sam Altman", Time: "1h", Text: "AGI is closer than we think. The scaling laws hold. Keep building and adapting."},
-			{ID: "2", Author: "@swyx", Name: "Shawn @ swyx.io", Time: "3h", Text: "AI engineering is the new frontend. If you only know React in 2026, you are competing with machines."},
-			{ID: "3", Author: "@ThePrimeagen", Name: "ThePrimeagen", Time: "5h", Text: "VIM is not a text editor. It is a way of life. Also, stop using any-types in TypeScript."},
+		fileBytes, err := os.ReadFile("data/tweets.json")
+		if err != nil {
+			log.Printf("[TWITTER] Error reading file: %v", err)
+			time.Sleep(10 * time.Second)
+			continue
 		}
 
-		// Zapis do bezpiecznego cache'u
-		c.Set(mockData)
-		log.Println("[TWITTER WORKER] Pamięć zaktualizowana. Usypiam.")
+		var allTweets []Tweet
+		if err := json.Unmarshal(fileBytes, &allTweets); err != nil {
+			log.Printf("[TWITTER] JSON parsing error: %v", err)
+			time.Sleep(10 * time.Second)
+			continue
+		}
 
-		// Interwał pobierania
-		time.Sleep(15 * time.Minute)
+		if len(allTweets) < 3 {
+			c.Set(allTweets)
+		} else {
+			// Fisher-Yates shuffle
+			r.Shuffle(len(allTweets), func(i, j int) {
+				allTweets[i], allTweets[j] = allTweets[j], allTweets[i]
+			})
+
+			selected := allTweets[:3]
+			c.Set(selected)
+		}
+
+		log.Println("[TWITTER] Feed successfully rotated.")
+		
+		// Wait before the next rotation cycle
+		time.Sleep(10 * time.Second)
 	}
 }

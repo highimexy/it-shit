@@ -10,6 +10,7 @@ interface Tweet {
   name: string
   time: string
   text: string
+  avatar: string
 }
 
 interface Asset {
@@ -128,11 +129,16 @@ export function OperationsDashboard() {
                   tweets.map((tweet) => (
                     <div
                       key={tweet.id}
-                      className="border-foreground/10 bg-foreground/2 flex flex-col gap-2 rounded-2xl border p-4 font-sans text-sm"
+                      className="border-foreground/10 flex flex-col gap-2 rounded-2xl border p-4 font-sans text-sm"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <div className="bg-foreground/20 h-6 w-6 rounded-full" />
+                          <img
+                            src={tweet.avatar}
+                            alt={tweet.name}
+                            className="h-7 w-7 rounded-full object-cover opacity-80 grayscale"
+                          />
+
                           <div className="flex flex-col">
                             <span className="text-foreground text-[10px] leading-tight font-bold">
                               {tweet.name}

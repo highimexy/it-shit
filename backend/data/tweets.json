@@ -1,0 +1,82 @@
+[
+  {
+    "id": "1",
+    "author": "@sama",
+    "name": "Sam Altman",
+    "time": "Oct 2023",
+    "text": "AGI is closer than we think. The scaling laws hold. Keep building and adapting.",
+    "avatar": "https://unavatar.io/x/sama"
+  },
+  {
+    "id": "2",
+    "author": "@swyx",
+    "name": "Shawn @ swyx.io",
+    "time": "Feb 2024",
+    "text": "AI engineering is the new frontend. If you only know React in 2026, you are competing with machines.",
+    "avatar": "https://unavatar.io/x/swyx"
+  },
+  {
+    "id": "3",
+    "author": "@ThePrimeagen",
+    "name": "ThePrimeagen",
+    "time": "Just now",
+    "text": "VIM is not a text editor. It is a way of life. Also, stop using any-types in TypeScript.",
+    "avatar": "https://unavatar.io/youtube/ThePrimeagen"
+  },
+  {
+    "id": "4",
+    "author": "@karpathy",
+    "name": "Andrej Karpathy",
+    "time": "Mar 2024",
+    "text": "English is the hottest new programming language. But you still need to know how the compiler works.",
+    "avatar": "https://unavatar.io/x/karpathy"
+  },
+  {
+    "id": "5",
+    "author": "@dan_abramov",
+    "name": "Dan Abramov",
+    "time": "Jan 2024",
+    "text": "UI engineering is fundamentally about managing state over time. Frameworks change, the physics of the DOM remain.",
+    "avatar": "https://unavatar.io/x/dan_abramov"
+  },
+  {
+    "id": "6",
+    "author": "@lexfridman",
+    "name": "Lex Fridman",
+    "time": "4h ago",
+    "text": "The hardest programming problem is figuring out what to build, not how to build it.",
+    "avatar": "https://unavatar.io/x/lexfridman"
+  },
+  {
+    "id": "7",
+    "author": "@ylecun",
+    "name": "Yann LeCun",
+    "time": "12h ago",
+    "text": "Auto-Regressive LLMs suck. They do not plan, they do not reason, they just predict the next token.",
+    "avatar": "https://unavatar.io/x/ylecun"
+  },
+  {
+    "id": "8",
+    "author": "@rauchg",
+    "name": "Guillermo Rauch",
+    "time": "1d",
+    "text": "Latency is the mind killer. If your UI takes more than 100ms to respond, the illusion is broken.",
+    "avatar": "https://unavatar.io/x/rauchg"
+  },
+  {
+    "id": "9",
+    "author": "@shuding_",
+    "name": "Shu Ding",
+    "time": "2d",
+    "text": "We just shipped a new compiler. It's 10x faster and uses 50% less memory. Rust is eating the frontend tooling.",
+    "avatar": "https://unavatar.io/x/shuding_"
+  },
+  {
+    "id": "10",
+    "author": "@linusgti",
+    "name": "Linus Torvalds",
+    "time": "1991",
+    "text": "Talk is cheap. Show me the code.",
+    "avatar": "https://unavatar.io/github/torvalds"
+  }
+]
