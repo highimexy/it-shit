@@ -80,6 +80,22 @@ export function OperationsDashboard() {
   return (
     <section className="border-foreground/10 relative overflow-hidden border-b">
       <Container className="relative z-10 py-20 lg:py-32">
+        {/* SIDE WATERMARKS */}
+
+        {/* LEFT WRAPPER */}
+        <div className="pointer-events-none absolute top-1/2 left-1 -z-10 hidden -translate-y-1/2 select-none lg:block">
+          <div className="origin-center -rotate-90 pb-80 font-serif text-[clamp(4rem,18vw,11rem)] leading-none tracking-tighter uppercase opacity-[0.02]">
+            Twitts
+          </div>
+        </div>
+
+        {/* RIGHT WRAPPER */}
+        <div className="pointer-events-none absolute top-1/2 right-0 -z-10 hidden -translate-y-1/2 select-none lg:block">
+          <div className="origin-center rotate-90 pb-80 font-serif text-[clamp(4rem,18vw,12rem)] leading-none tracking-tighter uppercase opacity-[0.02]">
+            Stocks
+          </div>
+        </div>
+
         <div className="flex flex-col items-center justify-center gap-16 lg:flex-row lg:gap-24">
           {/* LEFT PANEL - PHONE */}
           <div className="border-foreground/20 bg-foreground/5 relative flex h-150 w-70 shrink-0 flex-col rounded-[3rem] border p-3 shadow-2xl backdrop-blur-md">
