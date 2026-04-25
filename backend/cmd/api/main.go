@@ -16,14 +16,15 @@ func main() {
 	go twitter.StartWorker(tweetCache)
 
 	// --- MARKET MODULE (WebSockets) ---
-	marketStreamer := market.NewStreamer()
-	go marketStreamer.StartMarketEngine()
+	marketHub := market.NewHub()
+	marketEngine := market.NewEngine(marketHub)
+	go marketEngine.Start()
 
 	// --- ROUTING ---
 	mux := http.NewServeMux()
 	
 	mux.HandleFunc("GET /api/v1/tweets", twitter.NewHandler(tweetCache))
-	mux.HandleFunc("/ws/market", marketStreamer.HandleConnection)
+	mux.HandleFunc("/ws/market", market.NewHandler(marketHub, marketEngine))
 
 	port := ":8080"
 	log.Printf("[SYSTEM] API listening on port %s", port)

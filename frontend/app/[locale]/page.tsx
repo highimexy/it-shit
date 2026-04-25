@@ -88,6 +88,8 @@ export default function Home() {
           </Container>
         </section>
 
+        <SectionDivider />
+
         {/* 03. 3D SECTION */}
         <section className="border-foreground/10 w-full overflow-hidden border-b">
           <Container className="py-16 md:py-24">

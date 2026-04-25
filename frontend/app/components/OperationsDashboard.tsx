@@ -169,22 +169,25 @@ export function OperationsDashboard() {
           </div>
 
           {/* RIGHT PANEL - FINANCIAL TERMINAL */}
-          <div className="flex w-full max-w-md shrink-0 flex-col lg:max-w-lg">
-            <div className="border-foreground/20 bg-background flex flex-col overflow-hidden rounded-xl border shadow-2xl backdrop-blur-md">
-              <div className="border-foreground/10 bg-foreground/5 flex h-10 items-center gap-2 border-b px-4">
-                <div className="h-3 w-3 rounded-full border border-red-500/30 bg-red-500/80" />
-                <div className="h-3 w-3 rounded-full border border-yellow-500/30 bg-yellow-500/80" />
-                <div className="h-3 w-3 rounded-full border border-green-500/30 bg-green-500/80" />
-                <span className="text-foreground ml-4 flex items-center gap-2 font-mono text-[10px] opacity-50">
-                  <FiTerminal /> market_board.sh
-                </span>
+          <div className="flex w-full max-w-md shrink-0 flex-col items-center lg:max-w-lg">
+            <div className="border-foreground/20 bg-background flex h-150 flex-col overflow-hidden rounded-xl border shadow-2xl backdrop-blur-md">
+              <div className="border-foreground/10 bg-foreground/5 flex h-10 w-full items-center justify-between border-b px-4">
+                <div className="flex items-center gap-2">
+                  <div className="h-3 w-3 rounded-full border border-red-500/30 bg-red-500/80" />
+                  <div className="h-3 w-3 rounded-full border border-yellow-500/30 bg-yellow-500/80" />
+                  <div className="h-3 w-3 rounded-full border border-green-500/30 bg-green-500/80" />
+                  <div className="text-foreground ml-2 flex items-center gap-2 font-mono text-[10px] leading-none opacity-50">
+                    <FiTerminal className="text-xs" />
+                    <span className="pt-1">market_board.zsh</span>
+                  </div>
+                </div>
 
                 {/* WS Status Indicator */}
-                <div className="ml-auto flex items-center gap-2">
+                <div className="flex items-center gap-2">
                   <div
                     className={`h-2 w-2 rounded-full ${wsStatus === 'CONNECTED' ? 'animate-pulse bg-green-500' : 'bg-red-500'}`}
                   />
-                  <span className="text-foreground font-mono text-[8px] opacity-40">
+                  <span className="text-foreground translate-y-px font-mono text-[10px] opacity-50">
                     {wsStatus}
                   </span>
                 </div>
