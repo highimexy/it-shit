@@ -23,6 +23,7 @@ interface Asset {
 interface MarketRow {
   category: string
   items: Asset[]
+  status?: string
 }
 
 export function OperationsDashboard() {
@@ -197,9 +198,16 @@ export function OperationsDashboard() {
                       key={row.category}
                       className="border-foreground/10 hover:border-foreground/30 flex flex-col gap-3 border-l-2 pl-4 transition-colors"
                     >
-                      <span className="text-foreground w-full text-[10px] font-bold tracking-widest uppercase opacity-40">
-                        [{row.category}]
-                      </span>
+                      <div className="flex w-full items-center justify-between">
+                        <span className="text-foreground text-[10px] font-bold tracking-widest uppercase opacity-40">
+                          [{row.category}]
+                        </span>
+                        {row.status && (
+                          <span className="text-[9px] font-bold tracking-widest text-yellow-500/70 uppercase">
+                            {row.status}
+                          </span>
+                        )}
+                      </div>
 
                       <div className="grid w-full grid-cols-1 gap-y-2 sm:grid-cols-2 sm:gap-x-8">
                         {row.items.map((item) => (

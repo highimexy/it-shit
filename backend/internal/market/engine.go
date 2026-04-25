@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"math/rand"
 	"net/http"
 	"strconv"
 	"sync"
@@ -28,6 +27,8 @@ type BinanceTicker struct {
 	Symbol      string      `json:"s"`
 	Price       interface{} `json:"c"`
 	ChangePrct  interface{} `json:"P"`
+	
+	// Trap fields to prevent Go's case-insensitive JSON unmarshaler conflicts
 	CloseTime   interface{} `json:"C"`
 	EventTime   interface{} `json:"E"`
 	PriceChange interface{} `json:"p"`
@@ -36,6 +37,12 @@ type BinanceTicker struct {
 type FinnhubQuote struct {
 	CurrentPrice float64 `json:"c"`
 	ChangePrct   float64 `json:"dp"`
+}
+
+type APIAsset struct {
+	QuerySymbol string
+	UIDisplay   string
+	CategoryIdx int
 }
 
 func NewEngine(hub *Hub) *Engine {
@@ -67,12 +74,12 @@ func NewEngine(hub *Hub) *Engine {
 			{
 				Category: "CMDTY",
 				Items: []Asset{
-					{Sym: "GOLD",  Price: "2345.10", Chg: "+0.12%", Up: true},
-					{Sym: "SILVR", Price: "28.45",   Chg: "-0.04%", Up: false},
-					{Sym: "OIL",   Price: "82.14",   Chg: "+1.20%", Up: true},
-					{Sym: "NGAS",  Price: "2.14",    Chg: "-1.50%", Up: false},
-					{Sym: "COPP",  Price: "4.52",    Chg: "+0.30%", Up: true},
-					{Sym: "PLAT",  Price: "985.60",  Chg: "+0.45%", Up: true}, 
+					{Sym: "GOLD",  Price: "...", Chg: "...", Up: true},
+					{Sym: "SILVR", Price: "...", Chg: "...", Up: true},
+					{Sym: "OIL",   Price: "...", Chg: "...", Up: true},
+					{Sym: "NGAS",  Price: "...", Chg: "...", Up: true},
+					{Sym: "COPP",  Price: "...", Chg: "...", Up: true},
+					{Sym: "PLAT",  Price: "...", Chg: "...", Up: true},
 				},
 			},
 		},
@@ -91,110 +98,102 @@ func (e *Engine) Start(finnhubAPIKey string) {
 	go e.connectBinance()
 
 	if finnhubAPIKey != "" {
-		log.Println("[MARKET ENGINE] Finnhub key found. Starting US Stocks live polling.")
-		go e.pollUSStocks(finnhubAPIKey)
+		log.Println("[MARKET ENGINE] Finnhub key found. Starting secure data polling.")
+		go e.pollFinnhubAssets(finnhubAPIKey)
 	} else {
-		log.Println("[MARKET WARNING] Finnhub key missing. US Stocks will simulate.")
-		go e.simulateUSStocks()
+		log.Println("[MARKET WARNING] Finnhub key missing. Need key for Stocks/Commodities.")
 	}
-
-	go e.simulateCommodities()
 }
 
-func (e *Engine) simulateCommodities() {
+func (e *Engine) pollFinnhubAssets(apiKey string) {
+	assetsToTrack := []APIAsset{
+		// US Stocks (Category Index: 1)
+		{"NVDA", "NVDA", 1},
+		{"AAPL", "AAPL", 1},
+		{"MSFT", "MSFT", 1},
+		{"TSLA", "TSLA", 1},
+		{"AMD", "AMD", 1},
+		{"AMZN", "AMZN", 1},
+		
+		// CFD Commodities (Category Index: 2)
+		{"OANDA:XAU_USD", "GOLD", 2},
+		{"OANDA:XAG_USD", "SILVR", 2},
+		{"OANDA:WTICO_USD", "OIL", 2},
+		{"OANDA:NATGAS_USD", "NGAS", 2},
+		{"OANDA:XCU_USD", "COPP", 2},
+		{"OANDA:XPT_USD", "PLAT", 2},
+	}
+
+	client := &http.Client{Timeout: 8 * time.Second}
+	ticker := time.NewTicker(2500 * time.Millisecond)
+	defer ticker.Stop()
+
 	for {
-		time.Sleep(5 * time.Second)
-		e.mu.Lock()
-		for j := range e.data[2].Items {
-			item := &e.data[2].Items[j]
-			change := (rand.Float64() * 0.1) - 0.05
-			item.Up = change >= 0
-			sign := ""
-			if item.Up {
-				sign = "+"
+		now := time.Now().UTC()
+		if now.Weekday() == time.Saturday || now.Weekday() == time.Sunday {
+			log.Println("[MARKET ENGINE] Weekend detected. Pausing Finnhub and updating UI to dots.")
+			
+			e.mu.Lock()
+			e.data[1].Status = "CLOSED ON WEEKENDS :C"
+			e.data[2].Status = "CLOSED ON WEEKENDS :C"
+
+			for i := range e.data[1].Items {
+				e.data[1].Items[i].Price = "..."
+				e.data[1].Items[i].Chg = "..."
 			}
-			item.Chg = fmt.Sprintf("%s%.2f%%", sign, change)
-		}
-		currentData := e.data
-		e.mu.Unlock()
-		e.hub.Broadcast(currentData)
-	}
-}
-
-func (e *Engine) simulateUSStocks() {
-	for {
-		time.Sleep(3 * time.Second)
-		e.mu.Lock()
-		for j := range e.data[1].Items {
-			item := &e.data[1].Items[j]
-			change := (rand.Float64() * 0.4) - 0.2
-			item.Up = change >= 0
-			sign := ""
-			if item.Up {
-				sign = "+"
+			for i := range e.data[2].Items {
+				e.data[2].Items[i].Price = "..."
+				e.data[2].Items[i].Chg = "..."
 			}
-			item.Chg = fmt.Sprintf("%s%.2f%%", sign, change)
+
+			currentData := e.data
+			e.mu.Unlock()
+			
+			e.hub.Broadcast(currentData)
+			
+			time.Sleep(1 * time.Hour)
+			continue
 		}
-		currentData := e.data
+
+		e.mu.Lock()
+		e.data[1].Status = ""
+		e.data[2].Status = ""
 		e.mu.Unlock()
-		e.hub.Broadcast(currentData)
-	}
-}
 
-func (e *Engine) pollUSStocks(apiKey string) {
-	symbols := []string{"NVDA", "AAPL", "MSFT", "TSLA", "AMD", "AMZN"} 
-	client := &http.Client{Timeout: 10 * time.Second}
+		for _, asset := range assetsToTrack {
+			<-ticker.C
 
-	for {
-		for _, sym := range symbols {
-			url := fmt.Sprintf("https://finnhub.io/api/v1/quote?symbol=%s&token=%s", sym, apiKey)
-
+			url := fmt.Sprintf("https://finnhub.io/api/v1/quote?symbol=%s&token=%s", asset.QuerySymbol, apiKey)
 			resp, err := client.Get(url)
-			if err != nil {
-				time.Sleep(2 * time.Second)
-				continue
-			}
-
+			if err != nil { continue }
+			
 			body, err := io.ReadAll(resp.Body)
 			resp.Body.Close()
-			if err != nil {
-				time.Sleep(2 * time.Second)
-				continue
-			}
+			if err != nil { continue }
 
 			var quote FinnhubQuote
-			if err := json.Unmarshal(body, &quote); err != nil {
-				time.Sleep(2 * time.Second)
-				continue
-			}
-
-			if quote.CurrentPrice == 0 {
-				time.Sleep(2 * time.Second)
-				continue
-			}
+			if err := json.Unmarshal(body, &quote); err != nil { continue }
+			if quote.CurrentPrice == 0 { continue }
 
 			formattedPrice := fmt.Sprintf("%.2f", quote.CurrentPrice)
 			isUp := quote.ChangePrct >= 0
 			sign := ""
-			if isUp {
-				sign = "+"
-			}
+			if isUp { sign = "+" }
 			formattedChange := fmt.Sprintf("%s%.2f%%", sign, quote.ChangePrct)
 
 			e.mu.Lock()
-			for j := range e.data[1].Items {
-				if e.data[1].Items[j].Sym == sym {
-					e.data[1].Items[j].Price = formattedPrice
-					e.data[1].Items[j].Chg = formattedChange
-					e.data[1].Items[j].Up = isUp
+			for j := range e.data[asset.CategoryIdx].Items {
+				if e.data[asset.CategoryIdx].Items[j].Sym == asset.UIDisplay {
+					e.data[asset.CategoryIdx].Items[j].Price = formattedPrice
+					e.data[asset.CategoryIdx].Items[j].Chg = formattedChange
+					e.data[asset.CategoryIdx].Items[j].Up = isUp
+					break
 				}
 			}
 			currentData := e.data
 			e.mu.Unlock()
 
 			e.hub.Broadcast(currentData)
-			
-			time.Sleep(2 * time.Second)
 		}
 	}
 }

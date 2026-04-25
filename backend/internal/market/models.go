@@ -12,4 +12,5 @@ type Asset struct {
 type MarketRow struct {
 	Category string  `json:"category"`
 	Items    []Asset `json:"items"`
+	Status   string  `json:"status,omitempty"`
 }
