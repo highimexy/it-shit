@@ -1,13 +1,13 @@
 'use client'
 
 import { FiArrowRight } from 'react-icons/fi'
-import { HomeHeader } from '../components/HomeHeader'
-import { SectionDivider } from '../components/SectionDivider'
+import { HomeHeader } from './_components/HomeHeader'
+import { SectionDivider } from './_components/SectionDivider'
 import { Container } from '../wrappers/Container'
 import Link from 'next/link'
-import { SupportersTicker } from '../components/SupportersTicker'
+import { SupportersTicker } from './_components/SupportersTicker'
 import { useTranslations } from 'next-intl'
-import { OperationsDashboard } from '../components/OperationsDashboard'
+import { OperationsDashboard } from './_components/OperationsDashboard'
 
 export default function Home() {
   const t = useTranslations('Home')

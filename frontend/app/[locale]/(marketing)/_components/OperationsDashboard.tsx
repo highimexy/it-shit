@@ -1,6 +1,6 @@
 'use client'
 
-import { Container } from '../wrappers/Container'
+import { Container } from '../../wrappers/Container'
 import { FiTerminal } from 'react-icons/fi'
 import { useState, useEffect } from 'react'
 

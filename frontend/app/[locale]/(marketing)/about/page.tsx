@@ -1,7 +1,7 @@
 'use client'
 
-import { SectionDivider } from '../../components/SectionDivider'
-import { SimpleHeader } from '../../components/SimpleHeader'
+import { SectionDivider } from '../_components/SectionDivider'
+import { SimpleHeader } from '../_components/SimpleHeader'
 import { Container } from '../../wrappers/Container'
 import { useTranslations } from 'next-intl'
 

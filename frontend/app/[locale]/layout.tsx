@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Young_Serif, Inter } from 'next/font/google'
 import '../globals.css'
 import { Providers } from './providers'
-import { Navbar } from '../components/Navbar'
-import { Footer } from '../components/Footer'
 
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -38,11 +36,7 @@ export default async function RootLayout({
     <html lang={locale} className={`${serif.variable} ${sans.variable}`} suppressHydrationWarning>
       <body className="bg-background flex min-h-screen flex-col" suppressHydrationWarning>
         <Providers>
-          <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            <main className="bg-background isolation-isolate relative z-10 flex-1">{children}</main>
-            <Footer />
-          </NextIntlClientProvider>
+          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         </Providers>
       </body>
     </html>

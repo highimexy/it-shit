@@ -1,6 +1,6 @@
 'use client'
 
-import { Container } from '../wrappers/Container'
+import { Container } from '../../wrappers/Container'
 import { BackgroundGrid } from './BackgroundGrid'
 import { useTranslations } from 'next-intl'
 import { useEffect, useRef } from 'react'

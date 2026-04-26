@@ -1,7 +1,7 @@
 'use client'
 
 import { Container } from '../wrappers/Container'
-import { BackgroundGrid } from './BackgroundGrid'
+import { BackgroundGrid } from '../[locale]/(marketing)/_components/BackgroundGrid'
 import { useTranslations } from 'next-intl'
 
 interface SubpageHeaderProps {

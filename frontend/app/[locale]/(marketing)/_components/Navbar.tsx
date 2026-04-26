@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { FiSearch } from 'react-icons/fi'
 import ThemeSwitch from './ThemeSwitch'
 import { LanguageSwitcher } from './LanguageSwitcher'
-import { Container } from '../wrappers/Container'
+import { Container } from '../../wrappers/Container'
 
 export function Navbar() {
   return (

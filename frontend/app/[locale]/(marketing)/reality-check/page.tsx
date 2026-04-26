@@ -1,9 +1,9 @@
 'use client'
 
 import { FiArrowRight } from 'react-icons/fi'
-import { BackgroundGrid } from '../../components/BackgroundGrid'
-import { SectionDivider } from '../../components/SectionDivider'
-import { SubpageHeader } from '../../components/SubpageHeader'
+import { BackgroundGrid } from '../_components/BackgroundGrid'
+import { SectionDivider } from '../_components/SectionDivider'
+import { SubpageHeader } from '../_components/SubpageHeader'
 import { Container } from '../../wrappers/Container'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'

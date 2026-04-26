@@ -1,6 +1,6 @@
 'use client'
 
-import { Container } from '../wrappers/Container'
+import { Container } from '../../wrappers/Container'
 import Link from 'next/link'
 import { FiCoffee } from 'react-icons/fi'
 import { useTranslations } from 'next-intl'
