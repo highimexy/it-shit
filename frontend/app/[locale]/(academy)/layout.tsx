@@ -5,13 +5,17 @@ import { AcademyFooter } from './_components/AcademyFooter'
 
 export default function AcademyLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="bg-background flex h-screen flex-col overflow-hidden">
+    <div className="bg-background flex w-full flex-1 flex-col overflow-hidden">
       <AcademyNavbar />
+
       <div className="flex flex-1 overflow-hidden">
         <AcademySidebar />
+
         <div className="flex flex-1 flex-col overflow-y-auto">
-          <main className="flex-1">{children}</main>
-          <AcademyFooter />
+          <main className="flex flex-1 flex-col">{children}</main>
+          <div className="mt-auto">
+            <AcademyFooter />
+          </div>
         </div>
       </div>
     </div>
