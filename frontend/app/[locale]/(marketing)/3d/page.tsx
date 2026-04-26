@@ -279,7 +279,7 @@ export default function ThreePage() {
               <div className="bg-foreground/10 border-foreground/10 mt-16 grid gap-px border md:mt-20">
                 {/* STEP 01 */}
                 <Link
-                  href="/3d/dictionary"
+                  href="/academy"
                   className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
                 >
                   <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
@@ -305,7 +305,7 @@ export default function ThreePage() {
 
                 {/* STEP 02 */}
                 <Link
-                  href="/3d/shader-drills"
+                  href="/academy"
                   className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
                 >
                   <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
@@ -331,7 +331,7 @@ export default function ThreePage() {
 
                 {/* STEP 03 */}
                 <Link
-                  href="/3d/architecture"
+                  href="/academy"
                   className="group bg-background border-foreground/20 relative border p-5 transition-all duration-300 ease-out hover:z-20 hover:-translate-y-1 hover:rounded-md hover:shadow-[0_10px_30px_-10px_rgba(239,68,68,0.15)] md:p-10 md:hover:translate-x-2 md:hover:-translate-y-2 md:hover:shadow-[-20px_25px_50px_-15px_rgba(239,68,68,0.2)]"
                 >
                   <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
