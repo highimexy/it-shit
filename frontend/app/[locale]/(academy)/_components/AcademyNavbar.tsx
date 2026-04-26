@@ -1,63 +1,91 @@
+'use client'
+
 import Link from 'next/link'
 import { FiSearch } from 'react-icons/fi'
+import { StoreDropdown } from './StoreDropdown'
 
 export function AcademyNavbar() {
-  return (
-    <nav className="border-foreground/10 bg-background flex h-14 w-full items-center justify-between border-b px-4 lg:px-6">
-      {/* LEWA STRONA: Logo i Linki Główne */}
-      <div className="flex h-full items-center gap-8">
-        <Link href="/academy" className="flex items-center gap-2">
-          {/* Możesz tu wrzucić ikonę lub logo */}
-          <span className="font-serif text-xl font-bold tracking-tighter">Academy.</span>
-        </Link>
+  // 1. Definiujemy zawartość dla dropdownu
+  const storeItems = [
+    { label: 'Merch Shop', href: '/academy/store/merch' },
+    { label: 'Premium Subscriptions', href: '/academy/store/premium' },
+    { label: 'Gift Cards', href: '/academy/store/gifts' },
+  ]
 
-        <div className="hidden h-full items-center gap-6 lg:flex">
+  return (
+    <nav className="border-foreground/10 bg-background sticky top-0 z-50 w-full border-b">
+      <div className="flex h-16 lg:grid lg:grid-cols-3">
+        {/* 1. LOGO */}
+        <div className="border-foreground/10 flex flex-1 items-center justify-center border-r px-6 lg:flex-none lg:px-10">
           <Link
             href="/academy"
-            className="border-foreground/80 text-foreground flex h-full items-center border-b-2 px-1 font-mono text-sm transition-colors"
+            className="font-serif text-[clamp(1.1rem,2.3vw,1.8rem)] font-bold transition-opacity hover:opacity-80"
           >
-            Problems
+            TFJ Academy
+          </Link>
+        </div>
+
+        {/* 2. LINKI GŁÓWNE (Desktop) */}
+        <div className="border-foreground/10 hidden items-center justify-around border-r px-4 lg:flex">
+          <Link href="/academy" className="font-sans uppercase transition-opacity hover:opacity-80">
+            Lessons
           </Link>
           <Link
             href="/academy/paths"
-            className="text-foreground/60 hover:text-foreground flex h-full items-center border-b-2 border-transparent px-1 font-mono text-sm transition-colors"
+            className="font-sans uppercase transition-opacity hover:opacity-80"
           >
-            Study Plan
+            Ranking
           </Link>
           <Link
             href="/academy/discuss"
-            className="text-foreground/60 hover:text-foreground flex h-full items-center border-b-2 border-transparent px-1 font-mono text-sm transition-colors"
+            className="font-sans uppercase transition-opacity hover:opacity-80"
           >
             Discuss
           </Link>
+
+          {/* POPRAWKA: Przekazujemy wymagane propsy! */}
+          <StoreDropdown label="Store" items={storeItems} />
+        </div>
+
+        {/* 3. WYSZUKIWARKA & AUTH */}
+        <div className="flex flex-1 lg:flex-none">
+          <div className="border-foreground/10 flex flex-1 items-center justify-between border-r px-4 lg:px-6">
+            <input
+              type="text"
+              placeholder="SEARCH..."
+              className="text-foreground placeholder:text-foreground/30 w-full border-none bg-transparent font-sans uppercase outline-none focus:ring-0"
+            />
+            <FiSearch className="text-xl" />
+          </div>
+
+          <div className="hidden items-center justify-center gap-6 px-4 lg:flex lg:px-6">
+            <Link href="/login" className="font-sans uppercase transition-opacity hover:opacity-80">
+              Sign In
+            </Link>
+            <Link
+              href="/premium"
+              className="rounded-sm bg-yellow-500/10 px-3 py-1.5 font-sans font-bold text-yellow-500 uppercase transition-colors hover:bg-yellow-500/20"
+            >
+              Premium
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* PRAWA STRONA: Szukajka i Auth */}
-      <div className="flex items-center gap-4">
-        <div className="bg-foreground/5 hidden items-center gap-2 rounded-md px-3 py-1.5 lg:flex">
-          <FiSearch className="text-foreground/50 text-sm" />
-          <input
-            type="text"
-            placeholder="Search questions..."
-            className="text-foreground placeholder:text-foreground/30 border-none bg-transparent font-mono text-xs outline-none focus:ring-0"
-          />
-        </div>
+      {/* LINKI (Mobile - Pasek dolny) */}
+      <div className="border-foreground/10 flex h-12 items-center justify-around border-t px-6 lg:hidden">
+        <Link href="/academy" className="font-sans text-xs uppercase">
+          Lessons
+        </Link>
+        <Link href="/academy/paths" className="font-sans text-xs uppercase">
+          Ranking
+        </Link>
+        <Link href="/academy/discuss" className="font-sans text-xs uppercase">
+          Discuss
+        </Link>
 
-        <div className="flex items-center gap-4 font-mono text-xs">
-          <Link
-            href="/login"
-            className="text-foreground/70 hover:text-foreground transition-colors"
-          >
-            Sign In
-          </Link>
-          <Link
-            href="/premium"
-            className="rounded-md bg-yellow-500/10 px-3 py-1.5 text-yellow-500 transition-colors hover:bg-yellow-500/20"
-          >
-            Premium
-          </Link>
-        </div>
+        {/* POPRAWKA NA MOBILE: Tu również przekazujemy propsy */}
+        <StoreDropdown label="Store" items={storeItems} />
       </div>
     </nav>
   )
