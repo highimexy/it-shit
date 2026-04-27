@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 import { FiSun, FiMoon } from 'react-icons/fi'
 
-export default function AcademyThemeSwitch() {
+export default function AcademyThemeSwitcher() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 

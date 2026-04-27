@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FiSearch } from 'react-icons/fi'
 import { StoreDropdown } from './StoreDropdown'
+import { AcademyLanguageSwitcher } from './AcademyLanguageSwitcher'
+import AcademyThemeSwitcher from './AcademyThemeSwitcher'
 
 export function AcademyNavbar() {
   const pathname = usePathname()
@@ -30,24 +32,34 @@ export function AcademyNavbar() {
     {
       href: '/academy/discuss',
       label: 'Discuss',
-      active: cleanPath.startsWith('/ranking'),
+      active: cleanPath.startsWith('/academy/discuss'),
     },
   ]
 
   return (
     <nav className="border-foreground/10 bg-background sticky top-0 z-50 w-full border-b">
       <div className="flex h-16 lg:grid lg:grid-cols-3">
-        {/* 1. LOGO */}
-        <div className="border-foreground/10 flex flex-1 items-center justify-center border-r px-6 lg:flex-none lg:px-10">
-          <Link
-            href="/"
-            className="font-serif text-[clamp(1.1rem,2.3vw,1.8rem)] font-bold transition-opacity hover:opacity-80"
-          >
-            TFJ Academy
-          </Link>
+        {/* 1. LEWA STRONA (Logo + Switchery Desktopowe) */}
+        <div className="flex flex-1 lg:flex-none">
+          <div className="border-foreground/10 flex flex-1 items-center justify-center border-r px-6 lg:flex-none lg:px-8">
+            <Link
+              href="/"
+              className="font-serif text-[clamp(1.1rem,2.3vw,1.8rem)] font-bold whitespace-nowrap transition-opacity hover:opacity-80"
+            >
+              TFJ Academy
+            </Link>
+          </div>
+
+          {/* Switchery DESKTOP - ukryte na mobile */}
+          <div className="border-foreground/10 hidden items-center border-r px-3 lg:flex lg:px-4">
+            <AcademyThemeSwitcher />
+          </div>
+          <div className="border-foreground/10 hidden items-center border-r px-3 lg:flex lg:px-4">
+            <AcademyLanguageSwitcher />
+          </div>
         </div>
 
-        {/* 2. LINKI GŁÓWNE (Desktop) */}
+        {/* 2. ŚRODEK (Linki Główne - tylko Desktop) */}
         <div className="border-foreground/10 hidden items-center justify-around border-r px-4 lg:flex">
           {navLinks.map((link) => (
             <Link
@@ -63,24 +75,39 @@ export function AcademyNavbar() {
           <StoreDropdown label="Store" items={storeItems} />
         </div>
 
-        {/* 3. WYSZUKIWARKA & AUTH */}
-        <div className="flex flex-1 lg:flex-none">
-          <div className="border-foreground/10 flex flex-1 items-center justify-between border-r px-4 lg:px-6">
+        {/* 3. PRAWA STRONA (Szukajka + Auth + Switchery Mobile) */}
+        <div className="flex shrink-0">
+          {/* Switchery MOBILE - ukryte na desktopie */}
+          <div className="border-foreground/10 flex items-center border-l px-3 lg:hidden">
+            <AcademyThemeSwitcher />
+          </div>
+          <div className="border-foreground/10 flex items-center border-l px-3 lg:hidden">
+            <AcademyLanguageSwitcher />
+          </div>
+
+          {/* Komórka: Wyszukiwarka */}
+          <div className="border-foreground/10 flex flex-1 items-center justify-between border-l px-4 lg:border-r lg:border-l-0 lg:px-4">
             <input
               type="text"
               placeholder="SEARCH..."
-              className="text-foreground placeholder:text-foreground/30 w-full border-none bg-transparent font-sans uppercase outline-none focus:ring-0"
+              className="text-foreground placeholder:text-foreground/30 hidden w-full border-none bg-transparent font-sans uppercase outline-none focus:ring-0 lg:block"
             />
-            <FiSearch className="text-xl" />
+            <button aria-label="Search">
+              <FiSearch className="shrink-0 text-xl" />
+            </button>
           </div>
 
-          <div className="hidden items-center justify-center gap-6 px-4 lg:flex lg:px-6">
-            <Link href="/login" className="font-sans uppercase transition-opacity hover:opacity-80">
+          {/* Komórka: Auth (Tylko Desktop) */}
+          <div className="hidden shrink-0 items-center justify-center gap-4 px-4 lg:flex">
+            <Link
+              href="/login"
+              className="font-sans font-bold uppercase transition-opacity hover:opacity-80"
+            >
               Sign In
             </Link>
             <Link
               href="/premium"
-              className="rounded-sm bg-yellow-500/10 px-3 py-1.5 font-sans font-bold text-yellow-500 uppercase transition-colors hover:bg-yellow-500/20"
+              className="bg-yellow-500/10 px-3 py-1.5 font-sans font-bold text-yellow-500 uppercase transition-colors hover:bg-yellow-500/20"
             >
               Premium
             </Link>
