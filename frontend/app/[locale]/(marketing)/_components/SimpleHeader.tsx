@@ -1,7 +1,7 @@
 'use client'
 
-import { Container } from '../wrappers/Container'
-import { BackgroundGrid } from '../[locale]/(marketing)/_components/BackgroundGrid'
+import { Container } from '../../wrappers/Container'
+import { BackgroundGrid } from '../_components/BackgroundGrid'
 
 interface SubpageHeaderProps {
   title: string

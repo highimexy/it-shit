@@ -8,7 +8,7 @@ export default function AcademyLayout({ children }: { children: ReactNode }) {
     <div className="bg-background flex w-full flex-1 flex-col overflow-hidden">
       <AcademyNavbar />
 
-      <div className="flex flex-1 overflow-hidden">
+      <div className="relative z-60 flex flex-1">
         <AcademySidebar />
 
         <div className="flex flex-1 flex-col overflow-y-auto">

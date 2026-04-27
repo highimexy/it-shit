@@ -79,21 +79,21 @@ export default function AcademyDashboard() {
               <div>
                 <div className="mb-4 flex items-center justify-between">
                   <span
-                    className={`font-mono text-[10px] font-bold tracking-widest uppercase ${path.colorClass}`}
+                    className={`font-sans font-bold tracking-widest uppercase ${path.colorClass}`}
                   >
                     {path.label}
                   </span>
                   <Icon
-                    className={`text-xl opacity-50 transition-opacity group-hover:opacity-100 ${path.colorClass}`}
+                    className={`text-2xl opacity-50 transition-opacity group-hover:opacity-100 ${path.colorClass}`}
                   />
                 </div>
-                <h2 className="mb-3 font-serif text-2xl font-bold tracking-tight">{path.title}</h2>
+                <h3 className="mb-3 font-serif font-bold tracking-tight">{path.title}</h3>
                 <p className="font-sans text-sm leading-relaxed opacity-60">{path.desc}</p>
               </div>
 
-              <div className="border-foreground/10 mt-10 flex items-center gap-3 border-t pt-4 font-mono text-xs font-bold uppercase opacity-50 transition-opacity group-hover:opacity-100">
-                <span>Enter Path</span>
-                <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              <div className="border-foreground/10 mt-10 flex items-center gap-3 border-t pt-4 font-serif text-xs font-bold uppercase opacity-50 transition-opacity group-hover:opacity-100">
+                <span className="mt-2">Enter Path</span>
+                <FiArrowRight className="mt-2 text-lg transition-transform duration-300 group-hover:translate-x-1" />
               </div>
             </Link>
           )
