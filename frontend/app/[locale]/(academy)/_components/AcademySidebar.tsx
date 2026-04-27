@@ -16,7 +16,7 @@ export function AcademySidebar() {
 
   const cleanPath = pathname.replace(/^\/[a-zA-Z]{2}(?=\/|$)/, '') || '/'
 
-  const isLessonsPage = cleanPath === '/academy' || cleanPath === '/academy/library'
+  const isLessonsPage = cleanPath === '/lessons' || cleanPath === '/academy/library'
   if (!isLessonsPage) return null
 
   return (
@@ -28,7 +28,7 @@ export function AcademySidebar() {
 
           const isActive =
             cleanPath === item.href ||
-            (cleanPath === '/academy' && item.href === '/academy/library')
+            (cleanPath === '/lessons' && item.href === '/academy/library')
 
           return (
             <Link

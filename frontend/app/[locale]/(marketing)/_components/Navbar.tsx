@@ -14,7 +14,7 @@ export function Navbar() {
           {/* 1. LOGO */}
           <div className="border-foreground/10 flex flex-1 items-center justify-center border-r px-6 lg:px-10">
             <Link
-              href="/"
+              href="/lessons"
               className="font-serif text-[clamp(1.1rem,2.3vw,1.8rem)] font-bold transition-opacity hover:opacity-80"
             >
               The Frontend Journal
