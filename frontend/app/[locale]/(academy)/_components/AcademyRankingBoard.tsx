@@ -18,7 +18,7 @@ const RANKING_DATA = [
   { id: 10, name: 'fmota', score: 3453, attended: 65 },
 ]
 
-export function RankingBoard() {
+export function AcademyRankingBoard() {
   const first = RANKING_DATA[0]
   const second = RANKING_DATA[1]
   const third = RANKING_DATA[2]

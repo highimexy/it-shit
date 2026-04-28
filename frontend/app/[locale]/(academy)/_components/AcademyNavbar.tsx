@@ -30,9 +30,9 @@ export function AcademyNavbar() {
       active: cleanPath.startsWith('/ranking'),
     },
     {
-      href: '/academy/discuss',
+      href: '/discuss',
       label: 'Discuss',
-      active: cleanPath.startsWith('/academy/discuss'),
+      active: cleanPath.startsWith('/discuss'),
     },
   ]
 

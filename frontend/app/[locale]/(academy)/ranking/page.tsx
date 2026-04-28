@@ -1,9 +1,9 @@
-import { RankingBoard } from '../_components/RankingBoard'
+import { AcademyRankingBoard } from '../_components/AcademyRankingBoard'
 
 export default function RankingPage() {
   return (
-    <div className="bg-background min-h-screen">
-      <RankingBoard />
+    <div className="min-h-screen">
+      <AcademyRankingBoard />
     </div>
   )
 }
