@@ -13,11 +13,7 @@ import (
 	"github.com/gorilla/websocket"
 )
 
-type Engine struct {
-	mu   sync.RWMutex
-	data []MarketRow
-	hub  *Hub
-}
+// --- Struktury dla API ---
 
 type BinancePayload struct {
 	Data BinanceTicker `json:"data"`
@@ -27,8 +23,6 @@ type BinanceTicker struct {
 	Symbol      string      `json:"s"`
 	Price       interface{} `json:"c"`
 	ChangePrct  interface{} `json:"P"`
-	
-	// Trap fields to prevent Go's case-insensitive JSON unmarshaler conflicts
 	CloseTime   interface{} `json:"C"`
 	EventTime   interface{} `json:"E"`
 	PriceChange interface{} `json:"p"`
@@ -45,6 +39,14 @@ type APIAsset struct {
 	CategoryIdx int
 }
 
+// --- Silnik ---
+
+type Engine struct {
+	mu   sync.RWMutex
+	data []MarketRow
+	hub  *Hub
+}
+
 func NewEngine(hub *Hub) *Engine {
 	return &Engine{
 		hub: hub,
@@ -52,34 +54,34 @@ func NewEngine(hub *Hub) *Engine {
 			{
 				Category: "CRYPTO",
 				Items: []Asset{
-					{Sym: "BTC",  Price: "...", Chg: "...", Up: true},
-					{Sym: "ETH",  Price: "...", Chg: "...", Up: true},
-					{Sym: "SOL",  Price: "...", Chg: "...", Up: true},
-					{Sym: "BNB",  Price: "...", Chg: "...", Up: true},
-					{Sym: "XRP",  Price: "...", Chg: "...", Up: true},
+					{Sym: "BTC", Price: "...", Chg: "...", Up: true},
+					{Sym: "ETH", Price: "...", Chg: "...", Up: true},
+					{Sym: "SOL", Price: "...", Chg: "...", Up: true},
+					{Sym: "BNB", Price: "...", Chg: "...", Up: true},
+					{Sym: "XRP", Price: "...", Chg: "...", Up: true},
 					{Sym: "DOGE", Price: "...", Chg: "...", Up: true},
 				},
 			},
 			{
-				Category: "US.STK",
+				Category: "US TECH",
 				Items: []Asset{
 					{Sym: "NVDA", Price: "...", Chg: "...", Up: true},
 					{Sym: "AAPL", Price: "...", Chg: "...", Up: true},
 					{Sym: "MSFT", Price: "...", Chg: "...", Up: true},
 					{Sym: "TSLA", Price: "...", Chg: "...", Up: true},
-					{Sym: "AMD",  Price: "...", Chg: "...", Up: true},
+					{Sym: "AMD", Price: "...", Chg: "...", Up: true},
 					{Sym: "AMZN", Price: "...", Chg: "...", Up: true},
 				},
 			},
 			{
-				Category: "CMDTY",
+				Category: "TRENDING",
 				Items: []Asset{
-					{Sym: "GOLD",  Price: "...", Chg: "...", Up: true},
-					{Sym: "SILVR", Price: "...", Chg: "...", Up: true},
-					{Sym: "OIL",   Price: "...", Chg: "...", Up: true},
-					{Sym: "NGAS",  Price: "...", Chg: "...", Up: true},
-					{Sym: "COPP",  Price: "...", Chg: "...", Up: true},
-					{Sym: "PLAT",  Price: "...", Chg: "...", Up: true},
+					{Sym: "GOOGL", Price: "...", Chg: "...", Up: true},
+					{Sym: "META", Price: "...", Chg: "...", Up: true},
+					{Sym: "MSTR", Price: "...", Chg: "...", Up: true},
+					{Sym: "COIN", Price: "...", Chg: "...", Up: true},
+					{Sym: "PLTR", Price: "...", Chg: "...", Up: true},
+					{Sym: "SPY", Price: "...", Chg: "...", Up: true},
 				},
 			},
 		},
@@ -95,48 +97,54 @@ func (e *Engine) GetData() []MarketRow {
 func (e *Engine) Start(finnhubAPIKey string) {
 	log.Println("[MARKET ENGINE] Booting up data streams...")
 
+	// 1. WebSocket Binance (Krypto - Nielimitowany)
 	go e.connectBinance()
 
+	// 2. Finnhub (Akcje US - Tech & Trending)
 	if finnhubAPIKey != "" {
-		log.Println("[MARKET ENGINE] Finnhub key found. Starting secure data polling.")
+		log.Println("[MARKET ENGINE] Finnhub key found. Starting US Stocks.")
 		go e.pollFinnhubAssets(finnhubAPIKey)
 	} else {
-		log.Println("[MARKET WARNING] Finnhub key missing. Need key for Stocks/Commodities.")
+		log.Println("[MARKET WARNING] Finnhub key missing. US Stocks inactive.")
 	}
 }
 
+// --- Moduł 1: Akcje (Finnhub) ---
 func (e *Engine) pollFinnhubAssets(apiKey string) {
+	// Połączone listy akcji - Tech (Index 1) i Trending (Index 2)
 	assetsToTrack := []APIAsset{
-		// US Stocks (Category Index: 1)
+		// Kategoria: US TECH (Index 1)
 		{"NVDA", "NVDA", 1},
 		{"AAPL", "AAPL", 1},
 		{"MSFT", "MSFT", 1},
 		{"TSLA", "TSLA", 1},
 		{"AMD", "AMD", 1},
 		{"AMZN", "AMZN", 1},
-		
-		// CFD Commodities (Category Index: 2)
-		{"OANDA:XAU_USD", "GOLD", 2},
-		{"OANDA:XAG_USD", "SILVR", 2},
-		{"OANDA:WTICO_USD", "OIL", 2},
-		{"OANDA:NATGAS_USD", "NGAS", 2},
-		{"OANDA:XCU_USD", "COPP", 2},
-		{"OANDA:XPT_USD", "PLAT", 2},
+		// Kategoria: TRENDING (Index 2)
+		{"GOOGL", "GOOGL", 2},
+		{"META", "META", 2},
+		{"MSTR", "MSTR", 2},
+		{"COIN", "COIN", 2},
+		{"PLTR", "PLTR", 2},
+		{"SPY", "SPY", 2},
 	}
 
 	client := &http.Client{Timeout: 8 * time.Second}
-	ticker := time.NewTicker(2500 * time.Millisecond)
+	
+	// Pytamy co 1.2 sekundy. To daje 50 req/min. (Limit to 60 req/min). Pełna pętla zajmuje 14.4 sekundy.
+	ticker := time.NewTicker(1200 * time.Millisecond)
 	defer ticker.Stop()
 
 	for {
 		now := time.Now().UTC()
+		// Sprawdzanie weekendu dla giełdy amerykańskiej
 		if now.Weekday() == time.Saturday || now.Weekday() == time.Sunday {
-			log.Println("[MARKET ENGINE] Weekend detected. Pausing Finnhub and updating UI to dots.")
-			
-			e.mu.Lock()
-			e.data[1].Status = "CLOSED ON WEEKENDS :C"
-			e.data[2].Status = "CLOSED ON WEEKENDS :C"
+			log.Println("[MARKET ENGINE] Weekend detected. Pausing Finnhub (US.STK).")
 
+			e.mu.Lock()
+			e.data[1].Status = "CLOSED"
+			e.data[2].Status = "CLOSED"
+			
 			for i := range e.data[1].Items {
 				e.data[1].Items[i].Price = "..."
 				e.data[1].Items[i].Chg = "..."
@@ -145,12 +153,11 @@ func (e *Engine) pollFinnhubAssets(apiKey string) {
 				e.data[2].Items[i].Price = "..."
 				e.data[2].Items[i].Chg = "..."
 			}
-
+			
 			currentData := e.data
 			e.mu.Unlock()
-			
+
 			e.hub.Broadcast(currentData)
-			
 			time.Sleep(1 * time.Hour)
 			continue
 		}
@@ -166,7 +173,7 @@ func (e *Engine) pollFinnhubAssets(apiKey string) {
 			url := fmt.Sprintf("https://finnhub.io/api/v1/quote?symbol=%s&token=%s", asset.QuerySymbol, apiKey)
 			resp, err := client.Get(url)
 			if err != nil { continue }
-			
+
 			body, err := io.ReadAll(resp.Body)
 			resp.Body.Close()
 			if err != nil { continue }
@@ -198,6 +205,8 @@ func (e *Engine) pollFinnhubAssets(apiKey string) {
 	}
 }
 
+// --- Moduł 2: Krypto (Binance WS) ---
+
 func parseSafeFloat(val interface{}) float64 {
 	switch v := val.(type) {
 	case float64:
@@ -211,6 +220,7 @@ func parseSafeFloat(val interface{}) float64 {
 }
 
 func (e *Engine) connectBinance() {
+	// Możesz łatwo dorzucić tu kolejne pary dopisując np. /adausdt@ticker
 	url := "wss://stream.binance.com:9443/stream?streams=btcusdt@ticker/ethusdt@ticker/solusdt@ticker/bnbusdt@ticker/xrpusdt@ticker/dogeusdt@ticker"
 
 	for {
@@ -250,9 +260,7 @@ func (e *Engine) connectBinance() {
 
 			isUp := changeFloat >= 0
 			sign := ""
-			if isUp {
-				sign = "+"
-			}
+			if isUp { sign = "+" }
 			formattedChange := fmt.Sprintf("%s%.2f%%", sign, changeFloat)
 
 			sym := ""
