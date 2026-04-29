@@ -36,9 +36,7 @@ export default function Home() {
               </div>
 
               <div className="w-full lg:max-w-md xl:max-w-lg">
-                <p className="text-fluid-h3 font-serif leading-snug italic opacity-80">
-                  {t('qa.quote')}
-                </p>
+                <p className="text-fluid-h3 font-serif leading-snug italic">{t('qa.quote')}</p>
                 <p className="mt-6 font-sans text-sm leading-relaxed opacity-60">
                   {t('qa.description')}
                 </p>
@@ -70,7 +68,7 @@ export default function Home() {
               </div>
 
               <div className="flex w-full flex-col items-start lg:max-w-md lg:items-end xl:max-w-lg">
-                <p className="text-fluid-h3 font-serif leading-snug italic opacity-80">
+                <p className="text-fluid-h3 font-serif leading-snug italic">
                   {t('frontend.quote')}
                 </p>
                 <p className="mt-6 text-justify font-sans text-sm leading-relaxed opacity-60 lg:text-right">
@@ -105,9 +103,7 @@ export default function Home() {
               </div>
 
               <div className="w-full lg:max-w-md xl:max-w-lg">
-                <p className="text-fluid-h3 font-serif leading-snug italic opacity-80">
-                  {t('threeD.quote')}
-                </p>
+                <p className="text-fluid-h3 font-serif leading-snug italic">{t('threeD.quote')}</p>
                 <p className="mt-6 font-sans text-sm leading-relaxed opacity-60">
                   {t('threeD.description')}
                 </p>
@@ -152,17 +148,13 @@ export default function Home() {
                   <h4 className="text-fluid-small font-sans font-bold tracking-widest text-purple-500 uppercase opacity-60">
                     {t('reality.dreamLabel')}
                   </h4>
-                  <p className="text-fluid-h3 font-serif italic opacity-70">
-                    {t('reality.dreamQuote')}
-                  </p>
+                  <p className="text-fluid-h3 font-serif italic">{t('reality.dreamQuote')}</p>
                 </div>
                 <div className="space-y-4">
                   <h4 className="text-fluid-small font-sans font-bold tracking-widest text-purple-500 uppercase opacity-60">
                     {t('reality.realityLabel')}
                   </h4>
-                  <p className="text-fluid-h3 font-serif italic opacity-90">
-                    {t('reality.realityQuote')}
-                  </p>
+                  <p className="text-fluid-h3 font-serif italic">{t('reality.realityQuote')}</p>
                 </div>
               </div>
 

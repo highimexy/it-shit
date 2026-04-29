@@ -25,57 +25,56 @@ export function AcademyRankingBoard() {
   const rest = RANKING_DATA.slice(3)
 
   return (
-    <div className="flex h-full w-full font-sans">
+    // Używamy IDEALNIE tego samego głównego wrappera co w DiscussBoard
+    <div className="flex w-full flex-1 items-stretch justify-center font-sans">
       {/* === LEWA SIATKA === */}
       <div className="border-foreground/10 relative hidden flex-1 border-r lg:block">
         <AcademyBackgroundGrid />
       </div>
 
       {/* === ŚRODKOWY KONTENT === */}
-      <div className="flex flex-col justify-center px-4 py-8 lg:px-12">
+      <div className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center px-4 py-8 lg:px-8 xl:max-w-5xl">
         <div className="flex w-full flex-col items-center gap-10 lg:gap-16">
           {/* LEWA KOLUMNA: PODIUM (TOP 3) */}
-          <div className="flex w-full max-w-lg items-end justify-center gap-3 sm:gap-6 lg:pt-10">
+          <div className="flex w-full justify-center gap-3 sm:gap-6 lg:pt-10">
             {/* 2. MIEJSCE */}
             {second && (
               <div className="flex w-24 flex-col items-center sm:w-32">
-                <FaCrown className="mb-2 text-2xl text-gray-400 drop-shadow-md sm:text-3xl" />
-                <div className="border-foreground/10 flex h-16 w-16 items-center justify-center rounded-full border-[3px] bg-gray-400/20 sm:h-20 sm:w-20">
-                  <FiUser className="text-3xl text-gray-400 sm:text-4xl" />
+                <FaCrown className="mb-2 text-2xl text-zinc-400 sm:text-3xl" />
+                <div className="border-foreground/10 flex h-16 w-16 items-center justify-center">
+                  <FiUser className="text-4xl text-zinc-400" />
                 </div>
-                <div className="border-foreground/10 bg-background/80 mt-3 flex w-full flex-col items-center rounded-xl border p-3 shadow-sm backdrop-blur-sm">
-                  <span className="truncate text-xs font-bold sm:text-sm">{second.name}</span>
-                  <span className="text-foreground/60 text-[10px] sm:text-xs">{second.score}</span>
+                <div className="border-foreground/10 mt-3 flex w-full flex-col items-center rounded-xl border p-3">
+                  <span className="truncate font-bold">{second.name}</span>
+                  <span className="text-zinc-400">{second.score}</span>
                 </div>
               </div>
             )}
 
             {/* 1. MIEJSCE */}
             {first && (
-              <div className="flex flex-col items-center sm:w-36">
-                <FaCrown className="mb-2 text-4xl text-yellow-500 drop-shadow-md sm:text-5xl" />
-                <div className="border-foreground/10 flex h-20 w-20 items-center justify-center rounded-full border-4 bg-yellow-500/20 sm:h-28 sm:w-28">
-                  <FiUser className="text-4xl text-yellow-500 sm:text-5xl" />
+              <div className="flex flex-col items-center">
+                <FaCrown className="mb-2 text-4xl text-yellow-500" />
+                <div className="border-foreground/10 flex h-20 w-20 items-center justify-center">
+                  <FiUser className="text-4xl text-yellow-500" />
                 </div>
-                <div className="border-foreground/10 bg-background/80 mt-3 flex w-full flex-col items-center rounded-xl border p-4 shadow-sm backdrop-blur-sm">
-                  <span className="truncate text-sm font-bold text-yellow-600 sm:text-base dark:text-yellow-500">
-                    {first.name}
-                  </span>
-                  <span className="text-foreground/60 text-xs sm:text-sm">{first.score}</span>
+                <div className="border-foreground/10 mt-3 flex w-full flex-col items-center rounded-xl border p-4">
+                  <span className="truncate font-bold">{first.name}</span>
+                  <span className="text-zinc-400">{first.score}</span>
                 </div>
               </div>
             )}
 
             {/* 3. MIEJSCE */}
             {third && (
-              <div className="flex w-24 flex-col items-center sm:w-32">
-                <FaCrown className="mb-2 text-2xl text-amber-700 drop-shadow-md sm:text-3xl" />
-                <div className="border-foreground/10 flex h-16 w-16 items-center justify-center rounded-full border-[3px] bg-amber-700/20 sm:h-20 sm:w-20">
-                  <FiUser className="text-3xl text-amber-700 sm:text-4xl" />
+              <div className="flex w-24 flex-col items-center">
+                <FaCrown className="mb-2 text-2xl text-amber-700" />
+                <div className="border-foreground/10 flex h-16 w-16 items-center justify-center">
+                  <FiUser className="text-3xl text-amber-700" />
                 </div>
-                <div className="border-foreground/10 bg-background/80 mt-3 flex w-full flex-col items-center rounded-xl border p-3 shadow-sm backdrop-blur-sm">
-                  <span className="truncate text-xs font-bold sm:text-sm">{third.name}</span>
-                  <span className="text-foreground/60 text-[10px] sm:text-xs">{third.score}</span>
+                <div className="border-foreground/10 mt-3 flex w-full flex-col items-center rounded-xl border p-3">
+                  <span className="truncate font-bold">{third.name}</span>
+                  <span className="text-zinc-400">{third.score}</span>
                 </div>
               </div>
             )}
@@ -86,27 +85,27 @@ export function AcademyRankingBoard() {
             {rest.map((user) => (
               <div
                 key={user.id}
-                className="border-foreground/10 bg-background/80 hover:bg-foreground/4 flex items-center gap-3 rounded-xl border p-3 backdrop-blur-sm transition-colors sm:p-3 sm:px-4"
+                className="border-foreground/10 flex items-center gap-3 rounded-xl border p-3 sm:p-3 sm:px-4"
               >
-                <div className="bg-foreground/10 text-foreground/80 flex h-7 w-7 shrink-0 items-center justify-center rounded-full p-2 text-xs font-bold sm:h-8 sm:w-8 sm:text-sm">
+                <div className="bg-foreground/10 flex h-7 w-7 items-center justify-center rounded-full p-2 font-bold">
                   {user.id}
                 </div>
-                <div className="bg-foreground/10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10">
-                  <FiUser className="text-foreground/50 text-base sm:text-lg" />
+                <div className="bg-foreground/10 flex h-7 w-7 items-center justify-center rounded-full">
+                  <FiUser className="text-foreground/50 text-2xl" />
                 </div>
                 <div className="flex flex-1 items-center gap-2 overflow-hidden">
-                  <span className="truncate text-sm font-bold sm:text-base">{user.name}</span>
+                  <span className="truncate font-bold">{user.name}</span>
                 </div>
-                <div className="flex shrink-0 flex-col text-right text-[10px] sm:text-xs">
-                  <div className="text-foreground/60">
-                    Rating: <span className="text-foreground font-bold">{user.score}</span>
+                <div className="flex flex-col text-right">
+                  <div className="text-zinc-400">
+                    Rating: <span className="font-bold">{user.score}</span>
                   </div>
-                  <div className="text-foreground/40">Attended: {user.attended}</div>
+                  <div className="text-zinc-400">Attended: {user.attended}</div>
                 </div>
               </div>
             ))}
             {rest.length >= 7 && (
-              <button className="text-foreground/50 hover:text-foreground mt-2 text-xs font-bold tracking-wider uppercase transition-colors sm:text-sm">
+              <button className="mt-2 font-bold uppercase transition-opacity hover:opacity-80">
                 Show More
               </button>
             )}

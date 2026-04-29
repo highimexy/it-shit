@@ -36,7 +36,7 @@ export function StoreDropdown({ label, items }: DropdownProps) {
       {/* PRZYCISK TRIGGER */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`text-foreground/60 hover:text-foreground flex h-full items-center gap-1 border-b-2 px-1 font-sans uppercase transition-colors ${
+        className={`text-foreground/60 flex h-full items-center gap-1 border-b-2 px-1 font-sans uppercase transition-opacity hover:opacity-80 ${
           isOpen ? 'text-foreground border-foreground/30' : 'border-transparent'
         }`}
       >

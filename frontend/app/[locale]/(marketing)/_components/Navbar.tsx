@@ -42,16 +42,22 @@ export function Navbar() {
 
           {/* 3. LINKI (Desktop) */}
           <div className="hidden items-center justify-around px-4 lg:flex">
-            <Link href="/qa" className="font-sans uppercase">
+            <Link href="/qa" className="font-sans uppercase transition-opacity hover:opacity-80">
               QA
             </Link>
-            <Link href="/frontend" className="font-sans uppercase">
+            <Link
+              href="/frontend"
+              className="font-sans uppercase transition-opacity hover:opacity-80"
+            >
               FRONTEND
             </Link>
-            <Link href="/3d" className="font-sans uppercase">
+            <Link href="/3d" className="font-sans uppercase transition-opacity hover:opacity-80">
               3D
             </Link>
-            <Link href="/reality-check" className="font-sans uppercase">
+            <Link
+              href="/reality-check"
+              className="font-sans uppercase transition-opacity hover:opacity-80"
+            >
               Reality Check
             </Link>
           </div>

@@ -82,7 +82,7 @@ export function AcademyDiscussBoard() {
       </div>
 
       {/* === ŚRODKOWY KONTENT === */}
-      <div className="relative z-10 flex w-full max-w-4xl flex-col px-4 py-8 shadow-2xl lg:px-8 xl:max-w-5xl">
+      <div className="relative z-10 flex w-full max-w-4xl flex-col px-4 py-8 lg:px-8 xl:max-w-5xl">
         {/* === TOP NAVIGATION === */}
         <div className="border-foreground/10 flex border-b py-2">
           <div className="flex flex-1 items-center">
@@ -118,7 +118,7 @@ export function AcademyDiscussBoard() {
           {DISCUSS_POSTS.map((post) => (
             <div
               key={post.id}
-              className="border-foreground/10 hover:bg-foreground/4 flex flex-col gap-4 border-b py-4 transition-colors sm:flex-row sm:gap-6 lg:-mx-4 lg:rounded-xl lg:border-b-0 lg:px-4 lg:hover:border-transparent lg:hover:shadow-sm"
+              className="border-foreground/10 hover:bg-foreground/4 flex flex-col gap-4 border-b"
             >
               {/* Avatar */}
               <div className="bg-foreground/10 w-10items-center hidden h-10 justify-center rounded-full sm:flex">
@@ -133,35 +133,36 @@ export function AcademyDiscussBoard() {
 
               {/* Treść posta */}
               <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 py-2">
-                <div className="text-foreground/60 flex items-center gap-2 text-xs">
-                  <div className="bg-foreground/10 flex h-5 w-5 items-center justify-center rounded-full sm:hidden">
-                    <FiUser className="text-[10px]" />
+                <div className="text-foreground/60 flex items-center gap-1 pb-2 text-xs">
+                  <div className="flex items-center justify-center">
+                    <FiUser className="text-md" />
                   </div>
                   <span className="text-foreground/80 font-bold">{post.author}</span>
-                  {post.isVerified && <FiCheckCircle className="text-blue-500" />}
+                  {post.isVerified && <FiCheckCircle className="text-red-500" />}
                   <span>•</span>
                   <span>{post.date}</span>
                 </div>
 
                 <h3 className="font-serif text-base font-bold sm:text-lg">{post.title}</h3>
 
-                <p className="text-foreground/60 line-clamp-2 text-sm sm:text-base">
+                <p className="line-clamp-2 pb-2 text-sm text-zinc-400 sm:text-base">
                   {post.excerpt}
                 </p>
 
-                <div className="text-foreground/50 mt-2 flex items-center justify-between text-xs font-medium sm:text-sm">
+                <div className="text-foreground/50 flex items-center justify-between">
                   <div className="flex items-center gap-4 sm:gap-6">
-                    <span className="hover:text-foreground flex cursor-pointer items-center gap-1.5 transition-colors">
+                    <span className="hover:text-foreground flex cursor-pointer items-center gap-1 transition-colors">
                       <FiArrowUp className="text-base" /> {post.upvotes}
                     </span>
-                    <span className="flex items-center gap-1.5">
+                    <span className="flex items-center gap-1">
                       <FiEye className="text-base" /> {post.views}
                     </span>
-                    <span className="hover:text-foreground flex cursor-pointer items-center gap-1.5 transition-colors">
+                    <span className="hover:text-foreground flex cursor-pointer items-center gap-1 transition-colors">
                       <FiMessageSquare className="text-base" /> {post.comments}
                     </span>
                   </div>
-                  <button className="hover:bg-foreground/10 hover:text-foreground rounded-full p-1.5 transition-colors">
+
+                  <button className="hover:bg-foreground/10 hover:text-foreground transition-colors">
                     <FiMoreHorizontal className="text-lg" />
                   </button>
                 </div>
@@ -179,6 +180,11 @@ export function AcademyDiscussBoard() {
               )}
             </div>
           ))}
+        </div>
+        <div className="mt-2 flex justify-center">
+          <button className="font-bold uppercase transition-opacity hover:opacity-80">
+            Load more
+          </button>
         </div>
       </div>
 
