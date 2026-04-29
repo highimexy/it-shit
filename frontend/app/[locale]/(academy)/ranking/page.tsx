@@ -2,7 +2,7 @@ import { AcademyRankingBoard } from '../_components/AcademyRankingBoard'
 
 export default function RankingPage() {
   return (
-    <div className="min-h-screen">
+    <div className="flex h-full w-full flex-col">
       <AcademyRankingBoard />
     </div>
   )

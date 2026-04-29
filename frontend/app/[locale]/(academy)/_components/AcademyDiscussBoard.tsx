@@ -12,7 +12,6 @@ import {
 } from 'react-icons/fi'
 import { AcademyBackgroundGrid } from '../_components/AcademyBackgroundGrid'
 
-// --- MOCK DATA ---
 const DISCUSS_POSTS = [
   {
     id: 1,
@@ -74,48 +73,42 @@ const DISCUSS_POSTS = [
 
 const TABS = ['For You', 'Career', 'Contest', 'Compensation', 'Feedback', 'Interview']
 
-export function DiscussBoard() {
+export function AcademyDiscussBoard() {
   return (
-    // Dokładnie ten sam layout co na RankingBoard: max szerokość i ukryta siatka
-    <div className="relative isolate flex min-h-screen w-full justify-center overflow-hidden font-sans">
-      {/* === SIATKA (CAŁY EKRAN POD SPODEM) === */}
-      <div className="absolute inset-0 -z-10 hidden lg:block">
+    <div className="flex w-full flex-1 items-stretch justify-center font-sans">
+      {/* === LEWA SIATKA === */}
+      <div className="border-foreground/10 relative hidden flex-1 border-r lg:block">
         <AcademyBackgroundGrid />
       </div>
 
-      {/* === ŚRODKOWY KONTENT (ZASŁANIA SIATKĘ W ŚRODKU) === */}
-      <div className="border-foreground/10 bg-background relative z-10 flex w-full flex-col justify-start px-4 py-8 shadow-2xl lg:max-w-[800px] lg:border-x lg:px-12 xl:max-w-[1000px]">
+      {/* === ŚRODKOWY KONTENT === */}
+      <div className="relative z-10 flex w-full max-w-4xl flex-col px-4 py-8 shadow-2xl lg:px-8 xl:max-w-5xl">
         {/* === TOP NAVIGATION === */}
-        <div className="border-foreground/10 flex items-center justify-between border-b pb-4">
-          {/* Zakładki */}
-          <div className="scrollbar-hide flex flex-1 items-center gap-1 overflow-x-auto pr-4 sm:gap-2">
-            <button className="bg-foreground/10 flex shrink-0 items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-bold transition-colors">
-              <span className="text-lg">🔥</span> For You
+        <div className="border-foreground/10 flex border-b py-2">
+          <div className="flex flex-1 items-center">
+            <button className="border-foreground/10 flex items-center border-r font-bold">
+              <span className="text-lg">🔥</span>
+              <span className="mr-2">For You</span>
             </button>
-
             {TABS.slice(1).map((tab) => (
-              <button
-                key={tab}
-                className="text-foreground/60 hover:bg-foreground/[0.04] hover:text-foreground shrink-0 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors"
-              >
-                {tab}
+              <button key={tab} className="border-foreground/10 rounded-lg border-r">
+                <span className="mr-2 ml-2">{tab}</span>
               </button>
             ))}
           </div>
 
-          {/* Przycisk Create */}
-          <button className="flex shrink-0 items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-sm font-bold text-white shadow-md transition-colors hover:bg-green-500">
+          <button className="flex items-center gap-2 bg-green-600 text-sm font-bold">
             <FiEdit3 className="text-lg" />
-            <span className="hidden sm:inline">Create</span>
+            <span className="">Create</span>
           </button>
         </div>
 
         {/* === SORTING BAR === */}
-        <div className="text-foreground/60 flex items-center gap-4 py-4 text-sm font-medium">
-          <button className="hover:text-foreground flex items-center gap-2 transition-colors">
-            <FiArrowUp className="text-base" /> Most Votes
+        <div className="text-foreground/60 border-foreground/10 mt-2 flex items-center gap-4 border-b pb-2">
+          <button className="hover:text-foreground border-foreground/10 flex items-center gap-2 border-r">
+            <FiArrowUp className="text-base" /> <span className="mr-2">Most Votes</span>
           </button>
-          <button className="hover:text-foreground flex items-center gap-2 transition-colors">
+          <button className="hover:text-foreground flex items-center gap-2">
             <FiStar className="text-base" /> Newest
           </button>
         </div>
@@ -125,10 +118,10 @@ export function DiscussBoard() {
           {DISCUSS_POSTS.map((post) => (
             <div
               key={post.id}
-              className="border-foreground/10 hover:bg-foreground/[0.02] flex flex-col gap-4 border-b py-4 transition-colors sm:flex-row sm:gap-6 lg:-mx-4 lg:rounded-xl lg:border-b-0 lg:px-4 lg:hover:border-transparent lg:hover:shadow-sm"
+              className="border-foreground/10 hover:bg-foreground/4 flex flex-col gap-4 border-b py-4 transition-colors sm:flex-row sm:gap-6 lg:-mx-4 lg:rounded-xl lg:border-b-0 lg:px-4 lg:hover:border-transparent lg:hover:shadow-sm"
             >
-              {/* Avatar (Ukryty na małych ekranach dla lepszej czytelności) */}
-              <div className="bg-foreground/10 hidden h-10 w-10 shrink-0 items-center justify-center rounded-full sm:flex">
+              {/* Avatar */}
+              <div className="bg-foreground/10 w-10items-center hidden h-10 justify-center rounded-full sm:flex">
                 {post.isVerified ? (
                   <div className="bg-foreground text-background flex h-full w-full items-center justify-center rounded-full">
                     <FiCheckCircle className="text-xl" />
@@ -139,8 +132,7 @@ export function DiscussBoard() {
               </div>
 
               {/* Treść posta */}
-              <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5">
-                {/* Meta info */}
+              <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 py-2">
                 <div className="text-foreground/60 flex items-center gap-2 text-xs">
                   <div className="bg-foreground/10 flex h-5 w-5 items-center justify-center rounded-full sm:hidden">
                     <FiUser className="text-[10px]" />
@@ -151,15 +143,12 @@ export function DiscussBoard() {
                   <span>{post.date}</span>
                 </div>
 
-                {/* Tytuł */}
-                <h2 className="text-base font-bold sm:text-lg">{post.title}</h2>
+                <h3 className="font-serif text-base font-bold sm:text-lg">{post.title}</h3>
 
-                {/* Opis */}
                 <p className="text-foreground/60 line-clamp-2 text-sm sm:text-base">
                   {post.excerpt}
                 </p>
 
-                {/* Statystyki pod spodem */}
                 <div className="text-foreground/50 mt-2 flex items-center justify-between text-xs font-medium sm:text-sm">
                   <div className="flex items-center gap-4 sm:gap-6">
                     <span className="hover:text-foreground flex cursor-pointer items-center gap-1.5 transition-colors">
@@ -181,7 +170,7 @@ export function DiscussBoard() {
               {/* Obrazek/miniatura */}
               {post.hasImage && (
                 <div
-                  className={`hidden h-24 w-40 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br shadow-inner sm:flex ${post.imageColor}`}
+                  className={`hidden h-24 w-40 shrink-0 items-center justify-center rounded-xl bg-linear-to-br shadow-inner sm:flex ${post.imageColor}`}
                 >
                   <span className="text-center font-bold text-white shadow-black drop-shadow-md">
                     {post.imageText}
@@ -191,6 +180,12 @@ export function DiscussBoard() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* === PRAWA SIATKA === */}
+      {/* flex-1 rozciąga ją na resztę wolnego miejsca z prawej strony */}
+      <div className="border-foreground/10 relative hidden flex-1 border-l lg:block">
+        <AcademyBackgroundGrid />
       </div>
     </div>
   )

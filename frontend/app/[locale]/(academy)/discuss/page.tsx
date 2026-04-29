@@ -1,9 +1,9 @@
-import { DiscussBoard } from '../_components/AcademyDiscussBoard'
+import { AcademyDiscussBoard } from '../_components/AcademyDiscussBoard'
 
 export default function DiscussPage() {
   return (
-    <div className="min-h-screen">
-      <DiscussBoard />
+    <div className="flex h-full w-full flex-col">
+      <AcademyDiscussBoard />
     </div>
   )
 }
