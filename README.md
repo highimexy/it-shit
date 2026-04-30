@@ -14,6 +14,6 @@ cd your-repo
 pnpm install && pnpm dev
 
 🛠 Tech Stack
-Framework: Next.js (App Router)
+Framework: Next.js s(App Router)
 Styling: Tailwind CSS
 Icons: React Icons
