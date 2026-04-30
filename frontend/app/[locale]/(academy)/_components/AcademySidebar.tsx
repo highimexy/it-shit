@@ -5,10 +5,10 @@ import { usePathname } from 'next/navigation'
 import { FiBook, FiTarget, FiCompass, FiMap, FiUser } from 'react-icons/fi'
 
 const navItems = [
-  { href: '/academy/library', label: 'Library', icon: FiBook },
-  { href: '/academy/quest', label: 'Quest', icon: FiTarget, badge: 'New' },
-  { href: '/academy/explore', label: 'Explore', icon: FiCompass },
-  { href: '/academy/paths', label: 'Study Plan', icon: FiMap },
+  { href: '/lessons', label: 'Library', icon: FiBook },
+  { href: '/quest', label: 'Quest', icon: FiTarget, badge: 'New' },
+  { href: '/explore', label: 'Explore', icon: FiCompass },
+  { href: '/study-plan', label: 'Study Plan', icon: FiMap },
 ]
 
 export function AcademySidebar() {
@@ -16,7 +16,7 @@ export function AcademySidebar() {
 
   const cleanPath = pathname.replace(/^\/[a-zA-Z]{2}(?=\/|$)/, '') || '/'
 
-  const isLessonsPage = cleanPath === '/lessons' || cleanPath === '/academy/library'
+  const isLessonsPage = cleanPath === '/lessons' || cleanPath === '/library'
   if (!isLessonsPage) return null
 
   return (
@@ -27,8 +27,7 @@ export function AcademySidebar() {
           const Icon = item.icon
 
           const isActive =
-            cleanPath === item.href ||
-            (cleanPath === '/lessons' && item.href === '/academy/library')
+            cleanPath === item.href || (cleanPath === '/lessons' && item.href === '/library')
 
           return (
             <Link

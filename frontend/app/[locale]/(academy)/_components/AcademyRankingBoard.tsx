@@ -33,7 +33,7 @@ export function AcademyRankingBoard() {
       </div>
 
       {/* === ŚRODKOWY KONTENT === */}
-      <div className="relative z-10 flex w-full max-w-4xl flex-col items-center justify-center px-4 py-8 lg:px-8 xl:max-w-5xl">
+      <div className="lg-py-8 relative z-10 mt-4 mb-4 flex w-full max-w-4xl flex-col items-center justify-center px-4 xl:max-w-5xl">
         <div className="flex w-full flex-col items-center gap-10 lg:gap-16">
           {/* LEWA KOLUMNA: PODIUM (TOP 3) */}
           <div className="flex w-full justify-center gap-3 sm:gap-6 lg:pt-10">
