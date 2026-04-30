@@ -12,9 +12,8 @@
 git clone [https://github.com/yourusername/your-repo.git](https://github.com/yourusername/your-repo.git)
 cd your-repo
 pnpm install && pnpm dev
+
 🛠 Tech Stack
 Framework: Next.js (App Router)
-
 Styling: Tailwind CSS
-
 Icons: React Icons
